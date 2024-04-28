@@ -1,10 +1,11 @@
 import { Component, effect, inject } from '@angular/core';
-import { AuthService } from '../../shared/services/auth.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-login-page',
   standalone: true,
+  providers: [AuthService],
   imports: [],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.scss'
@@ -18,6 +19,7 @@ export class LoginPageComponent {
   constructor() {
     effect(() => {
       if (this.auth.getState().currentUser) {
+        console.log(this.auth.getState().currentUser);
         this.router.navigate(['home']);
       }
     });
