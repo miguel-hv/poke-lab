@@ -18,8 +18,8 @@ export class LoginPageComponent {
 
   constructor() {
     effect(() => {
-      if (this.auth.getState().currentUser) {
-        console.log(this.auth.getState().currentUser);
+      if (this.auth.currentUser()) {
+        console.log(this.auth.currentUser());
         this.router.navigate(['home']);
       }
     });
@@ -27,6 +27,6 @@ export class LoginPageComponent {
 
   login() {
     this.auth.login(this._credentialsMiguel);
-    console.log(this.auth.getState());
+    console.log(this.auth.currentUser());
   }
 }
