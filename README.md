@@ -1,27 +1,27 @@
 # PokeApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.0.
+Aplicación que consume una [api de pokémon](https://pokeapi.co/docs/v2) y deja acceder a secciones de  información en función del tipo de pokémon que se haya escogido. El tipo de pokémon también tiene efecto en los estilos de la web. 
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Tareas pendientes
+- Autorización y autenticación
+- login y register comparten componente auth-form (solo campo login, misma contraseña jarcodeada)
+- ¿auth con signals? usar [este tutorial](https://blog.angulartraining.com/angular-signal-based-components-tutorial-4e4b4b1dfa96)
+- consultar dudas libreta sobre auth
+- los tres personajes solo a nivel local como llaves de acceso
+- Definir flujo de selección de pokémon y acceso a las secciones
+- Estilos con tailwind: mobile first
+- Estilos en función del tipo de pokémon
+- Loader para acceso en las páginas (Angular cdk)
+- snackbar con cdk
+- Refactorizar a flux para gestionar los estados
+- refactorizar para meter [router module] (https://angular.io/guide/router-tutorial-toh#refactor-the-routing-configuration-into-a-routing-module)
+- Accesibilidad
+- meter firebase 
 
-## Code scaffolding
+## Autenticación y autorización
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Objetivo 
+Autenticación JWT de la aplicación usando como back la [API demo de realworld](https://realworld-docs.netlify.app/docs/specs/frontend-specs/swagger/). Gestionar la autorización para el acceso a distintas partes de la web en función de las credenciales seleccionadas en front.
+Se sigue [este tutorial](https://blog.angulartraining.com/angular-signal-based-components-tutorial-4e4b4b1dfa96)
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
