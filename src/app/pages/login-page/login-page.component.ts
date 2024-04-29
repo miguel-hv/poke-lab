@@ -1,12 +1,13 @@
 import { Component, effect, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service';
+import { AuthFormComponent } from '../../components/forms/auth-form/auth-form.component';
 
 @Component({
   selector: 'app-login-page',
   standalone: true,
   providers: [AuthService],
-  imports: [],
+  imports: [AuthFormComponent],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.scss'
 })

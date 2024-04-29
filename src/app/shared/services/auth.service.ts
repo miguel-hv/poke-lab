@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, computed, signal } from '@angular/core';
 import { User } from '../../models/User.model';
-import { Credentials } from '../../models/Credentials.model';
+import { CredentialsLogin, CredentialsRegister } from '../../models/Credentials.model';
 import { UserState } from '../../models/UserState.model';
 
 const _initialState: UserState = {
@@ -34,7 +34,8 @@ export class AuthService {
   constructor(private http: HttpClient) {
    }
 
-  register(credentials: Credentials) {
+  //TODO: change register method
+  register(credentials: CredentialsRegister) {
     this.http.post<User>(this._registerUrl, { user: credentials }).subscribe({
       next: (user) => {
         this.state.update((state) => ({ ...state, currentUser: user, token: user.token }));
@@ -47,7 +48,7 @@ export class AuthService {
     });
   }
 
-  login(credentials: Credentials) {
+  login(credentials: CredentialsLogin) {
     this.http.post<User>(this._loginUrl, { user: credentials }).subscribe({
       next: (user) => {
         this.state.update((state) => ({ ...state, currentUser: user, token: user.token }));
