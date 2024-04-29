@@ -2,20 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, computed, signal } from '@angular/core';
 import { User } from '../../models/User.model';
 import { Credentials } from '../../models/Credentials.model';
-
-interface UserErrors {
-  login: string;
-  // register: string;
-  // update: string;
-  // delete: string;
-};
-
-//user store
-export interface UserState {
-  currentUser: User | null;
-  token: string;
-  errors: UserErrors;
-};
+import { UserState } from '../../models/UserState.model';
 
 const _initialState: UserState = {
   currentUser: null,
@@ -25,7 +12,8 @@ const _initialState: UserState = {
     // register: '',
     // update: '',
     // delete: '',
-  }
+  },
+  keyType: null
 };
 
 @Injectable({
@@ -49,16 +37,12 @@ export class AuthService {
   register(credentials: Credentials) {
     this.http.post<User>(this._registerUrl, { user: credentials }).subscribe({
       next: (user) => {
-        this.state.update((state) => {
-          return { ...state, currentUser: user, token: user.token };
-        });
+        this.state.update((state) => ({ ...state, currentUser: user, token: user.token }));
         localStorage.setItem('user', JSON.stringify(this.state));
         console.log(localStorage.getItem('user'));
       },
       error: (error: Error) => {
-        this.state.update((state) => {
-          return { ...state, errors: { ...state.errors, register: error.message } };
-        });
+        this.state.update((state) => ({ ...state, errors: { ...state.errors, register: error.message } }));
       },
     });
   }
@@ -66,18 +50,18 @@ export class AuthService {
   login(credentials: Credentials) {
     this.http.post<User>(this._loginUrl, { user: credentials }).subscribe({
       next: (user) => {
-        this.state.update((state) => {
-          return { ...state, currentUser: user, token: user.token };
-        });
+        this.state.update((state) => ({ ...state, currentUser: user, token: user.token }));
         localStorage.setItem('user', JSON.stringify(this.state));
         console.log(localStorage.getItem('user'));
       },
       error: (error: Error) => {
-        this.state.update((state) => {
-          return { ...state, errors: { ...state.errors, login: error.message } };
-        });
+        this.state.update((state) => ({ ...state, errors: { ...state.errors, login: error.message }}));
       },
     });
+  }
+
+  updateKeyType(key: string) {
+    this.state.update((state) => ({ ...state, keyType: key }));
   }
         
 }

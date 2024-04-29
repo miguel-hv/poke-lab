@@ -1,1 +1,11 @@
 <p>home-page works!</p>
+Selecciona un pokemon:
+
+<div>
+    <ul>
+        <!-- for pokemon list -->
+        @for (pokemon of pokemonList; track $index) {
+            <li><a (click)="onSelectPokemon(pokemon)">{{pokemon.name}}</a></li>
+        }
+    </ul>
+</div>
