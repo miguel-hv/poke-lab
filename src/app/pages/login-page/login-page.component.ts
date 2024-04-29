@@ -15,6 +15,7 @@ export class LoginPageComponent {
   private auth = inject(AuthService);
   private router = inject(Router);
   private _credentialsMiguel = { email: 'mhvz5@example.com', password: 'testmhvz5'};
+  private _credentialsRegisterMiguel = { username: 'miguel', email: 'mhvz5@example.com', password: 'testmhvz5'};
 
   constructor() {
     effect(() => {
@@ -27,6 +28,10 @@ export class LoginPageComponent {
 
   login() {
     this.auth.login(this._credentialsMiguel);
+    console.log(this.auth.currentUser());
+  }
+  register() {
+    this.auth.register(this._credentialsRegisterMiguel);
     console.log(this.auth.currentUser());
   }
 }

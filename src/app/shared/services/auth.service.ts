@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, computed, signal } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../../models/User.model';
 import { Credentials } from '../../models/Credentials.model';
 
@@ -47,39 +46,38 @@ export class AuthService {
   constructor(private http: HttpClient) {
    }
 
-  // register(username: string, email: string, password: string): Observable<User> {
-  //   return this.http.post<User>(this._registerUrl, { user: { username, email, password } });
-  // }
-
-  login(credentials: Credentials) {
-    this.http.post<User>(this._loginUrl, { user: credentials}).subscribe({
+  register(credentials: Credentials) {
+    this.http.post<User>(this._registerUrl, { user: credentials }).subscribe({
       next: (user) => {
         this.state.update((state) => {
           return { ...state, currentUser: user, token: user.token };
         });
         localStorage.setItem('user', JSON.stringify(this.state));
+        console.log(localStorage.getItem('user'));
+      },
+      error: (error: Error) => {
+        this.state.update((state) => {
+          return { ...state, errors: { ...state.errors, register: error.message } };
+        });
+      },
+    });
+  }
+
+  login(credentials: Credentials) {
+    this.http.post<User>(this._loginUrl, { user: credentials }).subscribe({
+      next: (user) => {
+        this.state.update((state) => {
+          return { ...state, currentUser: user, token: user.token };
+        });
+        localStorage.setItem('user', JSON.stringify(this.state));
+        console.log(localStorage.getItem('user'));
       },
       error: (error: Error) => {
         this.state.update((state) => {
           return { ...state, errors: { ...state.errors, login: error.message } };
         });
       },
-    })
+    });
   }
         
-
-  // getState() {
-  //   const state: UserState = {
-  //     currentUser: this.currentUser$.asObservable(),
-  //     token: this.token$.asObservable(),
-  //     errors: this.errors$.asObservable(),
-  //   };
-  //   return state;
-  // } 
-
-  setNoErrors() {
-    // this.errors$.next({ ..._initialState.errors });
-  }
-  
-
 }
