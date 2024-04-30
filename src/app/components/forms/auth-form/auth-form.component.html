@@ -1,12 +1,11 @@
-<p>auth-form works!</p>
 <form>
     <label for="name">Name: </label>
-    <input type="text" [formControl]="name" placeholder="username">
+    <input id="name" type="text" [formControl]="name" placeholder="username">
 
     @if (formType() === 'register') {
-        <button>Registrarse</button>
+        <button type="button" (click)="onSubmitRegister()">Registrarse</button>
     } @else if (formType() === 'login') {
-        <button>Iniciar Sesión</button>
+        <button type="button" (click)="onSubmitLogin()">Iniciar Sesión</button>
     } @else {
         <div>
             Algo no ha funcionado como debía.

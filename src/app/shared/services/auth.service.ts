@@ -54,8 +54,10 @@ export class AuthService {
         this.state.update((state) => ({ ...state, currentUser: user, token: user.token }));
         localStorage.setItem('user', JSON.stringify(this.state));
         console.log(localStorage.getItem('user'));
+        console.log(user);
       },
       error: (error: Error) => {
+        console.log(error);
         this.state.update((state) => ({ ...state, errors: { ...state.errors, login: error.message }}));
       },
     });

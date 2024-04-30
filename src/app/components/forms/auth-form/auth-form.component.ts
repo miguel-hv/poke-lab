@@ -35,10 +35,23 @@ export class AuthFormComponent {
     });
   }
 
-  onSubmit() {
-    this.registerForm.patchValue({ email: this.registerForm.value.user+'@fakemail.com' });
+  onSubmitRegister() {
+    this.registerForm.patchValue({ 
+        username: this.name.value,
+        email: this.name.value+'@fakemail.com' 
+    });
     this.onFormSubmit.emit(this.registerForm.value);
-    this.registerForm.reset();
     console.log(this.registerForm.value);
+    // this.registerForm.reset();
+  }
+
+  onSubmitLogin() {
+    this.loginForm.patchValue({ 
+      username: this.name.value,
+      email: this.name.value+'@fakemail.com' 
+    });
+    this.onFormSubmit.emit(this.loginForm.value);
+    console.log(this.loginForm.value);
+    // this.loginForm.reset();
   }
 }

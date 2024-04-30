@@ -1,24 +1,23 @@
 import { Component, effect, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { CredentialsRegister } from '../../models/Credentials.model';
 import { AuthService } from '../../shared/services/auth.service';
+import { Router } from '@angular/router';
 import { AuthFormComponent } from '../../components/forms/auth-form/auth-form.component';
-import { CredentialsLogin } from '../../models/Credentials.model';
 
 @Component({
-  selector: 'app-login-page',
+  selector: 'app-register-page',
   standalone: true,
   providers: [AuthService],
   imports: [AuthFormComponent],
   template: `
-  <app-auth-form [formType]="'login'" (onFormSubmit)="handleFormSubmit($event)"></app-auth-form>
+  <app-auth-form [formType]="'register'" (onFormSubmit)="handleFormSubmit($event)"></app-auth-form>
   `,
-  styleUrl: './login-page.component.scss'
+  styleUrl: './register-page.component.scss'
 })
-export class LoginPageComponent {
+export class RegisterPageComponent {
 
   private auth = inject(AuthService);
   private router = inject(Router);
-  private _credentialsMiguel = { email: 'mhvz5@example.com', password: 'testmhvz5'};
 
   constructor() {
     effect(() => {
@@ -29,9 +28,9 @@ export class LoginPageComponent {
     });
   }
 
-  handleFormSubmit(loginUser: CredentialsLogin) {
-    console.log(loginUser);
-    this.auth.login(loginUser);
+  handleFormSubmit(registerUser: CredentialsRegister) {
+    console.log(registerUser);
+    this.auth.register(registerUser);
     console.log(this.auth.currentUser());
   }
 }
