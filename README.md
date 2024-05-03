@@ -11,6 +11,7 @@ Aplicación que consume una [api de pokémon](https://pokeapi.co/docs/v2) y deja
 - Estilos en función del tipo de pokémon
 - Loader para acceso en las páginas (Angular cdk)
 - snackbar con cdk
+- traducción
 - refactorizar para meter [router module] (https://angular.io/guide/router-tutorial-toh#refactor-the-routing-configuration-into-a-routing-module)
 - Accesibilidad
 - meter firebase 
@@ -22,3 +23,6 @@ Basado en la autenticación de [este vídeo](https://www.youtube.com/watch?v=foU
 ### Formulario de autenticación
 Dejo la misma contraseña fijada en código para todos los usuarios porque no me interesa que tengan que recordar credenciales. Lo único que van a necesitar para acceder es recordar su nombre de usuario.
 De igual manera, en el registro de usuario no pido el correo sino que fijo una asignación porque no se va a utilizar. 
+
+## Modo oscuro o cambio de estilos
+Siguiendo la filosofía del cambio de estilos para el modo oscuro se implementa un cambio de estilos global en función del tipo de pokémon que se haya seleccionado. Así, se tiene rojo, verde y azul. No hay un estilo "modo oscuro" como tal.

@@ -7,6 +7,9 @@ export const isAuthenticatedGuard = (): CanActivateFn => {
     const authService = inject(AuthService);
     const router = inject(Router);
 
+    console.log("pass guard");
+
+    console.log(authService.currentUser());
     if (authService.currentUser()) {
       return true;
     }

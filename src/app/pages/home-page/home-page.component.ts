@@ -21,6 +21,8 @@ export class HomePageComponent {
   private auth = inject(AuthService);
 
   constructor() {
+    console.log(this.auth.currentUser());
+
     //TODO: delete if not needed
     effect(() => {
       if (this.auth.currentUser()) {
@@ -32,6 +34,10 @@ export class HomePageComponent {
   onSelectPokemon(pokemon: Pokemon) {
     this.auth.updateKeyType(pokemon.type);
     console.log(pokemon);
+  }
+
+  toggleDarkTheme(): void {
+    document.body.classList.toggle('dark-theme');
   }
 
 }
