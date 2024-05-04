@@ -2,6 +2,12 @@
     <label for="name">Name: </label>
     <input id="name" type="text" [formControl]="name" placeholder="username">
 
+    @if (this.auth.errors().login) {
+        <p>
+            Inicio de sesión no autorizado, revisa tus datos.
+        </p>
+    }
+
     @if (formType() === 'register') {
         <button type="button" (click)="onSubmitRegister()">Registrarse</button>
     } @else if (formType() === 'login') {

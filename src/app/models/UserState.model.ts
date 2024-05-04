@@ -7,8 +7,8 @@ export interface UserState {
     keyType: string | null;
 };
 
-interface UserErrors {
-    login: string;
+export interface UserErrors {
+    login: number;
     // register: string;
     // update: string;
     // delete: string;

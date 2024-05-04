@@ -1,6 +1,8 @@
-import { Component, input, output } from '@angular/core';
+import { Component, effect, inject, input, output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CredentialsRegister } from '../../../models/Credentials.model';
+import { AuthService } from '../../../shared/services/auth.service';
+import { UserErrors } from '../../../models/UserState.model';
 
 @Component({
   selector: 'app-auth-form',
@@ -16,9 +18,12 @@ export class AuthFormComponent {
   //input 
   formType = input<string>();
 
+  auth = inject(AuthService);
   name = new FormControl('');
   registerForm: FormGroup;
   loginForm: FormGroup;
+  authErrors: UserErrors = { login: 0 };
+
   constructor(fb: FormBuilder) {
 
     console.log(this.formType());

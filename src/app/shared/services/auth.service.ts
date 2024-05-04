@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable, computed, signal } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Injectable, computed, inject, signal } from '@angular/core';
 import { User } from '../../models/User.model';
 import { CredentialsLogin, CredentialsRegister } from '../../models/Credentials.model';
 import { UserState } from '../../models/UserState.model';
@@ -8,7 +8,7 @@ const _initialState: UserState = {
   currentUser: null,
   token: '',
   errors: {
-    login: '',
+    login: 0,
     // register: '',
     // update: '',
     // delete: '',
@@ -21,6 +21,7 @@ const _initialState: UserState = {
 })
 export class AuthService {
 
+  private http = inject(HttpClient);
   private _registerUrl = 'https://api.realworld.io/api/users';
   private _loginUrl = 'https://api.realworld.io/api/users/login';
  
@@ -30,9 +31,6 @@ export class AuthService {
   public currentUser = computed(() => this.state().currentUser);
   public token = computed(() => this.state().token); 
   public errors = computed(() => this.state().errors); 
-
-  constructor(private http: HttpClient) {
-   }
 
   //TODO: change register method
   register(credentials: CredentialsRegister) {
@@ -56,9 +54,10 @@ export class AuthService {
         console.log(localStorage.getItem('user'));
         console.log(user);
       },
-      error: (error: Error) => {
+      error: (error: HttpErrorResponse) => {
         console.log(error);
-        this.state.update((state) => ({ ...state, errors: { ...state.errors, login: error.message }}));
+        this.state.update((state) => ({ ...state, errors: { ...state.errors, login: error.status }}));
+        console.log(this.state());
       },
     });
   }
