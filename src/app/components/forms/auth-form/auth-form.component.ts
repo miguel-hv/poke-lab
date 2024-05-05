@@ -31,8 +31,6 @@ export class AuthFormComponent {
 
   constructor(fb: FormBuilder) {
 
-    console.log(this.formType());
-
     this.registerForm = fb.group({
       username: [''],
       email: [null],
@@ -51,8 +49,6 @@ export class AuthFormComponent {
         email: this.name.value+'@fakemail.com' 
     });
     this.onFormSubmit.emit(this.registerForm.value);
-    console.log(this.registerForm.value);
-    // this.registerForm.reset();
   }
 
   onSubmitLogin() {
@@ -61,7 +57,5 @@ export class AuthFormComponent {
       email: this.name.value+'@fakemail.com' 
     });
     this.onFormSubmit.emit(this.loginForm.value);
-    console.log(this.loginForm.value);
-    // this.loginForm.reset();
   }
 }

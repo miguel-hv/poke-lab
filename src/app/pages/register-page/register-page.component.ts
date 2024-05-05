@@ -20,18 +20,14 @@ export class RegisterPageComponent {
   private router = inject(Router);
 
   constructor() {
-        console.log(this.auth.currentUser());
     effect(() => {
       if (this.auth.currentUser()) {
-        console.log(this.auth.currentUser());
         this.router.navigate(['home']);
       }
     });
   }
 
   handleFormSubmit(registerUser: CredentialsRegister) {
-    console.log(registerUser);
     this.auth.register(registerUser);
-    console.log(this.auth.currentUser());
   }
 }

@@ -7,7 +7,6 @@ import { CredentialsLogin } from '../../models/Credentials.model';
 @Component({
   selector: 'app-login-page',
   standalone: true,
-  providers: [AuthService],
   imports: [AuthFormComponent],
   template: `
   <app-auth-form [formType]="'login'" (onFormSubmit)="handleFormSubmit($event)"></app-auth-form>
@@ -24,15 +23,12 @@ export class LoginPageComponent {
   constructor() {
     effect(() => {
       if (this.auth.currentUser()) {
-        console.log(this.auth.currentUser());
         this.router.navigate(['home']);
       }
     });
   }
 
   handleFormSubmit(loginUser: CredentialsLogin) {
-    console.log(loginUser);
     this.auth.login(loginUser);
-    console.log(this.auth.currentUser());
   }
 }

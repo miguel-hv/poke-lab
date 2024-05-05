@@ -37,8 +37,6 @@ export class AuthService {
       next: (user) => {
         this.state.update((state) => ({ ...state, currentUser: user, token: user.token }));
         localStorage.setItem('user', JSON.stringify(this.state));
-        console.log(localStorage.getItem('user'));
-        console.log(user);
       },
       error: (error: HttpErrorResponse) => {
         this.state.update((state) => ({ ...state, errors: { ...state.errors, register: error.status } }));
@@ -51,15 +49,9 @@ export class AuthService {
       next: (user) => {
         this.state.update((state) => ({ ...state, currentUser: user, token: user.token }));
         localStorage.setItem('user', JSON.stringify(this.state));
-        console.log(localStorage.getItem('user'));
-        console.log(user);
-        console.log(this.currentUser());
-        console.log(this.state());
       },
       error: (error: HttpErrorResponse) => {
-        console.log(error);
         this.state.update((state) => ({ ...state, errors: { ...state.errors, login: error.status }}));
-        console.log(this.state());
       },
     });
   }
