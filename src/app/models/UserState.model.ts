@@ -9,7 +9,7 @@ export interface UserState {
 
 export interface UserErrors {
     login: number;
-    // register: string;
-    // update: string;
-    // delete: string;
+    register: number;
+    // update: number;
+    // delete: number;
 };

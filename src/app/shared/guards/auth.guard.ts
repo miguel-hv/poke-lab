@@ -4,13 +4,13 @@ import { AuthService } from '../services/auth.service';
 
 export const isAuthenticatedGuard = (): CanActivateFn => {
   return () => {
-    const authService = inject(AuthService);
+    const auth = inject(AuthService);
     const router = inject(Router);
 
     console.log("pass guard");
 
-    console.log(authService.currentUser());
-    if (authService.currentUser()) {
+    console.log(auth.currentUser());
+    if (auth.currentUser()) {
       return true;
     }
 

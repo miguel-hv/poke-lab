@@ -9,7 +9,7 @@ const _initialState: UserState = {
   token: '',
   errors: {
     login: 0,
-    // register: '',
+    register: 0,
     // update: '',
     // delete: '',
   },
@@ -27,21 +27,21 @@ export class AuthService {
  
   private state = signal<UserState>(_initialState);
 
-  //selectors
+  //selectors (only read)
   public currentUser = computed(() => this.state().currentUser);
   public token = computed(() => this.state().token); 
   public errors = computed(() => this.state().errors); 
 
-  //TODO: change register method
   register(credentials: CredentialsRegister) {
     this.http.post<User>(this._registerUrl, { user: credentials }).subscribe({
       next: (user) => {
         this.state.update((state) => ({ ...state, currentUser: user, token: user.token }));
         localStorage.setItem('user', JSON.stringify(this.state));
         console.log(localStorage.getItem('user'));
+        console.log(user);
       },
-      error: (error: Error) => {
-        this.state.update((state) => ({ ...state, errors: { ...state.errors, register: error.message } }));
+      error: (error: HttpErrorResponse) => {
+        this.state.update((state) => ({ ...state, errors: { ...state.errors, register: error.status } }));
       },
     });
   }
@@ -53,6 +53,8 @@ export class AuthService {
         localStorage.setItem('user', JSON.stringify(this.state));
         console.log(localStorage.getItem('user'));
         console.log(user);
+        console.log(this.currentUser());
+        console.log(this.state());
       },
       error: (error: HttpErrorResponse) => {
         console.log(error);

@@ -11,7 +11,7 @@ Aplicación que consume una [api de pokémon](https://pokeapi.co/docs/v2) y deja
 - Estilos en función del tipo de pokémon
 - Loader para acceso en las páginas (Angular cdk)
 - snackbar con cdk
-- traducción
+- textos en json y traducción 
 - refactorizar para meter [router module] (https://angular.io/guide/router-tutorial-toh#refactor-the-routing-configuration-into-a-routing-module)
 - Accesibilidad
 - meter firebase 

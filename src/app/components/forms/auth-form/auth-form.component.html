@@ -1,13 +1,28 @@
 <form>
+
+    <!-- input -->
     <label for="name">Name: </label>
     <input id="name" type="text" [formControl]="name" placeholder="username">
 
+    <!-- error messages -->
     @if (this.auth.errors().login) {
         <p>
-            Inicio de sesión no autorizado, revisa tus datos.
+            {{this.auth.errors().login | httpError }}
+        </p>
+    }
+    @if (this.auth.errors().register) {
+        <p>
+            {{this.auth.errors().login | httpError }}
+        </p>
+    }
+    <!-- redirect to register -->
+    @if (this.auth.errors().login === 403) {
+        <p>
+            Si aún no tienes cuenta o no recuerdas tu nombre de usuario, <a [routerLink]="['/register']">puedes registrarte aquí</a>
         </p>
     }
 
+    <!-- buttons register/login -->
     @if (formType() === 'register') {
         <button type="button" (click)="onSubmitRegister()">Registrarse</button>
     } @else if (formType() === 'login') {

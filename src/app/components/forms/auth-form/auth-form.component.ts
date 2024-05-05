@@ -3,11 +3,13 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angul
 import { CredentialsRegister } from '../../../models/Credentials.model';
 import { AuthService } from '../../../shared/services/auth.service';
 import { UserErrors } from '../../../models/UserState.model';
+import { HttpErrorPipe } from '../../../shared/pipes/http-error.pipe';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-auth-form',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, HttpErrorPipe, RouterModule],
   templateUrl: './auth-form.component.html',
   styleUrl: './auth-form.component.scss'
 })
@@ -22,7 +24,10 @@ export class AuthFormComponent {
   name = new FormControl('');
   registerForm: FormGroup;
   loginForm: FormGroup;
-  authErrors: UserErrors = { login: 0 };
+  authErrors: UserErrors = { 
+    login: 0, 
+    register: 0
+   };
 
   constructor(fb: FormBuilder) {
 

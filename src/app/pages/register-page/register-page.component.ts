@@ -20,6 +20,7 @@ export class RegisterPageComponent {
   private router = inject(Router);
 
   constructor() {
+        console.log(this.auth.currentUser());
     effect(() => {
       if (this.auth.currentUser()) {
         console.log(this.auth.currentUser());
