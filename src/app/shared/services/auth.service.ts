@@ -3,6 +3,7 @@ import { Injectable, computed, inject, signal } from '@angular/core';
 import { User } from '../../models/User.model';
 import { CredentialsLogin, CredentialsRegister } from '../../models/Credentials.model';
 import { UserState } from '../../models/UserState.model';
+import { Router } from '@angular/router';
 
 const _initialState: UserState = {
   currentUser: null,
@@ -22,6 +23,7 @@ const _initialState: UserState = {
 export class AuthService {
 
   private http = inject(HttpClient);
+  private router = inject(Router);
   private _registerUrl = 'https://api.realworld.io/api/users';
   private _loginUrl = 'https://api.realworld.io/api/users/login';
  
@@ -59,6 +61,7 @@ export class AuthService {
   logout() {
     this.state.update((state) => ({ ...state, currentUser: null, token: '' }));
     localStorage.removeItem('user');
+    this.router.navigate(['/login']);
   }
 
   updateKeyType(key: string) {

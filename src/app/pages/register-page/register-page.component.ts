@@ -7,7 +7,6 @@ import { AuthFormComponent } from '../../components/forms/auth-form/auth-form.co
 @Component({
   selector: 'app-register-page',
   standalone: true,
-  providers: [AuthService],
   imports: [AuthFormComponent],
   template: `
   <app-auth-form [formType]="'register'" (onFormSubmit)="handleFormSubmit($event)"></app-auth-form>
