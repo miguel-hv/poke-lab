@@ -7,12 +7,12 @@
     <!-- error messages -->
     @if (this.auth.errors().login) {
         <p>
-            {{this.auth.errors().login | httpError }}
+            {{this.auth.errors().login | httpError: 'login' }}
         </p>
     }
     @if (this.auth.errors().register) {
         <p>
-            {{this.auth.errors().login | httpError }}
+            {{this.auth.errors().register | httpError: 'register' }}
         </p>
     }
     <!-- redirect to register -->
