@@ -21,11 +21,9 @@ export class LoginPageComponent {
   private _credentialsMiguel = { email: 'mhvz5@example.com', password: 'testmhvz5'};
 
   constructor() {
-    effect(() => {
-      if (this.auth.currentUser()) {
-        this.router.navigate(['home']);
-      }
-    });
+    if (this.auth.currentUser()) {
+      this.router.navigate(['home']);
+    }
   }
 
   handleFormSubmit(loginUser: CredentialsLogin) {
