@@ -20,11 +20,11 @@ export class AuthFormComponent {
   //input 
   formType = input<string>();
 
-  auth = inject(AuthService);
-  name = new FormControl('');
-  registerForm: FormGroup;
-  loginForm: FormGroup;
-  authErrors: UserErrors = { 
+  public  auth = inject(AuthService);
+  public name = new FormControl('');
+  private registerForm: FormGroup;
+  private loginForm: FormGroup;
+  private authErrors: UserErrors = { 
     login: 0, 
     register: 0
    };
@@ -40,6 +40,10 @@ export class AuthFormComponent {
     this.loginForm = fb.group({
       email: [null],
       password: ['salchipapa']
+    });
+
+    effect(() => {
+        console.log(this.auth.currentUser());
     });
   }
 

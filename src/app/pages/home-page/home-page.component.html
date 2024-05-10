@@ -11,3 +11,7 @@ Selecciona un pokemon:
 </div>
 
 <button (click)="toggleDarkTheme()">Toggle dark theme</button>
+<button type="button" (click)="onLogout()">Logout</button>
+@if (user()) {
+    <button type="button" (click)="onLogout()">Logout</button>
+}

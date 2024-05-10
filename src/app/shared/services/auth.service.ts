@@ -56,6 +56,11 @@ export class AuthService {
     });
   }
 
+  logout() {
+    this.state.update((state) => ({ ...state, currentUser: null, token: '' }));
+    localStorage.removeItem('user');
+  }
+
   updateKeyType(key: string) {
     this.state.update((state) => ({ ...state, keyType: key }));
   }

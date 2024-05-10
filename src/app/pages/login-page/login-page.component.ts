@@ -9,7 +9,7 @@ import { CredentialsLogin } from '../../models/Credentials.model';
   standalone: true,
   imports: [AuthFormComponent],
   template: `
-  <app-auth-form [formType]="'login'" (onFormSubmit)="handleFormSubmit($event)"></app-auth-form>
+    <app-auth-form [formType]="'login'" (onFormSubmit)="handleFormSubmit($event)"></app-auth-form>
   `,
   
   styleUrl: './login-page.component.scss'
