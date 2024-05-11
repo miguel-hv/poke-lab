@@ -1,10 +1,10 @@
-import { Component, effect, inject, input, output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Component, inject, input, output } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, RequiredValidator, Validators } from '@angular/forms';
 import { CredentialsRegister } from '../../../models/Credentials.model';
 import { AuthService } from '../../../shared/services/auth.service';
-import { UserErrors } from '../../../models/UserState.model';
 import { HttpErrorPipe } from '../../../shared/pipes/http-error.pipe';
 import { RouterModule } from '@angular/router';
+import { alphanumericalValidator } from '../../../shared/validators/CustomValidators';
 
 @Component({
   selector: 'app-auth-form',
@@ -21,30 +21,31 @@ export class AuthFormComponent {
   formType = input<string>();
 
   public  auth = inject(AuthService);
-  public name = new FormControl('');
+  public name: FormControl;
   private registerForm: FormGroup;
   private loginForm: FormGroup;
-  private authErrors: UserErrors = { 
-    login: 0, 
-    register: 0
-   };
 
   constructor(fb: FormBuilder) {
+
+    this.name = new FormControl('', [Validators.required, alphanumericalValidator()]);
 
     this.registerForm = fb.group({
       username: [''],
       email: [null],
-      password: ['salchipapa'] 
+      password: ['pepito'] 
     });
 
     this.loginForm = fb.group({
       email: [null],
-      password: ['salchipapa']
+      password: ['pepito']
     });
 
-    effect(() => {
-        console.log(this.auth.currentUser());
-    });
+  }
+
+  displayName() {
+    console.log(this.name.value);
+    console.log(this.name.errors);
+    console.log(this.name);
   }
 
   onSubmitRegister() {

@@ -2,7 +2,7 @@
 
     <!-- input -->
     <label for="name">Name: </label>
-    <input id="name" type="text" [formControl]="name" placeholder="username">
+    <input id="name" type="text" [formControl]="name" placeholder="username" (change)="displayName()">
 
     <!-- error messages -->
     @if (this.auth.errors().login) {
@@ -19,6 +19,12 @@
     @if (this.auth.errors().login === 403) {
         <p>
             Si aún no tienes cuenta o no recuerdas tu nombre de usuario, <a [routerLink]="['/register']">puedes registrarte aquí</a>
+        </p>
+    }
+
+    @if (this.name.hasError('alphanumerical')) {
+        <p>
+            El nombre no puede contener caracteres especiales   
         </p>
     }
 

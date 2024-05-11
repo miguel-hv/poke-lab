@@ -45,6 +45,7 @@ export class AuthService {
   register(credentials: CredentialsRegister) {
     this.http.post<User>(this._registerUrl, { user: credentials }).subscribe({
       next: (user) => {
+        
         this.state.update((state) => (
           { ...state, currentUser: user, token: user.token, errors: { ...state.errors, register: 0 }}
         ));
