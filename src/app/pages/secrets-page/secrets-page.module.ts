@@ -1,20 +1,24 @@
 import { Routes } from '@angular/router';
 import { pokeTypeGuard } from '../../shared/guards/type.guard';
 
+const LEAF = 'leaf';
+const FIRE = 'fire';
+const WATER = 'water';
+
 export const SECRETS_ROUTES: Routes = [
     { 
-        path: 'leaf',  
-        canActivate: [pokeTypeGuard()], 
+        path: LEAF,  
+        canActivate: [pokeTypeGuard(LEAF)], 
         loadComponent: () => import('./leaf-secret/leaf-secret.component').then(m => m.LeafSecretComponent)
     },
     { 
-        path: 'fire', 
-        canActivate: [pokeTypeGuard()], 
+        path: FIRE, 
+        canActivate: [pokeTypeGuard(FIRE)], 
         loadComponent: () => import('./fire-secret/fire-secret.component').then(m => m.FireSecretComponent)
     },
     { 
-        path: 'water', 
-        canActivate: [pokeTypeGuard()], 
+        path: WATER, 
+        canActivate: [pokeTypeGuard(WATER)], 
         loadComponent: () => import('./water-secret/water-secret.component').then(m => m.WaterSecretComponent)
     }
 ];

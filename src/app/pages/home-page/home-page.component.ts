@@ -1,7 +1,8 @@
-import { Component, computed, effect, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Pokemon } from '../../models/Pokemon.model';
 import { AuthService } from '../../shared/services/auth.service';
-import { Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { PokemonList } from '../../shared/enumerators/pokemon.enum';
 
 @Component({
   selector: 'app-home-page',
@@ -13,23 +14,9 @@ import { Router, RouterModule } from '@angular/router';
 export class HomePageComponent {
 
   public auth = inject(AuthService);
-  
-  // user = computed(() => this.auth.currentUser()); //DUDA: ¿por qué no se actualiza currentUser() en template directamente si es un observable?
 
-  pokemonList: Pokemon[] = [
-    { name: 'bulbasaur', type: 'grass' },
-    { name: 'charmander', type: 'fire' },
-    { name: 'squirtle', type: 'water' }
-  ];
+  pokemonList = PokemonList;
 
-  constructor() {
-    effect(() => {
-      if (this.auth.currentUser()) {
-        console.log(this.auth.currentUser());
-      }
-    })
-
-  }
   onSelectPokemon(pokemon: Pokemon) {
     this.auth.updateKeyType(pokemon.type);
   }
