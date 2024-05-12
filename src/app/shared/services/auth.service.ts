@@ -33,11 +33,14 @@ export class AuthService {
   public currentUser = computed(() => this.state().currentUser);
   public token = computed(() => this.state().token); 
   public errors = computed(() => this.state().errors); 
+  public keyType = computed(() => this.state().keyType);
 
   constructor() { 
+    console.log(JSON.parse(localStorage.getItem('userState')!));
+
     if (localStorage.getItem('userState')) {
       this.state.update((state) => (
-        { ...state, currentUser: JSON.parse(localStorage.getItem('userState')!) }
+        { ...JSON.parse(localStorage.getItem('userState')!) }
       ));
     }
   }
