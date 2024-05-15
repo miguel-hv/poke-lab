@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../../shared/services/auth.service';
 
 @Component({
   selector: 'app-fire-secret',
@@ -8,5 +9,13 @@ import { Component } from '@angular/core';
   styleUrl: './fire-secret.component.scss'
 })
 export class FireSecretComponent {
+
+  private FIRE = 'fire';
+  private auth = inject(AuthService);
+  
+  constructor() { 
+    if (this.auth.keyType() === this.FIRE && !this.auth.secrets().includes(this.FIRE)) 
+      this.auth.secrets().push(this.FIRE);
+  }
 
 }

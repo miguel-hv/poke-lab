@@ -5,6 +5,7 @@ export interface UserState {
     token: string;
     errors: UserErrors;
     keyType: string | null;
+    secrets: string[];
 };
 
 export interface UserErrors {

@@ -15,6 +15,11 @@ export class HomePageComponent {
 
   public auth = inject(AuthService);
 
+  constructor() { 
+    if (this.auth.secrets().length === 3) 
+      console.log("secretos conseguidos");
+  }
+
   pokemonList = PokemonList;
 
   onSelectPokemon(pokemon: Pokemon) {

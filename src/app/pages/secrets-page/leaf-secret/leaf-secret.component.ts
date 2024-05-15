@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../../shared/services/auth.service';
 
 @Component({
   selector: 'app-leaf-secret',
@@ -8,5 +9,13 @@ import { Component } from '@angular/core';
   styleUrl: './leaf-secret.component.scss'
 })
 export class LeafSecretComponent {
+
+  private LEAF = 'leaf';
+  private auth = inject(AuthService);
+  
+  constructor() { 
+    if (this.auth.keyType() === this.LEAF && !this.auth.secrets().includes(this.LEAF)) 
+      this.auth.secrets().push(this.LEAF);
+  }
 
 }

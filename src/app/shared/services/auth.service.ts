@@ -14,7 +14,8 @@ const _initialState: UserState = {
     // update: '',
     // delete: '',
   },
-  keyType: null
+  keyType: null,
+  secrets: []
 };
 
 @Injectable({
@@ -34,10 +35,9 @@ export class AuthService {
   public token = computed(() => this.state().token); 
   public errors = computed(() => this.state().errors); 
   public keyType = computed(() => this.state().keyType);
+  public secrets = computed(() => this.state().secrets);
 
   constructor() { 
-    console.log(JSON.parse(localStorage.getItem('userState')!));
-
     if (localStorage.getItem('userState')) {
       this.state.update((state) => (
         { ...JSON.parse(localStorage.getItem('userState')!) }
