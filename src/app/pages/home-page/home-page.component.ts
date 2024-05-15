@@ -26,10 +26,6 @@ export class HomePageComponent {
     this.auth.updateKeyType(pokemon.type);
   }
 
-  toggleDarkTheme(): void {
-    document.body.classList.toggle('dark-theme');
-  }
-
   onLogout() {
     this.auth.logout();
   }

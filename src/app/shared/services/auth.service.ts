@@ -39,7 +39,7 @@ export class AuthService {
 
   constructor() { 
     if (localStorage.getItem('userState')) {
-      this.state.update((state) => (
+      this.state.update(() => (
         { ...JSON.parse(localStorage.getItem('userState')!) }
       ));
     }
@@ -88,6 +88,13 @@ export class AuthService {
   updateKeyType(key: string) {
     this.state.update((state) => ({ ...state, keyType: key }));
     localStorage.setItem('userState', JSON.stringify(this.state()));
+    this.toggleTheme(key);
   }
-        
+
+  toggleTheme(type: string): void {
+    document.body.classList.remove('leaf-theme');
+    document.body.classList.remove('fire-theme');
+    document.body.classList.remove('water-theme');
+    document.body.classList.add(type+'-theme');
+  }
 }

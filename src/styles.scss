@@ -1,22 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
 body {
     --text-color: #222;
-    --bkg-color: #fff;
-    --btn-txt-color: white;
-    --btn-bg-color: rgb(11, 88, 160);
+    --bkg-color: #f9f9f9;
 }
-body.dark-theme {
-    --text-color: #eee;
-    --bkg-color: #252222;
-    --btn-txt-color: rgb(46, 43, 43);
-    --btn-bg-color: rgb(20, 211, 195);
+body.leaf-theme {
+    --main-color: green;
+    --bkg-color: lightgreen;
 }
+body.fire-theme {
+    --main-color: red;
+    --bkg-color: coral;
+}
+body.water-theme {
+    --main-color: blue;
+    --bkg-color: lightblue;
+}
+
 
 body {
     background: var(--bkg-color);
 }
 
 h1,
+
 p {
     color: var(--text-color);
 }
