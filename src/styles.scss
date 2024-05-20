@@ -1,7 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+@import '@angular/cdk/overlay-prebuilt.css';
+
 body {
     --text-color: #222;
     --bkg-color: #f9f9f9;
+    // background-image: url("./assets/images/map.jpg");
 }
 body.leaf-theme {
     --main-color: green;
@@ -18,11 +20,20 @@ body.water-theme {
 
 
 body {
-    background: var(--bkg-color);
+    background-color: var(--bkg-color);
 }
 
 h1,
 
 p {
     color: var(--text-color);
+}
+
+.image {
+    background-image: url("./assets/images/map.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
 }

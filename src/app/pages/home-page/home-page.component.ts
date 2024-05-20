@@ -3,6 +3,7 @@ import { Pokemon } from '../../models/Pokemon.model';
 import { AuthService } from '../../shared/services/auth.service';
 import { RouterModule } from '@angular/router';
 import { PokemonList } from '../../shared/enumerators/pokemon.enum';
+import { DialogInfoComponent } from '../../components/core/dialogs/dialog-info/dialog-info.component';
 
 @Component({
   selector: 'app-home-page',
@@ -29,5 +30,4 @@ export class HomePageComponent {
   onLogout() {
     this.auth.logout();
   }
-
 }

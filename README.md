@@ -4,13 +4,9 @@ Aplicación que consume una [api de pokémon](https://pokeapi.co/docs/v2) y deja
 
 
 ## Tareas pendientes
-- gestionar errores login y register
-- validaciones form y campos de error 
-- Definir flujo de selección de pokémon y acceso a las secciones. 3 secciones secretos
+- meter material, primeng y taigaui para comparar
 - Estilos con tailwind: mobile first
-- Estilos en función del tipo de pokémon
 - Loader para acceso en las páginas (Angular cdk)
-- snackbar con cdk
 - textos en json y traducción 
 - refactorizar para meter [router module] (https://angular.io/guide/router-tutorial-toh#refactor-the-routing-configuration-into-a-routing-module)
 - Accesibilidad
