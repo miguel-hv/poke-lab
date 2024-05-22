@@ -1,5 +1,12 @@
 @import '@angular/cdk/overlay-prebuilt.css';
 
+// TODO: meter fichero reset
+
+html, body {
+    height: 100vh;
+    margin: 0;
+}
+
 body {
     --text-color: #222;
     --bkg-color: #f9f9f9;
@@ -28,6 +35,56 @@ h1,
 p {
     color: var(--text-color);
 }
+
+// TODO: cambiar a otro fichero
+.map {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    .map__container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 0 2rem;
+    }
+}
+
+.house {
+    background-image: url(./assets/images/map/house.png);
+    width: 50px;
+    height: 50px;
+        background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.lab {
+    background-image: url(./assets/images/map/lab.png);
+    width: 50px;
+    height: 50px;
+        background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.lake {
+    background-image: url(./assets/images/map/lake.png);
+    width: 50px;
+    height: 50px;
+        background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.garden {
+    background-image: url(./assets/images/map/garden.png);
+    width: 50px;
+    height: 50px;
+        background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}   
 
 .image {
     background-position: center;

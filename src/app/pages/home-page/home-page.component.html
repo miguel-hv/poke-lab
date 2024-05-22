@@ -1,9 +1,7 @@
-<p>home-page works!</p>
-Selecciona un pokemon:
+<!-- Selecciona un pokemon:
 
 <div>
     <ul>
-        <!-- for pokemon list -->
         @for (pokemon of pokemonList; track $index) {
             <li><a (click)="onSelectPokemon(pokemon)">{{pokemon.name}}</a></li>
         }
@@ -12,4 +10,13 @@ Selecciona un pokemon:
 
 @if (this.auth.currentUser()) {
     <button type="button" (click)="onLogout()">Logout</button>
-}
+} -->
+<div class="map">
+    <div class="map__container">
+        <div class="house"></div>
+        <div class="house"></div>
+        <div class="garden"></div>
+        <div class="lab"></div>
+        <div class="lake"></div>
+    </div>
+</div>
