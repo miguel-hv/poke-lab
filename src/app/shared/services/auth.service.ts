@@ -91,6 +91,11 @@ export class AuthService {
     this.toggleTheme(key);
   }
 
+  addSecret(key: string) {
+    this.state.update((state) => ({ ...state, state: state.secrets.push(key) }));
+    localStorage.setItem('userState', JSON.stringify(this.state()));
+  }
+
   toggleTheme(type: string): void {
     document.body.classList.remove('leaf-theme');
     document.body.classList.remove('fire-theme');

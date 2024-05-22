@@ -15,7 +15,7 @@ export class LeafSecretComponent {
   
   constructor() { 
     if (this.auth.keyType() === this.LEAF && !this.auth.secrets().includes(this.LEAF)) 
-      this.auth.secrets().push(this.LEAF);
+      this.auth.addSecret(this.LEAF);
   }
 
 }

@@ -15,7 +15,8 @@ export class FireSecretComponent {
   
   constructor() { 
     if (this.auth.keyType() === this.FIRE && !this.auth.secrets().includes(this.FIRE)) 
-      this.auth.secrets().push(this.FIRE);
+      this.auth.addSecret(this.FIRE);
+
   }
 
 }

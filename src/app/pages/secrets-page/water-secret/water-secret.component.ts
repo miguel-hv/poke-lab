@@ -14,8 +14,10 @@ export class WaterSecretComponent {
   private auth = inject(AuthService);
   
   constructor() { 
-    if (this.auth.keyType() === this.WATER && !this.auth.secrets().includes(this.WATER)) 
-      this.auth.secrets().push(this.WATER);
+    console.log(this.auth.keyType());
+    console.log(this.auth.secrets());
+    if (this.auth.keyType() === this.WATER && !this.auth.secrets().includes(this.WATER))
+      this.auth.addSecret(this.WATER);
   }
 
 }
