@@ -8,15 +8,24 @@
     </ul>
 </div>
 
+
 @if (this.auth.currentUser()) {
     <button type="button" (click)="onLogout()">Logout</button>
 } -->
 <div class="map">
     <div class="map__container">
         <div class="house"></div>
-        <div class="house"></div>
-        <div class="garden"></div>
-        <div class="lab"></div>
-        <div class="lake"></div>
+        <a [routerLink]="['/secrets/fire']">
+            <div class="house house__fire"></div>
+        </a>
+        <a [routerLink]="['/secrets/garden']">
+            <div class="garden"></div>
+        </a>
+        <a [routerLink]="['/select-pokemon']" >
+            <div class="lab"></div>
+        </a>
+        <a [routerLink]="['/secrets/water']" >
+            <div class="lake"></div>
+        </a>
     </div>
 </div>

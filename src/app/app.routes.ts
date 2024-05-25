@@ -24,6 +24,12 @@ export const routes: Routes = [
             .then(m => m.RegisterPageComponent) 
     },
     { 
+        path: 'select-pokemon',
+        canActivate: [isAuthenticatedGuard()], 
+        loadComponent: () => import('./pages/select-pokemon-page/select-pokemon-page.component')
+            .then(m => m.SelectPokemonPageComponent) 
+    },
+    { 
         path : 'secrets',
         canActivate: [isAuthenticatedGuard()],
         loadChildren: () => import('./pages/secrets-page/secrets-page.module')

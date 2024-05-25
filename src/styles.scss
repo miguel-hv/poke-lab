@@ -47,49 +47,56 @@ p {
         display: grid;
         grid-template-columns: 1fr 1fr;
         padding: 0 2rem;
+        justify-items: center;
     }
 }
 
 .house {
     background-image: url(./assets/images/map/house.png);
-    width: 50px;
-    height: 50px;
-        background-position: center;
-    background-size: cover;
+    width: 70%;
+    height: 140px;
+    background-position: center;
+    background-size: contain;
     background-repeat: no-repeat;
+    &__fire {
+        &::before {
+            content: "Calderas";
+        }
+    }
 }
 
 .lab {
     background-image: url(./assets/images/map/lab.png);
-    width: 50px;
-    height: 50px;
-        background-position: center;
-    background-size: cover;
+    width: 100%;
+    height: 140px;
+    background-position: center;
+    background-size: contain;
     background-repeat: no-repeat;
+    &::before {
+        content: "Lab. Prof. Oak";
+    }
 }
 
 .lake {
     background-image: url(./assets/images/map/lake.png);
-    width: 50px;
-    height: 50px;
-        background-position: center;
-    background-size: cover;
+    width: 100%;
+    height: 250px;
+    background-position: center;
+    background-size: contain;
     background-repeat: no-repeat;
+    &::before {
+        content: "Piscinas";
+    }
 }
 
 .garden {
     background-image: url(./assets/images/map/garden.png);
-    width: 50px;
-    height: 50px;
-        background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}   
-
-.image {
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%;
     width: 100%;
-}
+    height: 140px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    &::before {
+        content: "Jardines";
+    }
+}   
