@@ -48,11 +48,21 @@ p {
         grid-template-columns: 1fr 1fr;
         padding: 0 2rem;
         justify-items: center;
+        gap: 1.5rem;
+    }
+    .map__link {
+        text-align: center;
+    }
+    .map__image {
+        width: 100%;
+        &--smaller {
+            width: 80%;
+        }
     }
 }
 
 .house {
-    background-image: url(./assets/images/map/house.png);
+    // background-image: url(./assets/images/map/house.png);
     width: 70%;
     height: 140px;
     background-position: center;
@@ -66,7 +76,7 @@ p {
 }
 
 .lab {
-    background-image: url(./assets/images/map/lab.png);
+    // background-image: url(./assets/images/map/lab.png);
     width: 100%;
     height: 140px;
     background-position: center;
@@ -78,7 +88,7 @@ p {
 }
 
 .lake {
-    background-image: url(./assets/images/map/lake.png);
+    // background-image: url(./assets/images/map/lake.png);
     width: 100%;
     height: 250px;
     background-position: center;
@@ -90,7 +100,7 @@ p {
 }
 
 .garden {
-    background-image: url(./assets/images/map/garden.png);
+    // background-image: url(./assets/images/map/garden.png);
     width: 100%;
     height: 140px;
     background-position: center;

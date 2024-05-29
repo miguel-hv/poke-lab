@@ -1,17 +1,17 @@
 <div class="map">
     <div class="map__container">
-        <div class="house"></div>
-        <a [routerLink]="['/secrets/fire']">
-            <div class="house house__fire"></div>
+            <img class="map__image map__image--smaller" src="./assets/images/map/house.png" alt="image">
+        <a class="map__link" [routerLink]="['/secrets/fire']">
+                <img class="map__image map__image--smaller" src="./assets/images/map/house.png" alt="menu link">
         </a>
-        <a [routerLink]="['/secrets/garden']">
-            <div class="garden"></div>
+        <a class="map__link" [routerLink]="['/secrets/garden']">
+                <img class="map__image" src="./assets/images/map/garden.png" alt="menu link">
         </a>
-        <a [routerLink]="['/select-pokemon']" >
-            <div class="lab"></div>
+        <a class="map__link" [routerLink]="['/select-pokemon']" >
+                <img class="map__image" src="./assets/images/map/lab.png" alt="menu link">
         </a>
-        <a [routerLink]="['/secrets/water']" >
-            <div class="lake"></div>
+        <a class="map__link" [routerLink]="['/secrets/water']" >
+                <img class="map__image" src="./assets/images/map/lake.png" alt="menu link">
         </a>
     </div>
 </div>
