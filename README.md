@@ -3,9 +3,9 @@
 Aplicación que consume una [api de pokémon](https://pokeapi.co/docs/v2) y deja acceder a secciones de  información en función del tipo de pokémon que se haya escogido. El tipo de pokémon también tiene efecto en los estilos de la web. 
 
 
-## Tareas pendientes
-- meter material, primeng y taigaui para comparar
-- Estilos con tailwind: mobile first
+## Opciones a explorar
+- meter material, primeng y taigaui para comparar? -> empezar con cdk y ver si suficiente
+- Estilos con tailwind? -> más reusable ITCSS librería propia
 - Loader para acceso en las páginas (Angular cdk)
 - textos en json y traducción 
 - refactorizar para meter [router module] (https://angular.io/guide/router-tutorial-toh#refactor-the-routing-configuration-into-a-routing-module)
@@ -22,3 +22,11 @@ De igual manera, en el registro de usuario no pido el correo sino que fijo una a
 
 ## Modo oscuro o cambio de estilos
 Siguiendo la filosofía del cambio de estilos para el modo oscuro se implementa un cambio de estilos global en función del tipo de pokémon que se haya seleccionado. Así, se tiene rojo, verde y azul. No hay un estilo "modo oscuro" como tal.
+
+## Estilos y arquitectura ITCSS
+Los estilos están organizados según una arquitectura ITCSS copiando [este repo de github](https://github.com/abelcabezaroman/scss-architecture/blob/master/settings/_base.settings.scss). 
+Esto permite reutilizar código css usando elementos como si se tratase de una librería completamente personalizada. 
+Adicionalmente para ayudar a la claridad y mantenibilidad, uso notación BEM en los nombres de las clases CSS.
+
+### Angular Material
+Uso el [_Component Dev Kit_ (cdk) de Angular Material](https://material.angular.io/cdk/categories) para modales y otros componentes de forma que me ayude con la funcionalidad y accesibilidad.

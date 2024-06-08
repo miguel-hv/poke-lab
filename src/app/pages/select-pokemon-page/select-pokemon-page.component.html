@@ -1,3 +1,8 @@
-<p>select-pokemon-page works!</p>
 
-<button (click)="openDialog()">Dialog</button>
+<div class="o-flex o-flex--center u-height--full">
+    <ul>
+        @for (pokemon of pokemonList; track $index) {
+            <li><a (click)="onSelectPokemon(pokemon)">{{pokemon.name}}</a></li>
+        }
+    </ul>
+</div>

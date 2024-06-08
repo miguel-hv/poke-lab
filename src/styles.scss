@@ -1,4 +1,7 @@
 @import '@angular/cdk/overlay-prebuilt.css';
+@import './styles/reset.scss';
+@import "./styles/imports/settings.imports";
+@import './styles/imports/objects.imports.scss';
 
 // TODO: meter fichero reset
 
