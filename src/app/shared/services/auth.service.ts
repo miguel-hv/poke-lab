@@ -33,14 +33,11 @@ export class AuthService {
  
   private state = signal<UserState>(_initialState);
 
-  private authenticated$: BehaviorSubject<Pokemon> = new BehaviorSubject({} as Pokemon);
-
-  //selectors (only read)
+  //selectors (read only)
   public currentUser = computed(() => this.state().currentUser);
   public token = computed(() => this.state().token); 
   public errors = computed(() => this.state().errors); 
   public pokemon = computed(() => this.state().pokemon);
-  public $pokemon = toObservable(computed(() => this.state().pokemon));
   public secrets = computed(() => this.state().secrets);
 
   constructor() { 
@@ -49,14 +46,6 @@ export class AuthService {
         { ...JSON.parse(localStorage.getItem('userState')!) }
       ));
     }
-  }
-
-  isAuthenticated(): Observable<Pokemon> {
-    return this.authenticated$.asObservable();
-  }
-
-  setAuthenticated(authenticated: Pokemon) {
-    this.authenticated$.next(authenticated);
   }
 
   register(credentials: CredentialsRegister) {

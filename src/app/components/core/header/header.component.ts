@@ -14,12 +14,6 @@ export class HeaderComponent {
   private auth = inject(AuthService);
 
   constructor() {
-    // this.auth.isAuthenticated().subscribe((pokemon) => {
-    //   this.selectedPokemon = pokemon
-    // })
     this.selectedPokemon = this.auth.pokemon;
-    // this.auth.$pokemon.subscribe((pokemon) => {
-    //   this.selectedPokemon = pokemon;
-    // });
   }
 }
