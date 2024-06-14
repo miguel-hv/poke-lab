@@ -1,10 +1,11 @@
+import { Pokemon } from "./Pokemon.model";
 import { User } from "./User.model";
 
 export interface UserState {
     currentUser: User | null;
     token: string;
     errors: UserErrors;
-    keyType: string | null;
+    pokemon: Pokemon | null;
     secrets: string[];
 };
 

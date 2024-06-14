@@ -7,7 +7,7 @@ export const pokeTypeGuard = (typeGuard: string): CanActivateFn => {
     const auth = inject(AuthService);
     const router = inject(Router);
 
-    if (auth.keyType() === typeGuard) {
+    if (auth.pokemon()?.type === typeGuard) {
       return true
     }
 

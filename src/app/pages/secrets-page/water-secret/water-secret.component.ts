@@ -14,9 +14,9 @@ export class WaterSecretComponent {
   private auth = inject(AuthService);
   
   constructor() { 
-    console.log(this.auth.keyType());
+    console.log(this.auth.pokemon()?.type);
     console.log(this.auth.secrets());
-    if (this.auth.keyType() === this.WATER && !this.auth.secrets().includes(this.WATER))
+    if (this.auth.pokemon()?.type === this.WATER && !this.auth.secrets().includes(this.WATER))
       this.auth.addSecret(this.WATER);
   }
 

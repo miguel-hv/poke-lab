@@ -21,7 +21,7 @@ Dejo la misma contraseña fijada en código para todos los usuarios porque no me
 De igual manera, en el registro de usuario no pido el correo sino que fijo una asignación porque no se va a utilizar. 
 
 ## Modo oscuro o cambio de estilos
-Siguiendo la filosofía del cambio de estilos para el modo oscuro se implementa un cambio de estilos global en función del tipo de pokémon que se haya seleccionado. Así, se tiene rojo, verde y azul. No hay un estilo "modo oscuro" como tal.
+Siguiendo la filosofía del cambio de estilos para el modo oscuro se implementa un cambio de estilos global en función del tipo de pokémon que se haya seleccionado. Así, se tiene rojo, verde y azul. Tomé el formato de [este artículo](https://blog.angulartraining.com/how-to-implement-a-dark-theme-with-css-and-angular-2cfd98b9455d) aunque aquí no hay un estilo "modo oscuro" como tal.
 
 ## Estilos y arquitectura ITCSS
 Los estilos están organizados según una arquitectura ITCSS copiando [este repo de github](https://github.com/abelcabezaroman/scss-architecture/blob/master/settings/_base.settings.scss). 

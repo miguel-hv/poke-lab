@@ -14,7 +14,7 @@ export class LeafSecretComponent {
   private auth = inject(AuthService);
   
   constructor() { 
-    if (this.auth.keyType() === this.LEAF && !this.auth.secrets().includes(this.LEAF)) 
+    if (this.auth.pokemon()?.type === this.LEAF && !this.auth.secrets().includes(this.LEAF)) 
       this.auth.addSecret(this.LEAF);
   }
 

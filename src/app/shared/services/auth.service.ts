@@ -4,6 +4,7 @@ import { User } from '../../models/User.model';
 import { CredentialsLogin, CredentialsRegister } from '../../models/Credentials.model';
 import { UserState } from '../../models/UserState.model';
 import { Router } from '@angular/router';
+import { Pokemon } from '../../models/Pokemon.model';
 
 const _initialState: UserState = {
   currentUser: null,
@@ -14,7 +15,7 @@ const _initialState: UserState = {
     // update: '',
     // delete: '',
   },
-  keyType: null,
+  pokemon: null,
   secrets: []
 };
 
@@ -34,7 +35,7 @@ export class AuthService {
   public currentUser = computed(() => this.state().currentUser);
   public token = computed(() => this.state().token); 
   public errors = computed(() => this.state().errors); 
-  public keyType = computed(() => this.state().keyType);
+  public pokemon = computed(() => this.state().pokemon);
   public secrets = computed(() => this.state().secrets);
 
   constructor() { 
@@ -85,11 +86,20 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
-  updateKeyType(key: string) {
-    this.state.update((state) => ({ ...state, keyType: key }));
+  //TODO: pillar keytype de pokemon
+
+  // updateKeyType(key: string) {
+  //   this.state.update((state) => ({ ...state, keyType: key }));
+  //   localStorage.setItem('userState', JSON.stringify(this.state()));
+  //   this.toggleTheme(key);
+  // }
+
+  updatePokemon(pokemon: Pokemon) {
+    this.state.update((state) => ({ ...state, pokemon: pokemon }));
     localStorage.setItem('userState', JSON.stringify(this.state()));
-    this.toggleTheme(key);
+    this.toggleTheme(pokemon.type);
   }
+
 
   addSecret(key: string) {
     this.state.update((state) => ({ ...state, state: state.secrets.push(key) }));

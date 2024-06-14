@@ -28,7 +28,7 @@ export class SelectPokemonPageComponent {
       },
     }).closed.subscribe((res) => {
       if (res === 'OK') {
-        this.auth.updateKeyType(pokemon.type);
+        this.auth.updatePokemon(pokemon);
       } 
     });
   }

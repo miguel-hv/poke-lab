@@ -14,7 +14,7 @@ export class FireSecretComponent {
   private auth = inject(AuthService);
   
   constructor() { 
-    if (this.auth.keyType() === this.FIRE && !this.auth.secrets().includes(this.FIRE)) 
+    if (this.auth.pokemon()?.type === this.FIRE && !this.auth.secrets().includes(this.FIRE)) 
       this.auth.addSecret(this.FIRE);
 
   }
