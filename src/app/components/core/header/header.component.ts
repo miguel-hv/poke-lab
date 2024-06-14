@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, Signal, inject } from '@angular/core';
 import { Pokemon } from '../../../models/Pokemon.model';
 import { AuthService } from '../../../shared/services/auth.service';
 
@@ -10,10 +10,16 @@ import { AuthService } from '../../../shared/services/auth.service';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  selectedPokemon: Pokemon | null;
+  selectedPokemon: Signal<Pokemon | null>;
   private auth = inject(AuthService);
 
   constructor() {
-    this.selectedPokemon = this.auth.pokemon();
+    // this.auth.isAuthenticated().subscribe((pokemon) => {
+    //   this.selectedPokemon = pokemon
+    // })
+    this.selectedPokemon = this.auth.pokemon;
+    // this.auth.$pokemon.subscribe((pokemon) => {
+    //   this.selectedPokemon = pokemon;
+    // });
   }
 }
