@@ -16,7 +16,6 @@ export class FireSecretComponent {
   constructor() { 
     if (this.auth.pokemon()?.type === this.FIRE && !this.auth.secrets().includes(this.FIRE)) 
       this.auth.addSecret(this.FIRE);
-
   }
 
 }

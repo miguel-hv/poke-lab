@@ -85,21 +85,12 @@ export class AuthService {
     localStorage.removeItem('userState');
     this.router.navigate(['/login']);
   }
-
-  //TODO: pillar keytype de pokemon
-
-  // updateKeyType(key: string) {
-  //   this.state.update((state) => ({ ...state, keyType: key }));
-  //   localStorage.setItem('userState', JSON.stringify(this.state()));
-  //   this.toggleTheme(key);
-  // }
-
+  
   updatePokemon(pokemon: Pokemon) {
     this.state.update((state) => ({ ...state, pokemon: pokemon }));
     localStorage.setItem('userState', JSON.stringify(this.state()));
     this.toggleTheme(pokemon.type);
   }
-
 
   addSecret(key: string) {
     this.state.update((state) => ({ ...state, state: state.secrets.push(key) }));
