@@ -47,21 +47,31 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    .map__container {
+    &__container {
         display: grid;
         grid-template-columns: 1fr 1fr;
         padding: 0 2rem;
         justify-items: center;
         gap: 1.5rem;
     }
-    .map__link {
+    &__link {
         text-align: center;
     }
-    .map__image {
+    &__image {
         width: 100%;
         &--smaller {
             width: 80%;
         }
+    }
+    &__background {
+        width: 100%;
+        // background: url(./assets/images/map/grass.png);
+        // background-size: 50px;
+        background: url(./assets/images/map/fence3.png);
+        background-size: 120px;
+        background-repeat: repeat-x;
+        padding: 30px;
+        box-sizing: content-box;
     }
 }
 
