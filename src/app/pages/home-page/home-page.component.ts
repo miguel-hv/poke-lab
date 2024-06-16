@@ -1,11 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../shared/services/auth.service';
 import { RouterModule } from '@angular/router';
+import { HeaderComponent } from '../../components/core/header/header.component';
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, HeaderComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })
