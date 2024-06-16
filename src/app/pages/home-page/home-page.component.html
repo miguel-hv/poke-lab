@@ -1,20 +1,23 @@
-<div class="map">
-    <div class="map__container">
-        <img class="map__image map__image--smaller" src="./assets/images/map/house.png" alt="image">
-        <a class="map__link" [routerLink]="['/secrets/fire']">
-                <img class="map__image map__image--smaller" src="./assets/images/map/house.png" alt="menu link">
-        </a>
-        <a class="map__link" [routerLink]="['/secrets/garden']">
-                <img class="map__image" src="./assets/images/map/garden.png" alt="menu link">
-        </a>
-        <a class="map__link" [routerLink]="['/select-pokemon']" >
-                <img class="map__image" src="./assets/images/map/lab.png" alt="menu link">
-        </a>
-        <a class="map__link" [routerLink]="['/secrets/water']" >
-                <img class="map__image" src="./assets/images/map/lake.png" alt="menu link">
-        </a>
-        <div class="map__background">
+<div class="map__container" #containerWidth>
+        <div>{{containerWidth.offsetWidth}}</div>
+        <div class="map__background" [style.maxHeight]="screenWidth">
+        <!-- <div class="map__container">
+                <img class="map__image map__image--smaller" src="./assets/images/map/house.png" alt="image">
+                <a class="map__link" [routerLink]="['/secrets/fire']">
+                        <img class="map__image map__image--smaller" src="./assets/images/map/house.png" alt="menu link">
+                </a>
+                <a class="map__link" [routerLink]="['/secrets/garden']">
+                        <img class="map__image" src="./assets/images/map/garden.png" alt="menu link">
+                </a>
+                <a class="map__link" [routerLink]="['/select-pokemon']" >
+                        <img class="map__image" src="./assets/images/map/lab.png" alt="menu link">
+                </a>
+                <a class="map__link" [routerLink]="['/secrets/water']" >
+                        <img class="map__image" src="./assets/images/map/lake.png" alt="menu link">
+                </a>
+                <div class="map__background">
 
+                </div>
+        </div> -->
         </div>
-    </div>
 </div>
