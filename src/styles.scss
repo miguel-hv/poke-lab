@@ -41,17 +41,9 @@ p {
 }
 
 // TODO: cambiar a otro fichero
-.map {
-    width: 100%;
-    height: 100vh;
-    &__image {
-        max-width: 100%;
-        max-height: 100%;
-    }
-    &__img-container {
-        display: flex;
-        height: 97%;
-        justify-content: center;
-        align-items: center;
-    }
+.menu {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-evenly;    
 }

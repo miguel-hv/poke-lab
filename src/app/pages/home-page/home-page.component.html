@@ -1,10 +1,14 @@
-<div class="frame">
-        <div class="map">
-                <div class="map__header">
-                        <app-header></app-header>
-                </div>
-                <div class="map__img-container">
-                        <img class="map__image" src="./../../../assets/images/map/map.jpg" alt="map image">
-                </div>
-        </div>
+<div class="menu" cdkMenu>
+        <a class="menu__item" cdkMenuItem [routerLink]="['/select-pokemon']">
+                Laboratorio
+        </a>
+        <a class="menu__item" cdkMenuItem [routerLink]="['/secrets/fire']">
+                Caldera
+        </a>
+        <a class="menu__item" cdkMenuItem [routerLink]="['/secrets/garden']">
+                Jardín
+        </a>
+        <a class="menu__item" cdkMenuItem [routerLink]="['/secrets/water']">
+                Piscina
+        </a>
 </div>
