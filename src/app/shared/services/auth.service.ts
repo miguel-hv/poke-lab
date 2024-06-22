@@ -5,8 +5,6 @@ import { CredentialsLogin, CredentialsRegister } from '../../models/Credentials.
 import { UserState } from '../../models/UserState.model';
 import { Router } from '@angular/router';
 import { Pokemon } from '../../models/Pokemon.model';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { toObservable } from '@angular/core/rxjs-interop';
 
 const _initialState: UserState = {
   currentUser: null,
@@ -49,11 +47,11 @@ export class AuthService {
   }
 
   register(credentials: CredentialsRegister) {
-    this.http.post<User>(this._registerUrl, { user: credentials }).subscribe({
-      next: (user) => {
+    this.http.post<{user: User}>(this._registerUrl, { user: credentials }).subscribe({
+        next: (data) => {
         
         this.state.update((state) => (
-          { ...state, currentUser: user, token: user.token, errors: { ...state.errors, register: 0 }}
+          { ...state, currentUser: data.user, token: data.user.token, errors: { ...state.errors, register: 0 }}
         ));
         localStorage.setItem('userState', JSON.stringify(this.state()));
       },
@@ -66,10 +64,11 @@ export class AuthService {
   }
 
   login(credentials: CredentialsLogin) {
-    this.http.post<User>(this._loginUrl, { user: credentials }).subscribe({
-      next: (user) => {
+    this.http.post<{user: User}>(this._loginUrl, { user: credentials }).subscribe({
+      next: (data) => {
+        console.log(data.user);
         this.state.update((state) => (
-          { ...state, currentUser: user, token: user.token, errors: { ...state.errors, login: 0 }}
+          { ...state, currentUser: data.user, token: data.user.token, errors: { ...state.errors, login: 0 }}
         ));
         localStorage.setItem('userState', JSON.stringify(this.state()));
         this.router.navigate(['home']);

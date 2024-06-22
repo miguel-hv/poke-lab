@@ -4,6 +4,7 @@ import { Dialog, DialogModule } from '@angular/cdk/dialog';
 import { PokemonList } from '../../shared/enumerators/pokemon.enum';
 import { Pokemon } from '../../models/Pokemon.model';
 import { AuthService } from '../../shared/services/auth.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-select-pokemon-page',
@@ -16,6 +17,7 @@ export class SelectPokemonPageComponent {
 
   public auth = inject(AuthService);
   private dialog = inject(Dialog);
+  private location = inject(Location);
 
   pokemonList = PokemonList;
 
@@ -29,8 +31,13 @@ export class SelectPokemonPageComponent {
     }).closed.subscribe((res) => {
       if (res === 'OK') {
         this.auth.updatePokemon(pokemon);
+        this.navigateBack();
       } 
     });
+  }
+
+  navigateBack() {
+    this.location.back();
   }
 
 }

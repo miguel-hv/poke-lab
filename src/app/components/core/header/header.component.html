@@ -1,4 +1,26 @@
-<div>
-    {{selectedPokemon()?.name}}
+<div class="header">
+    <div class="header__image-container">
+        <img class="header__image" src="./../../../../assets/images/map/house.png" alt="avatar">
+    </div>
+    <div class="header__data-container">
+        <div class="header__pokemon-container">
+            <div class="header__pokemon-type">
+                {{selectedPokemon()?.type}}
+            </div>
+            <div class="header__pokemon-name">
+                {{selectedPokemon()?.name}}
+            </div>
+        </div>
+        <div class="header__name">
+            <!-- {{ userData()?.user.username }} -->
+            {{ userData()?.username }}
+        </div>
+        <div class="header__secrets-container">
+            {{ secretsList() }}
+        </div>
+        <div class="header__logout">
+            <button (click)="onLogout()">Logout</button>
+        </div>
+    </div>
 </div>
 

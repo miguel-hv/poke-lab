@@ -21,7 +21,4 @@ export class HomePageComponent {
   }
 
 
-  onLogout() {
-    this.auth.logout();
-  }
 }

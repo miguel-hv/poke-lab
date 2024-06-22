@@ -1,5 +1,6 @@
 
 <div class="o-flex o-flex--center u-height--full">
+    <button (click)="navigateBack()">Volver</button>
     <ul>
         @for (pokemon of pokemonList; track $index) {
             <li><a (click)="onSelectPokemon(pokemon)">{{pokemon.name}}</a></li>
