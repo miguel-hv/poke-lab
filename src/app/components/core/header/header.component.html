@@ -13,11 +13,7 @@
             <div class="header__text--title">
                 {{selectedPokemon()?.name}}
             </div>
-            <!-- <div class="header__pokemon-type">
-                {{selectedPokemon()?.type}}
-            </div> -->
             <div class="header__text--sub">
-                <!-- {{ userData()?.user.username }} -->
                 {{ userData()?.username }}
             </div>
         </div>
@@ -25,8 +21,11 @@
 
     <div class="header__state-container">
         <div class="header__data-container">
-            <!-- TODO: get secrets in array -->
-            {{ secretsList() }}
+            @for (item of secretsList(); track $index) {
+                <span>
+                    {{ item }}
+                </span>
+              }
         </div>
 
         <div class="header__logout">
