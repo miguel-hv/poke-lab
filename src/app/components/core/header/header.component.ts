@@ -2,11 +2,12 @@ import { Component, Signal, inject } from '@angular/core';
 import { Pokemon } from '../../../models/Pokemon.model';
 import { AuthService } from '../../../shared/services/auth.service';
 import { User } from '../../../models/User.model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })

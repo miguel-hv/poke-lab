@@ -1,8 +1,13 @@
 <div class="header">
     <div class="header__userid-container">
-        <div class="header__image-container">
-            <img class="header__image" src="./../../../../assets/images/map/house.png" alt="avatar">
-        </div>
+        <div 
+            class="header__image-container"
+            [ngClass]="{
+                'header__image-container--bulbasaur': selectedPokemon()?.name === 'bulbasaur',
+                'header__image-container--charmander': selectedPokemon()?.name === 'charmander',
+                'header__image-container--squirtle': selectedPokemon()?.name === 'squirtle'
+            }"
+        ></div>
     
         <div class="header__data-container">
             <div class="header__text--title">

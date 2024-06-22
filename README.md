@@ -17,10 +17,8 @@ HACIENDO
 	* los estilos por componentes y tener componente box y demás pero no abusar para no acabar como tailwind. Al final
 se hace más rápido el css individual que andar viendo qué componentes se tienen
 
-	0 maquetar selec poke y que al seleccionar vuelva a menú
-	1 para los links recortar los edificios y ponerlos en lista vertical ocupando toda la pantalla
 
-	2 maquetar modal oak
+	1 maquetar modal oak
 	
 	3 home no se puede acceder sin estar logueado
 	3 modal oak para la selección inicial: que salte nada más entrar a la página o registrarse
@@ -79,3 +77,6 @@ En este sentido estoy pensando más en imitar la composición de React aprovecha
 
 ### Angular Material
 Uso el [_Component Dev Kit_ (cdk) de Angular Material](https://material.angular.io/cdk/categories) para modales y otros componentes de forma que me ayude con la funcionalidad y accesibilidad. De esta manera puedo tener rápido acceso a funcionalidades completas en cuanto a accesibilidad y usabilidad pero manteniendo los componentes completamente personalizables.
+
+## Imágenes
+Las imágenes usadas en esta aplicación fueron obtenidas de las siguientes fuentes:

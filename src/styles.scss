@@ -65,16 +65,27 @@ $header-height: 10.25rem;
         display: flex;
         gap: 1.5rem;
     }
-    &__data-container {
-        display: flex;
-        justify-content: space-around; 
-        flex-direction: column;
-    }
     &__image-container {
         overflow: hidden;
         border-radius: 50%;
         height: 100px;
         width: 100px;
+        background-position: center;
+        background-size: 180%;
+        &--bulbasaur {
+            background-image: url(./assets/images/pokemon/bulbasaur_sprt.png);
+        }
+        &--charmander {
+            background-image: url(./assets/images/pokemon/charmander_sprt.png);
+        }
+        &--squirtle {
+            background-image: url(./assets/images/pokemon/squirtle_sprt.png);
+        }
+    }
+    &__data-container {
+        display: flex;
+        justify-content: space-around; 
+        flex-direction: column;
     }
     &__state-container {
         @include center-element;
