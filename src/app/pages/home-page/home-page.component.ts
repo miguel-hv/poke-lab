@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../shared/services/auth.service';
 import { RouterModule } from '@angular/router';
-import { HeaderComponent } from '../../components/core/header/header.component';
 import {CdkMenu, CdkMenuItem} from '@angular/cdk/menu';
 
 @Component({

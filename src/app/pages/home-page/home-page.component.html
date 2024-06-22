@@ -1,14 +1,34 @@
 <div class="menu" cdkMenu>
-        <a class="menu__item" cdkMenuItem [routerLink]="['/select-pokemon']">
-                Laboratorio
+        <a cdkMenuItem [routerLink]="['/select-pokemon']">
+                <div class="menu__item">
+                        <div>Laboratorio</div>
+                        <div class="menu__image-container">
+                                <img class="menu__image" src="./../../../assets/images/map/lab.png" alt="">
+                        </div>
+                </div>
         </a>
-        <a class="menu__item" cdkMenuItem [routerLink]="['/secrets/fire']">
-                Caldera
+        <a cdkMenuItem [routerLink]="['/secrets/fire']">
+                <div class="menu__item">
+                        <div class="menu__image-container menu__image-container--house">
+                                <img class="menu__image" src="./../../../assets/images/map/house.png" alt="">
+                        </div>
+                        <div>Caldera</div> 
+                </div>
         </a>
-        <a class="menu__item" cdkMenuItem [routerLink]="['/secrets/garden']">
-                Jardín
+        <a cdkMenuItem [routerLink]="['/secrets/garden']">
+                <div class="menu__item">
+                        <div>Jardín</div>
+                        <div class="menu__image-container">
+                                <img class="menu__image" src="./../../../assets/images/map/garden.png" alt="">
+                        </div>
+                </div>
         </a>
-        <a class="menu__item" cdkMenuItem [routerLink]="['/secrets/water']">
-                Piscina
+        <a cdkMenuItem [routerLink]="['/secrets/water']">
+                <div class="menu__item">
+                        <div class="menu__image-container">
+                                <img class="menu__image" src="./../../../assets/images/map/laker.png" alt="">
+                        </div>
+                        <div>Piscina</div> 
+                </div>
         </a>
 </div>

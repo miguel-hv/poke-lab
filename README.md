@@ -2,12 +2,50 @@
 
 Aplicación demo presentando un minijuego donde en función del tipo de pokémon que se haya escogido deja acceder a secciones de la aplicación para conseguir distintos secretos. Una vez se recojan los 3 secretos el minijuego se acaba y se resetea. Se usa una api demo pública para crear el usuario.
 
+La aplicación está concebida para visualizar en dispositivos móviles debido a su sencillez gráfica, de manera que se muestra un marco en escritorio para simplificar la maquetación. Es una aplicación muy simple y con una funcionalidad muy básica pero que me permite investigar ciertos temas de interés para mí.
+
 El objetivo es investigar y trabajar varias facetas del desarrollo y mantenimiento de una web, buscando artículos de expertos en Angular para tratar de encontrar y desarrollar una guía fiable de buenas prácticas para el día a día. No se busca tener las mejores prácticas en cuanto a limpieza de código sino encontrar una arquitectura mantenible y flexible para los proyectos habituales de frontend. 
 
 Los principales puntos a trabajar son los siguientes:
 - gestión de estados en un store y gestión de roles de usuario (permisos en función de si se está logado y de qué pokémon se selecciona)
 - gestión de clases de estilos (notación BEM y reutilización) y distintos temas de estilos (el tipo de pokémon tiene efecto en los estilos de la web). 
 - librería de componentes que permita rápida personalización (ITCSS y angular material cdk)
+
+
+## En curso
+HACIENDO
+	* los estilos por componentes y tener componente box y demás pero no abusar para no acabar como tailwind. Al final
+se hace más rápido el css individual que andar viendo qué componentes se tienen
+
+	0 maquetar selec poke y que al seleccionar vuelva a menú
+	1 para los links recortar los edificios y ponerlos en lista vertical ocupando toda la pantalla
+
+	2 maquetar modal oak
+	
+	3 home no se puede acceder sin estar logueado
+	3 modal oak para la selección inicial: que salte nada más entrar a la página o registrarse
+	4 escribir sobre el store con signals y cómo las computed son solo para leer y cómo en el header se pueden usar 
+para el template
+	
+FRONT	
+	
+	0 cambiar los css de lef-rit a block-start e inlinestart
+	0 ver container queries
+	0 ver mixins y si son más apropiadas para dar estilos a button en vez de crear un componente button
+	2 editar estilos modal y overlay (ver angular cdk overlay)
+	3 pantalla selección de pokemon con los sprites y enseñar antes pueblo paleta para ubicar a la gente
+	3 cuando se complete el juego, borrar usuario y localhost y lanzar modal mewtwo
+	3 meter en localhost una etiqueta de tiempo y si pasan más de 3 días que haga logout imitando caducidad sesión
+	2 cambiar el estilo en función del pokémon (ver mejor forma de gestionar estilos)
+	3 meter logout y login bien
+	4 ver mixins para no hacer del código una librería tipo tailwind: meter unas clases en otras y dar nombres más 
+específicos (mejor repetirse y que esté claro)
+	
+	2 estilos (elegir colores): usar hsl en vez de rgb
+	3 al secreto que aparezcan las imágenes de los pokémon IA; si no, no deja entrar
+	20 cierre cuando se reúnan los secretos
+
+
 
 
 ## Opciones a explorar

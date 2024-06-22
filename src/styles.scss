@@ -4,7 +4,7 @@
 @import './styles/imports/objects.imports.scss';
 @import './styles/imports/utilities.imports.scss';
 
-// TODO: meter fichero reset
+// reset
 
 html, body {
     height: 100vh;
@@ -34,24 +34,32 @@ body {
     background-color: var(--bkg-color);
 }
 
-h1,
-
-p {
+h1,p {
     color: var(--text-color);
 }
 
-// TODO: cambiar a otro fichero
-.menu {
+//mixins (drafting) and variables
+@mixin center-element {
     display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: space-evenly;    
+    justify-content: center;
+    align-items: center;
+}
+
+$header-height: 10.25rem;
+
+//components
+
+.screen-container {
+    max-width: 390px;
+    height: 100vh;
+    margin: auto;
 }
 
 .header {
     display: flex;
     padding: 2rem 1rem;
     justify-content: space-between;
+    max-height: $header-height;
 
     &__userid-container {
         display: flex;
@@ -69,8 +77,29 @@ p {
         width: 100px;
     }
     &__state-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include center-element;
     }
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - $header-height);
+    justify-content: space-evenly;  
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+    } 
+    &__image-container {
+        width: 45%;
+        max-width: 180px;
+        &--house {
+            padding: 20px;
+        }
+    } 
+    &__image {
+        width: 100%;
+    } 
 }
