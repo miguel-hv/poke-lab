@@ -51,11 +51,26 @@ p {
 .header {
     display: flex;
     padding: 2rem 1rem;
+    justify-content: space-between;
+
+    &__userid-container {
+        display: flex;
+        gap: 1.5rem;
+    }
+    &__data-container {
+        display: flex;
+        justify-content: space-around; 
+        flex-direction: column;
+    }
     &__image-container {
         overflow: hidden;
         border-radius: 50%;
         height: 100px;
         width: 100px;
     }
-
+    &__state-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }

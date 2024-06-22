@@ -1,23 +1,29 @@
 <div class="header">
-    <div class="header__image-container">
-        <img class="header__image" src="./../../../../assets/images/map/house.png" alt="avatar">
-    </div>
-    <div class="header__data-container">
-        <div class="header__pokemon-container">
-            <div class="header__pokemon-type">
-                {{selectedPokemon()?.type}}
-            </div>
-            <div class="header__pokemon-name">
+    <div class="header__userid-container">
+        <div class="header__image-container">
+            <img class="header__image" src="./../../../../assets/images/map/house.png" alt="avatar">
+        </div>
+    
+        <div class="header__data-container">
+            <div class="header__text--title">
                 {{selectedPokemon()?.name}}
             </div>
+            <!-- <div class="header__pokemon-type">
+                {{selectedPokemon()?.type}}
+            </div> -->
+            <div class="header__text--sub">
+                <!-- {{ userData()?.user.username }} -->
+                {{ userData()?.username }}
+            </div>
         </div>
-        <div class="header__name">
-            <!-- {{ userData()?.user.username }} -->
-            {{ userData()?.username }}
-        </div>
-        <div class="header__secrets-container">
+    </div>
+
+    <div class="header__state-container">
+        <div class="header__data-container">
+            <!-- TODO: get secrets in array -->
             {{ secretsList() }}
         </div>
+
         <div class="header__logout">
             <button (click)="onLogout()">Logout</button>
         </div>
