@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, inject } from '@angular/core';
 import { DialogInfoComponent } from '../../components/core/dialogs/dialog-info/dialog-info.component';
 import { Dialog, DialogModule } from '@angular/cdk/dialog';
 import { PokemonList } from '../../shared/enumerators/pokemon.enum';
@@ -13,7 +13,7 @@ import { Location } from '@angular/common';
   templateUrl: './select-pokemon-page.component.html',
   styleUrl: './select-pokemon-page.component.scss'
 })
-export class SelectPokemonPageComponent {
+export class SelectPokemonPageComponent implements AfterViewInit {
 
   public auth = inject(AuthService);
   private dialog = inject(Dialog);
@@ -21,12 +21,26 @@ export class SelectPokemonPageComponent {
 
   pokemonList = PokemonList;
 
+  @ViewChild('screenContainer', { static: true }) screenContainer = {} as ElementRef;
+
+  dialogSettings = {
+    minWidth: '',
+    title: 'título', 
+    description: 'descripción'
+  };
+
+
+  ngAfterViewInit() {
+    console.log(this.screenContainer);
+    this.dialogSettings.minWidth = this.screenContainer.nativeElement.offsetWidth;
+    console.log(this.dialogSettings.minWidth);
+  }
   onSelectPokemon(pokemon: Pokemon) {
     this.dialog.open(DialogInfoComponent, {
-      minWidth: '100vw',
+      minWidth: this.dialogSettings.minWidth,
       data: {
-        title: 'título',
-        description: 'descripción'
+        title: this.dialogSettings.title,
+        description: this.dialogSettings.description
       },
     }).closed.subscribe((res) => {
       if (res === 'OK') {
