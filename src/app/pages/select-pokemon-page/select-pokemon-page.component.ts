@@ -5,6 +5,7 @@ import { PokemonList } from '../../shared/enumerators/pokemon.enum';
 import { Pokemon } from '../../models/Pokemon.model';
 import { AuthService } from '../../shared/services/auth.service';
 import { Location } from '@angular/common';
+import { OverlayPositionBuilder } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-select-pokemon-page',
@@ -29,11 +30,10 @@ export class SelectPokemonPageComponent implements AfterViewInit {
     description: 'descripción'
   };
 
+  constructor(private overlayPositionBuilder: OverlayPositionBuilder) { }
 
   ngAfterViewInit() {
-    console.log(this.screenContainer);
     this.dialogSettings.minWidth = this.screenContainer.nativeElement.offsetWidth;
-    console.log(this.dialogSettings.minWidth);
   }
   onSelectPokemon(pokemon: Pokemon) {
     this.dialog.open(DialogInfoComponent, {
@@ -42,6 +42,7 @@ export class SelectPokemonPageComponent implements AfterViewInit {
         title: this.dialogSettings.title,
         description: this.dialogSettings.description
       },
+      positionStrategy: this.overlayPositionBuilder.global().bottom('0').centerHorizontally()
     }).closed.subscribe((res) => {
       if (res === 'OK') {
         this.auth.updatePokemon(pokemon);
