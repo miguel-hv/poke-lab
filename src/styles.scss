@@ -43,6 +43,12 @@ h1,p {
     height: 100%;
 }
 
+@mixin font-poke {
+    font-family: "Nova Square", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
 $header-height: 10.25rem;
 
 //components
@@ -118,4 +124,25 @@ $header-height: 10.25rem;
     &__image {
         width: 100%;
     } 
+}
+
+.dialog {
+    position: relative;
+    @include font-poke;
+
+    &__image-container {
+        z-index: -1;
+        position: absolute;
+        top: -150px;
+    }
+    &__text {
+        padding: 1rem 0.5rem;
+    }
+    &__buttons-container {
+        display: flex;
+        gap: 1rem;
+        justify-content: flex-end;
+        padding: 1rem;
+        padding-top: 0;
+    }
 }

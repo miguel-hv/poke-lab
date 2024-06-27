@@ -26,8 +26,10 @@ export class SelectPokemonPageComponent implements AfterViewInit {
 
   dialogSettings = {
     minWidth: '',
-    title: 'título', 
-    description: 'descripción'
+    text: {
+      description: 'descripción',
+      ok: 'Aceptar'
+    }
   };
 
   constructor(private overlayPositionBuilder: OverlayPositionBuilder) { }
@@ -36,12 +38,20 @@ export class SelectPokemonPageComponent implements AfterViewInit {
     this.dialogSettings.minWidth = this.screenContainer.nativeElement.offsetWidth;
   }
   onSelectPokemon(pokemon: Pokemon) {
+
+    if (pokemon.name === 'charmander') {
+      this.dialogSettings.text.description = '¿Quieres elegir a Charmander, el pokémon tipo fuego?';
+    }
+    if (pokemon.name === 'squirtle') {
+      this.dialogSettings.text.description = '¿Quieres elegir a Squirtle, el pokémon tipo agua?';
+    }
+    if (pokemon.name === 'bulbasaur') {
+      this.dialogSettings.text.description = '¿Quieres elegir a Bulbasaur,el pokémon tipo planta?';
+    }
+
     this.dialog.open(DialogInfoComponent, {
       minWidth: this.dialogSettings.minWidth,
-      data: {
-        title: this.dialogSettings.title,
-        description: this.dialogSettings.description
-      },
+      data: this.dialogSettings.text,
       positionStrategy: this.overlayPositionBuilder.global().bottom('0').centerHorizontally()
     }).closed.subscribe((res) => {
       if (res === 'OK') {

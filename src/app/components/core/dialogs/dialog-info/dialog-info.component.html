@@ -2,12 +2,13 @@
   <div class="dialog__image-container">
     <img src="./../../../../../assets/images/pokemon/oak2.png" alt="image">
   </div>
-  <div>
-    {{data.title}}
-  </div>
-  <div>
+  <div class="dialog__text">
     {{data.description}}
   </div>
-  <button (click)="accept()">aceptar</button>
-  <button (click)="cancel()">rechazar</button>
+  <div class="dialog__buttons-container">
+    <button (click)="accept()">{{data.ok}}</button>
+    @if (data.no) {
+      <button (click)="cancel()">{{data.no}}</button>
+    }
+  </div>
 </div>

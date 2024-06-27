@@ -13,7 +13,7 @@ export class DialogInfoComponent {
   private NO = 'NO';
 
   constructor(
-    @Inject(DIALOG_DATA) public data: {title: string, description: string},
+    @Inject(DIALOG_DATA) public data: {title: string, description: string, ok: string, no?: string},
     public dialogRef: DialogRef<string>
   ) {}
 
