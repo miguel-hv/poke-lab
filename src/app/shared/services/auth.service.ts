@@ -82,9 +82,11 @@ export class AuthService {
   }
 
   logout() {
-    this.state.update((state) => ({ ...state, currentUser: null, token: '' }));
+    this.state.update(() => ({} as UserState));
     localStorage.removeItem('userState');
     this.router.navigate(['/login']);
+    console.log(this.state());
+    this.toggleTheme('');
   }
   
   updatePokemon(pokemon: Pokemon) {
@@ -102,6 +104,6 @@ export class AuthService {
     document.body.classList.remove('leaf-theme');
     document.body.classList.remove('fire-theme');
     document.body.classList.remove('water-theme');
-    document.body.classList.add(type+'-theme');
+    if (type !== '' ) document.body.classList.add(type+'-theme');
   }
 }

@@ -5,18 +5,18 @@
     <input id="name" type="text" [formControl]="name" placeholder="username" (change)="displayName()">
 
     <!-- error messages -->
-    @if (this.auth.errors().login) {
+    @if (this.auth.errors() && this.auth.errors().login) {
         <p>
             {{this.auth.errors().login | httpError: 'login' }}
         </p>
     }
-    @if (this.auth.errors().register) {
+    @if (this.auth.errors() && this.auth.errors().register) {
         <p>
             {{this.auth.errors().register | httpError: 'register' }}
         </p>
     }
     <!-- redirect to register -->
-    @if (this.auth.errors().login === 403) {
+    @if (this.auth.errors() && this.auth.errors().login === 403) {
         <p>
             Si aún no tienes cuenta o no recuerdas tu nombre de usuario, <a [routerLink]="['/register']">puedes registrarte aquí</a>
         </p>
