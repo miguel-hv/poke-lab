@@ -6,6 +6,7 @@ import { Pokemon } from '../../models/Pokemon.model';
 import { AuthService } from '../../shared/services/auth.service';
 import { Location } from '@angular/common';
 import { OverlayPositionBuilder } from '@angular/cdk/overlay';
+import { DialogContent } from '../../models/DialogText.model';
 
 @Component({
   selector: 'app-select-pokemon-page',
@@ -24,13 +25,7 @@ export class SelectPokemonPageComponent implements AfterViewInit {
 
   @ViewChild('screenContainer', { static: true }) screenContainer = {} as ElementRef;
 
-  dialogSettings = {
-    minWidth: '',
-    text: {
-      description: 'descripción',
-      ok: 'Aceptar'
-    }
-  };
+  dialogSettings = <DialogContent>{};
 
   constructor(private overlayPositionBuilder: OverlayPositionBuilder) { }
 
