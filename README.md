@@ -13,36 +13,28 @@ Los principales puntos a trabajar son los siguientes:
 
 
 ## En curso
-HACIENDO
-	* los estilos por componentes y tener componente box y demás pero no abusar para no acabar como tailwind. Al final
-se hace más rápido el css individual que andar viendo qué componentes se tienen
-
-
-	1 maquetar modal oak
-	
-	3 home no se puede acceder sin estar logueado
-	3 modal oak para la selección inicial: que salte nada más entrar a la página o registrarse
-	4 escribir sobre el store con signals y cómo las computed son solo para leer y cómo en el header se pueden usar 
-para el template
-	
-FRONT	
-	
+	1 flujo login y enseñar pueblo paleta con el form de registro para ubicar a la gente
+	2 maquetar pantalla selección de pokemon con los sprites y las pokeballs
+	3 al recargar la página no pilla los estilos del pokémon
 	0 cambiar los css de lef-rit a block-start e inlinestart
 	0 ver container queries
 	0 ver mixins y si son más apropiadas para dar estilos a button en vez de crear un componente button
-	2 editar estilos modal y overlay (ver angular cdk overlay)
-	3 pantalla selección de pokemon con los sprites y enseñar antes pueblo paleta para ubicar a la gente
+	3 home no se puede acceder sin estar logueado
+	3 modal oak para la selección inicial: que salte nada más entrar a la página o registrarse	
 	3 cuando se complete el juego, borrar usuario y localhost y lanzar modal mewtwo
 	3 meter en localhost una etiqueta de tiempo y si pasan más de 3 días que haga logout imitando caducidad sesión
 	2 cambiar el estilo en función del pokémon (ver mejor forma de gestionar estilos)
 	3 meter logout y login bien
 	4 ver mixins para no hacer del código una librería tipo tailwind: meter unas clases en otras y dar nombres más 
 específicos (mejor repetirse y que esté claro)
+	4 escribir readme sobre el store con signals y cómo las computed son solo para leer y cómo en el header se pueden usar 
+para el template
+	5 refactorizar componentes de secreto en solo uno (las url las mismas pero todo contenido en otro componente común)
+	20 testing y componentes testeables
 	
+	1 estilos header: icono para logout y secretos, fuentes para títulos y demás, estilos cuando no hay pokémon 
+	2 botones ok y no basados en el logo pokémon
 	2 estilos (elegir colores): usar hsl en vez de rgb
-	3 al secreto que aparezcan las imágenes de los pokémon IA; si no, no deja entrar
-	20 cierre cuando se reúnan los secretos
-
 
 
 
