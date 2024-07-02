@@ -25,7 +25,14 @@ export class SelectPokemonPageComponent implements AfterViewInit {
 
   @ViewChild('screenContainer', { static: true }) screenContainer = {} as ElementRef;
 
-  dialogSettings = <DialogContent>{};
+  dialogSettings: DialogContent = {    
+    minWidth: '',
+    text: {
+      description: '',
+      ok: '¡Elegir!',
+      no: 'Mejor no',
+    }
+  }
 
   constructor(private overlayPositionBuilder: OverlayPositionBuilder) { }
 
