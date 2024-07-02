@@ -7,6 +7,7 @@ import { AuthService } from '../../shared/services/auth.service';
 import { Location } from '@angular/common';
 import { OverlayPositionBuilder } from '@angular/cdk/overlay';
 import { DialogContent } from '../../models/DialogText.model';
+import { ResizeService } from '../../shared/services/resize.service';
 
 @Component({
   selector: 'app-select-pokemon-page',
@@ -20,6 +21,7 @@ export class SelectPokemonPageComponent implements AfterViewInit {
   public auth = inject(AuthService);
   private dialog = inject(Dialog);
   private location = inject(Location);
+  private resizeService = inject(ResizeService);
 
   pokemonList = PokemonList;
 
@@ -34,10 +36,16 @@ export class SelectPokemonPageComponent implements AfterViewInit {
     }
   }
 
-  constructor(private overlayPositionBuilder: OverlayPositionBuilder) { }
+  constructor(private overlayPositionBuilder: OverlayPositionBuilder) {
+  //   this.resizeService.width$.subscribe(width => {
+  //     // Handle the width update here
+  //     this.dialogSettings.minWidth = `${width}px`;
+  //  });
+  }
+
 
   ngAfterViewInit() {
-    this.dialogSettings.minWidth = this.screenContainer.nativeElement.offsetWidth;
+    // this.dialogSettings.minWidth = this.screenContainer.nativeElement.offsetWidth;
   }
   onSelectPokemon(pokemon: Pokemon) {
 
@@ -52,7 +60,7 @@ export class SelectPokemonPageComponent implements AfterViewInit {
     }
 
     this.dialog.open(DialogInfoComponent, {
-      minWidth: this.dialogSettings.minWidth,
+      // minWidth: this.dialogSettings.minWidth,
       data: this.dialogSettings.text,
       positionStrategy: this.overlayPositionBuilder.global().bottom('0').centerHorizontally()
     }).closed.subscribe((res) => {
