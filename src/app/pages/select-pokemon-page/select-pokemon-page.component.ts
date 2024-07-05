@@ -21,6 +21,7 @@ export class SelectPokemonPageComponent {
   public auth = inject(AuthService);
   private dialog = inject(Dialog);
   private location = inject(Location);
+  private resizeService = inject(ResizeService);
 
   pokemonList = PokemonList;
 
@@ -46,6 +47,7 @@ export class SelectPokemonPageComponent {
     }
 
     this.dialog.open(DialogInfoComponent, {
+      width: this.resizeService.width$().toString(),
       data: this.dialogSettings,
       positionStrategy: this.overlayPositionBuilder.global().bottom('0').centerHorizontally()
     }).closed.subscribe((res) => {

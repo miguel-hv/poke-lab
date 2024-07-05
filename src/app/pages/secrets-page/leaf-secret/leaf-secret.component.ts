@@ -5,6 +5,7 @@ import { Dialog } from '@angular/cdk/dialog';
 import { DialogContent } from '../../../models/DialogText.model';
 import { OverlayPositionBuilder } from '@angular/cdk/overlay';
 import { Location } from '@angular/common';
+import { ResizeService } from '../../../shared/services/resize.service';
 
 @Component({
   selector: 'app-leaf-secret',
@@ -19,6 +20,7 @@ export class LeafSecretComponent {
   private auth = inject(AuthService);
   private dialog = inject(Dialog);
   private location = inject(Location);
+  private resizeService = inject(ResizeService);
 
   dialogSettings = <DialogContent> {
     description: '¡Has conseguido el secreto tipo planta! Venusaur es el pokémón tipo planta más poderoso de la primera edición ;) Consigue el resto de secretos para completar tu colección.',
@@ -31,6 +33,7 @@ export class LeafSecretComponent {
       this.auth.addSecret(this.LEAF);
 
     this.dialog.open(DialogInfoComponent, {
+      width: this.resizeService.width$().toString(),
       data: this.dialogSettings,
       positionStrategy: this.overlayPositionBuilder.global().bottom('0').centerHorizontally()
     }).closed.subscribe((res) => {

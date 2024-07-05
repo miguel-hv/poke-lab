@@ -1,16 +1,14 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Injectable, computed, signal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ResizeService {
-  private widthSubject = new BehaviorSubject<number>(0);
-  width$ = this.widthSubject.asObservable();
-
-  constructor() { }
+  private widthSubject = signal<number>(screen.width);
+  width$ = computed(() => this.widthSubject());
 
   updateWidth(width: number) {
-    this.widthSubject.next(width);
+    console.log(width);
+    this.widthSubject.set(width);
   }
 }
