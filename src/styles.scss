@@ -40,7 +40,6 @@ h1,p {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
 }
 
 @mixin font-poke {
@@ -60,9 +59,11 @@ $header-height: 10.25rem;
         margin: auto;
     }
     &__main {
-        @include center-element;
         height: calc(100vh - $header-height);
-    }   
+    }  
+    &__inner {
+        height: 100%;
+    }
 }
 
 .header {
@@ -99,6 +100,7 @@ $header-height: 10.25rem;
     }
     &__state-container {
         @include center-element;
+        height: 100%;
     }
 }
 
@@ -143,5 +145,16 @@ $header-height: 10.25rem;
         justify-content: flex-end;
         padding: 1rem;
         padding-top: 0;
+    }
+}
+
+.secret {
+    &__image-container {
+        @include center-element;
+        width: 100%;
+    }
+    
+    &__image {
+        width: 100%;
     }
 }

@@ -20,7 +20,6 @@ export class AppComponent{
   title = 'poke-app';
 
   ngAfterViewInit() {
-    console.log(this.screenContainer.nativeElement.offsetWidth);
     this.resizeService.updateWidth(this.screenContainer.nativeElement.offsetWidth);
   }
 }

@@ -1,6 +1,6 @@
 import { DEFAULT_DIALOG_CONFIG, DIALOG_DATA, DialogConfig, DialogRef } from '@angular/cdk/dialog';
 import { Overlay, OverlayPositionBuilder } from '@angular/cdk/overlay';
-import { CdkPortal } from '@angular/cdk/portal';
+import { CdkPortal, ComponentPortal } from '@angular/cdk/portal';
 import { Component, Inject, ViewChild } from '@angular/core';
 
 @Component({
@@ -21,11 +21,11 @@ export class DialogInfoComponent {
     public dialogRef: DialogRef<string>,
     private readonly overlayPosBuilder: OverlayPositionBuilder,
     private config: DialogConfig,
+    private overlay: Overlay
   ) {
     //TODO: ¿como añadir positionStrategyDef que está arriba?
     this.config.positionStrategy?.attach(this.dialogRef.overlayRef);
   }
-
 
 
 

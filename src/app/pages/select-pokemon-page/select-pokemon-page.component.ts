@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, inject } from '@angular/core';
 import { DialogInfoComponent } from '../../components/core/dialogs/dialog-info/dialog-info.component';
-import { Dialog, DialogModule } from '@angular/cdk/dialog';
+import { Dialog } from '@angular/cdk/dialog';
 import { PokemonList } from '../../shared/enumerators/pokemon.enum';
 import { Pokemon } from '../../models/Pokemon.model';
 import { AuthService } from '../../shared/services/auth.service';
@@ -12,7 +12,7 @@ import { ResizeService } from '../../shared/services/resize.service';
 @Component({
   selector: 'app-select-pokemon-page',
   standalone: true,
-  imports: [DialogModule],
+  imports: [],
   templateUrl: './select-pokemon-page.component.html',
   styleUrl: './select-pokemon-page.component.scss'
 })
