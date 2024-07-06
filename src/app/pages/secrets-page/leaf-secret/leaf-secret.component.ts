@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { SecretBaseComponent } from '../../../components/shared/secret-base/secret-base.component';
+import { AuthService } from '../../../shared/services/auth.service';
+import { PokemonType } from '../../../shared/enumerators/pokemonType.enum';
 
 @Component({
   selector: 'app-leaf-secret',
@@ -10,4 +12,17 @@ import { SecretBaseComponent } from '../../../components/shared/secret-base/secr
 })
 export class LeafSecretComponent {
 
+  private auth = inject(AuthService);
+  private pokemonTypes = PokemonType;
+
+  textSecret = '';
+  textNewSecret = '¡Has conseguido el secreto tipo planta! Venusaur es el pokémón tipo planta más poderoso de la primera edición ;)';
+  imagePath = "./../../../../assets/images/pokemon/bulbasaur.png";
+
+  constructor() {
+    if (!this.auth.secrets().includes(this.pokemonTypes.leaf)) {
+      this.auth.addSecret(this.pokemonTypes.leaf);
+      this.textSecret = this.textNewSecret;
+    } 
+  }
 }

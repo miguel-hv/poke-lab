@@ -1,23 +1,29 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../../shared/services/auth.service';
+import { PokemonType } from '../../../shared/enumerators/pokemonType.enum';
+import { SecretBaseComponent } from '../../../components/shared/secret-base/secret-base.component';
 
 @Component({
   selector: 'app-water-secret',
   standalone: true,
-  imports: [],
+  imports: [SecretBaseComponent],
   templateUrl: './water-secret.component.html',
   styleUrl: './water-secret.component.scss'
 })
 export class WaterSecretComponent {
 
-  private WATER = 'water';
   private auth = inject(AuthService);
+  private pokemonTypes = PokemonType;
   
-  constructor() { 
-    console.log(this.auth.pokemon()?.type);
-    console.log(this.auth.secrets());
-    if (this.auth.pokemon()?.type === this.WATER && !this.auth.secrets().includes(this.WATER))
-      this.auth.addSecret(this.WATER);
+  textSecret = '';
+  textNewSecret = '¡Has conseguido el secreto tipo agua! Lapras es el pokémón tipo planta más poderoso de la primera edición ;)';
+  imagePath = "./../../../../assets/images/pokemon/squirtle.png";
+
+  constructor() {
+    if (!this.auth.secrets().includes(this.pokemonTypes.water)) {
+      this.auth.addSecret(this.pokemonTypes.water);
+      this.textSecret = this.textNewSecret;
+    } 
   }
 
 }

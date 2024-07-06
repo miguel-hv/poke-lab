@@ -1,5 +1,4 @@
-import { Component, inject, input } from '@angular/core';
-import { AuthService } from '../../../shared/services/auth.service';
+import { Component, inject, input, OnInit } from '@angular/core';
 import { Dialog } from '@angular/cdk/dialog';
 import { ResizeService } from '../../../shared/services/resize.service';
 import { OverlayPositionBuilder } from '@angular/cdk/overlay';
@@ -14,9 +13,10 @@ import { Location } from '@angular/common';
   templateUrl: './secret-base.component.html',
   styleUrl: './secret-base.component.scss'
 })
-export class SecretBaseComponent {
+export class SecretBaseComponent implements OnInit {
 
-  private auth = inject(AuthService);
+  textSecret = input('tes');
+  public imagePath = input('tes');
   private dialog = inject(Dialog);
   private location = inject(Location);
   private resizeService = inject(ResizeService);
@@ -26,7 +26,6 @@ export class SecretBaseComponent {
     fire: 'fire',
     water: 'water'
   }
-
   // dialog variables
   dialogSettings = <DialogContent> {
     description: '',
@@ -36,54 +35,19 @@ export class SecretBaseComponent {
 
   //template variables 
   texts = {
-    leaf: '¡Has conseguido el secreto tipo planta! Venusaur es el pokémón tipo planta más poderoso de la primera edición ;)',
-    fire: '¡Has conseguido el secreto tipo fuego! Arcanine es el pokémón tipo fuego más poderoso de la primera edición ;)',
-    water: '¡Has conseguido el secreto tipo agua! Squirtle es el pokémón tipo agua más poderoso de la primera edición ;)',
     alreadyVisited: 'Ya tienes este secreto',
     advice: 'Consigue el resto de secretos para completar tu colección',
   }
-  imagePathDisplay!: string;
-  imagePaths = {
-    leaf: "./../../../../assets/images/pokemon/bulbasaur.png",
-    fire: "./../../../../assets/images/pokemon/charmander.png",
-    water: "./../../../../assets/images/pokemon/squirtle.png",
-  }
   
   constructor(private overlayPositionBuilder: OverlayPositionBuilder) { 
-    this.checkSecret(this.auth.pokemon()?.type, this.auth.secrets());
     this.openDialogOak();
   }
-  
-  checkSecret(type:string|undefined, secrets: string[]) {
-    if (type === this.pokemonTypes.leaf) {
-      if (!secrets.includes(this.pokemonTypes.leaf)) {
-        this.auth.addSecret(this.pokemonTypes.leaf);
-        this.dialogSettings.description = this.texts.leaf;
-      } else {
-        this.dialogSettings.description = this.texts.alreadyVisited;
-      }
-      this.imagePathDisplay = this.imagePaths.leaf;
-    } 
-    else if (type === this.pokemonTypes.fire) {
-      if (!secrets.includes(this.pokemonTypes.fire)) {
-        this.auth.addSecret(this.pokemonTypes.fire);
-        this.dialogSettings.description = this.texts.fire;
-      } else {
-        this.dialogSettings.description = this.texts.alreadyVisited;
-      }
-      this.imagePathDisplay = this.imagePaths.fire;
-    } 
-    else if (type === this.pokemonTypes.water && !secrets.includes(this.pokemonTypes.water)) {
-      if (!secrets.includes(this.pokemonTypes.water)) {
-        this.auth.addSecret(this.pokemonTypes.water);
-        this.dialogSettings.description = this.texts.water;
-      } else {
-        this.dialogSettings.description = this.texts.alreadyVisited;
-      }
-      this.imagePathDisplay = this.imagePaths.water;
-    } 
 
+  ngOnInit(): void {
+    this.dialogSettings.description = this.textSecret() ? this.textSecret() : this.texts.alreadyVisited;
   }
+
+
 
   openDialogOak() {
     this.dialog.open(DialogInfoComponent, {
