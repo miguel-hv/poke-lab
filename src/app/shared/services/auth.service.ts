@@ -39,10 +39,12 @@ export class AuthService {
   public secrets = computed(() => this.state().secrets);
 
   constructor() { 
-    if (localStorage.getItem('userState')) {
+    const localState = localStorage.getItem('userState');
+    if (localState) {
       this.state.update(() => (
-        { ...JSON.parse(localStorage.getItem('userState')!) }
+        { ...JSON.parse(localState) }
       ));
+      this.toggleTheme(JSON.parse(localState).pokemon.type);
     }
   }
 
