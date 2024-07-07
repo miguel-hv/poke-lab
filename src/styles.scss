@@ -148,6 +148,29 @@ $header-height: 10.25rem;
     }
 }
 
+.welcome-dialog {
+    @include font-poke;
+    &__image {
+        grid-area: area1;
+    }
+    &__main-info {
+        grid-area: area2;
+    }
+    &__extra-info {
+        grid-area: area3;
+    }
+    display: grid;
+    grid-template-areas: 
+    "area1 area2" 
+    "area3 area3";
+}
+
+.map {
+    &__image {
+        width: 100%;
+    }
+}
+
 .secret {
     &__image-container {
         @include center-element;

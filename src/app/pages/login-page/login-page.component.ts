@@ -8,10 +8,7 @@ import { CredentialsLogin } from '../../models/Credentials.model';
   selector: 'app-login-page',
   standalone: true,
   imports: [AuthFormComponent],
-  template: `
-    <app-auth-form [formType]="'login'" (onFormSubmit)="handleFormSubmit($event)"></app-auth-form>
-  `,
-  
+  templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.scss'
 })
 export class LoginPageComponent {
