@@ -1,39 +1,30 @@
 import { Routes } from '@angular/router';
 import { isAuthenticatedGuard } from './shared/guards/auth.guard';
+import { UrlRoutes } from './shared/enumerators/urlRoutes.enum';
+
+const routesenum = UrlRoutes;
 
 export const routes: Routes = [
     { 
         path: '',
-        redirectTo: 'home',
+        redirectTo: routesenum.poke,
         pathMatch: 'full' 
     },
     { 
-        path: 'home',
-        canActivate: [isAuthenticatedGuard()], 
-        loadComponent: () => import('./pages/home-page/home-page.component')
-            .then(m => m.HomePageComponent) 
-    },
-    { 
-        path: 'login',
+        path: routesenum.access,
         loadComponent: () => import('./pages/login-page/login-page.component')
             .then(m => m.LoginPageComponent) 
     },
     { 
-        path: 'register',
-        loadComponent: () => import('./pages/register-page/register-page.component')
-            .then(m => m.RegisterPageComponent) 
+        path: routesenum.welcome,
+        loadComponent: () => import('./pages/welcome-page/welcome-page.component')
+            .then(m => m.WelcomePageComponent) 
     },
     { 
-        path: 'select-pokemon',
-        canActivate: [isAuthenticatedGuard()], 
-        loadComponent: () => import('./pages/select-pokemon-page/select-pokemon-page.component')
-            .then(m => m.SelectPokemonPageComponent) 
-    },
-    { 
-        path : 'secrets',
+        path : routesenum.poke,
         canActivate: [isAuthenticatedGuard()],
-        loadChildren: () => import('./pages/secrets-page/secrets-page.module')
-            .then(m => m.SECRETS_ROUTES) 
+        loadChildren: () => import('./poke.module')
+            .then(m => m.POKE_ROUTES) 
     },
-    { path: '**', redirectTo: 'home' }
+    { path: '**', redirectTo: routesenum.poke }
 ];

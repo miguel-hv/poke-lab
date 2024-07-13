@@ -5,6 +5,9 @@ import { CredentialsLogin, CredentialsRegister } from '../../models/Credentials.
 import { UserState } from '../../models/UserState.model';
 import { Router } from '@angular/router';
 import { Pokemon } from '../../models/Pokemon.model';
+import { UrlRoutes } from '../enumerators/urlRoutes.enum';
+
+const routesenum = UrlRoutes;
 
 const _initialState: UserState = {
   currentUser: null,
@@ -73,7 +76,7 @@ export class AuthService {
           { ...state, currentUser: data.user, token: data.user.token, errors: { ...state.errors, login: 0 }}
         ));
         localStorage.setItem('userState', JSON.stringify(this.state()));
-        this.router.navigate(['home']);
+        this.router.navigate([routesenum.home]);
       },
       error: (error: HttpErrorResponse) => {
         this.state.update((state) => (
@@ -86,7 +89,7 @@ export class AuthService {
   logout() {
     this.state.update(() => ({} as UserState));
     localStorage.removeItem('userState');
-    this.router.navigate(['/login']);
+    this.router.navigate([routesenum.access]);
     console.log(this.state());
     this.toggleTheme('');
   }

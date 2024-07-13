@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { DialogInfoComponent } from '../../components/core/dialogs/dialog-info/dialog-info.component';
 import { Dialog } from '@angular/cdk/dialog';
 import { PokemonList } from '../../shared/enumerators/pokemon.enum';

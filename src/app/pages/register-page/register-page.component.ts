@@ -3,6 +3,9 @@ import { CredentialsRegister } from '../../models/Credentials.model';
 import { AuthService } from '../../shared/services/auth.service';
 import { Router } from '@angular/router';
 import { AuthFormComponent } from '../../components/forms/auth-form/auth-form.component';
+import { UrlRoutes } from '../../shared/enumerators/urlRoutes.enum';
+
+const routesenum = UrlRoutes;
 
 @Component({
   selector: 'app-register-page',
@@ -21,7 +24,7 @@ export class RegisterPageComponent {
   constructor() {
     effect(() => {
       if (this.auth.currentUser()) {
-        this.router.navigate(['home']);
+        this.router.navigate([routesenum.home]);
       }
     });
   }

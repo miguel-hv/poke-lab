@@ -1,6 +1,9 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { UrlRoutes } from '../enumerators/urlRoutes.enum';
+
+const routesenum = UrlRoutes;
 
 export const pokeTypeGuard = (typeGuard: string): CanActivateFn => {
   return () => {
@@ -13,7 +16,7 @@ export const pokeTypeGuard = (typeGuard: string): CanActivateFn => {
       return true
     }
 
-    return router.parseUrl('home');
+    return router.parseUrl(routesenum.home);
 
 
   };

@@ -1,6 +1,9 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { UrlRoutes } from '../enumerators/urlRoutes.enum';
+
+const routesenum = UrlRoutes;
 
 export const isAuthenticatedGuard = (): CanActivateFn => {
   return () => {
@@ -11,6 +14,6 @@ export const isAuthenticatedGuard = (): CanActivateFn => {
       return true;
     }
 
-    return router.parseUrl('login');
+    return router.parseUrl(routesenum.access);
   };
 };

@@ -3,29 +3,12 @@
         Accede con tu nombre, no necesitas contraseña
     </p>
     <app-auth-form [formType]="'login'" (onFormSubmit)="handleFormSubmit($event)"></app-auth-form>
-    <div class="welcome-dialog">
-        <div class="welcome-dialog__main-info">
-            <div class="welcome-image">
-            <img src="./../../../../../assets/images/pokemon/oak2.png" alt="image">
-            </div>
-            <div class="welcome-dialog__main-text">
-                <p>
-                    ¡Te doy la bienvenida a Pueblo Paleta!
-                </p>
-            </div>
-        </div>
-        <div class="welcome-dialog__extra-info">
-            <p>
-                Haciendo login en tu cuenta podrás recuperar los datos de tu sesión anterior.
-            </p>
-            <p>
-                Para registrate introduce un nombre nuevo y se te creará una cuenta.
-            </p>
-        </div>
+    <div class="welcome-dialog__extra-info">
+        <p>
+            Haciendo login en tu cuenta podrás recuperar los datos de tu sesión anterior.
+        </p>
+        <p>
+            Para registrate introduce un nombre nuevo y se te creará una cuenta.
+        </p>
     </div>
-    <!-- <div class="map__border"> -->
-        <div class="map__container">
-            <img class="map__image" src="./../../../assets/images/map/map.jpg" alt="image">
-        </div>
-    <!-- </div> -->
 </div>
