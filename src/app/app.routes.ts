@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { isAuthenticatedGuard } from './shared/guards/auth.guard';
 import { UrlRoutes } from './shared/enumerators/urlRoutes.enum';
+import { PokePageComponent } from './pages/poke-page/poke-page.component';
 
 const routesenum = UrlRoutes;
 
@@ -23,6 +24,7 @@ export const routes: Routes = [
     { 
         path : routesenum.poke,
         canActivate: [isAuthenticatedGuard()],
+        component: PokePageComponent,
         loadChildren: () => import('./poke.module')
             .then(m => m.POKE_ROUTES) 
     },

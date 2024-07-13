@@ -47,7 +47,9 @@ export class AuthService {
       this.state.update(() => (
         { ...JSON.parse(localState) }
       ));
-      this.toggleTheme(JSON.parse(localState).pokemon.type);
+      if (this.state().pokemon) {
+        this.toggleTheme(JSON.parse(localState).pokemon.type);
+      }
     }
   }
 
@@ -76,7 +78,7 @@ export class AuthService {
           { ...state, currentUser: data.user, token: data.user.token, errors: { ...state.errors, login: 0 }}
         ));
         localStorage.setItem('userState', JSON.stringify(this.state()));
-        this.router.navigate([routesenum.home]);
+        this.router.navigate([routesenum.welcome]);
       },
       error: (error: HttpErrorResponse) => {
         this.state.update((state) => (

@@ -18,7 +18,6 @@ export class LoginPageComponent {
 
   private auth = inject(AuthService);
   private router = inject(Router);
-  private _credentialsMiguel = { email: 'mhvz5@example.com', password: 'testmhvz5'};
 
   constructor() {
     if (this.auth.currentUser()) {
