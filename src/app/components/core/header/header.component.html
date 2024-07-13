@@ -1,38 +1,44 @@
 <div class="header">
-    <div class="header__userid-container">
-        <div 
-            class="header__image-container"
-            [ngClass]="{
-                'header__image-container--bulbasaur': selectedPokemon()?.name === 'bulbasaur',
-                'header__image-container--charmander': selectedPokemon()?.name === 'charmander',
-                'header__image-container--squirtle': selectedPokemon()?.name === 'squirtle'
-            }"
-        ></div>
-    
-        <div class="header__data-container">
-            <div class="header__text--title">
-                {{selectedPokemon()?.name}}
-            </div>
-            <div class="header__text--sub">
-                {{ userData()?.username }}
+    @if (userData()) {        
+        <div class="header__userid-container">
+            <div 
+                class="header__image-container"
+                [ngClass]="{
+                    'header__image-container--bulbasaur': selectedPokemon()?.name === 'bulbasaur',
+                    'header__image-container--charmander': selectedPokemon()?.name === 'charmander',
+                    'header__image-container--squirtle': selectedPokemon()?.name === 'squirtle'
+                }"
+            ></div>
+        
+            <div class="header__data-container">
+                <div class="header__text--title">
+                    {{selectedPokemon()?.name}}
+                </div>
+                <div class="header__text--sub">
+                    {{ userData()?.username }}
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="header__state-container">
-        <div class="header__data-container">
-            @for (item of secretsList(); track $index) {
-                <span>
-                    {{ item }}
-                </span>
-              }
-        </div>
-
-        @if (userData()) {
-            <div class="header__logout">
-                <button (click)="onLogout()">Logout</button>
+        <div class="header__state-container">
+            <div class="header__data-container">
+                @for (item of secretsList(); track $index) {
+                    <span>
+                        {{ item }}
+                    </span>
+                }
             </div>
-        }
-    </div>
+
+            @if (userData()) {
+                <div class="header__logout">
+                    <button (click)="onLogout()">Logout</button>
+                </div>
+            }
+        </div>
+    }
+    @else {
+        <img class="header__login" src={{imageTitleSrc}} alt="">
+    }
+
 </div>
 

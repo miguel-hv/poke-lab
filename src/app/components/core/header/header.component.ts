@@ -19,6 +19,8 @@ export class HeaderComponent {
 
   private auth = inject(AuthService);
 
+  imageTitleSrc = "./../../../../assets/images/backgrounds/logo.png";
+
   constructor() {
     this.selectedPokemon = this.auth.pokemon;
     this.userData = this.auth.currentUser;
