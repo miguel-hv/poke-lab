@@ -5,11 +5,12 @@ import { AuthService } from '../../../shared/services/auth.service';
 import { HttpErrorPipe } from '../../../shared/pipes/http-error.pipe';
 import { RouterModule } from '@angular/router';
 import { alphanumericalValidator } from '../../../shared/validators/CustomValidators';
+import {MatInputModule} from '@angular/material/input';
 
 @Component({
   selector: 'app-auth-form',
   standalone: true,
-  imports: [ReactiveFormsModule, HttpErrorPipe, RouterModule],
+  imports: [ReactiveFormsModule, HttpErrorPipe, RouterModule, MatInputModule],
   templateUrl: './auth-form.component.html',
   styleUrl: './auth-form.component.scss'
 })
@@ -22,45 +23,26 @@ export class AuthFormComponent {
 
   public  auth = inject(AuthService);
   public name: FormControl;
-  private registerForm: FormGroup;
-  private loginForm: FormGroup;
+  private accessForm: FormGroup;
 
   constructor(fb: FormBuilder) {
 
     this.name = new FormControl('', [Validators.required, alphanumericalValidator()]);
 
-    this.registerForm = fb.group({
+    this.accessForm = fb.group({
       username: [''],
       email: [null],
       password: ['pepito'] 
     });
 
-    this.loginForm = fb.group({
-      email: [null],
-      password: ['pepito']
-    });
-
   }
 
-  displayName() {
-    console.log(this.name.value);
-    console.log(this.name.errors);
-    console.log(this.name);
-  }
-
-  onSubmitRegister() {
-    this.registerForm.patchValue({ 
-        username: this.name.value,
-        email: this.name.value+'@fakemail.com' 
-    });
-    this.onFormSubmit.emit(this.registerForm.value);
-  }
-
-  onSubmitLogin() {
-    this.loginForm.patchValue({ 
+  onSubmitForm() {
+    this.accessForm.patchValue({
       username: this.name.value,
       email: this.name.value+'@fakemail.com' 
     });
-    this.onFormSubmit.emit(this.loginForm.value);
-  }
+    console.log(this.accessForm.value);
+    this.onFormSubmit.emit(this.accessForm.value);
+  } 
 }

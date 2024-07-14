@@ -1,8 +1,8 @@
-import { Component, effect, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service';
 import { AuthFormComponent } from '../../components/forms/auth-form/auth-form.component';
-import { CredentialsLogin } from '../../models/Credentials.model';
+import { CredentialsRegister } from '../../models/Credentials.model';
 import { UrlRoutes } from '../../shared/enumerators/urlRoutes.enum';
 
 const routesenum = UrlRoutes;
@@ -25,7 +25,8 @@ export class LoginPageComponent {
     }
   }
 
-  handleFormSubmit(loginUser: CredentialsLogin) {
+  handleFormSubmit(loginUser: CredentialsRegister) {
+    //handle register in auth service
     this.auth.login(loginUser);
   }
 }

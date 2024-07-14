@@ -1,8 +1,11 @@
 <form>
 
     <!-- input -->
-    <label for="name">Name: </label>
-    <input id="name" type="text" [formControl]="name" placeholder="username" (change)="displayName()">
+    <mat-form-field >
+        <mat-label>Nombre</mat-label>
+        <input matInput placeholder="Ej: pikachuPower" id="name" type="text" [formControl]="name"> 
+        <mat-hint align="start">No reveles datos personales</mat-hint>
+    </mat-form-field>
 
     <!-- error messages -->
     @if (this.auth.errors() && this.auth.errors().login) {
@@ -16,11 +19,11 @@
         </p>
     }
     <!-- redirect to register -->
-    @if (this.auth.errors() && this.auth.errors().login === 403) {
+    <!-- @if (this.auth.errors() && this.auth.errors().login === 403) {
         <p>
             Si aún no tienes cuenta o no recuerdas tu nombre de usuario, <a [routerLink]="['/register']">puedes registrarte aquí</a>
         </p>
-    }
+    } -->
 
     @if (this.name.hasError('alphanumerical')) {
         <p>
@@ -29,14 +32,5 @@
     }
 
     <!-- buttons register/login -->
-    @if (formType() === 'register') {
-        <button type="button" (click)="onSubmitRegister()">Registrarse</button>
-    } @else if (formType() === 'login') {
-        <button type="button" (click)="onSubmitLogin()">Iniciar Sesión</button>
-    } @else {
-        <div>
-            Algo no ha funcionado como debía.
-        </div>
-        <button>Volver atrás</button>
-    }
+    <button mat-stroked-button type="button" (click)="onSubmitForm()">Entrar</button>
 </form>

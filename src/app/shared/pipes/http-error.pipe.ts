@@ -22,7 +22,8 @@ export class HttpErrorPipe implements PipeTransform {
     console.log(type);
     if(type === 'login') {
       if (value === 403) {
-        errorMessage = "Inicio de sesión no autorizado, revisa tus datos.";
+        // errorMessage = "Inicio de sesión no autorizado, revisa tus datos.";
+        errorMessage = "Usuario no encontrado, procediendo al registro de nueva cuenta";
       } else if (value === 422) {
           errorMessage = "Ha habido un error inesperado en el servidor, inténtalo más tarde.";	
       }

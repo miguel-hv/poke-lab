@@ -56,11 +56,11 @@ export class AuthService {
   register(credentials: CredentialsRegister) {
     this.http.post<{user: User}>(this._registerUrl, { user: credentials }).subscribe({
         next: (data) => {
-        
         this.state.update((state) => (
           { ...state, currentUser: data.user, token: data.user.token, errors: { ...state.errors, register: 0 }}
         ));
         localStorage.setItem('userState', JSON.stringify(this.state()));
+        this.router.navigate([routesenum.welcome]);
       },
       error: (error: HttpErrorResponse) => {
         this.state.update((state) => (
@@ -70,20 +70,31 @@ export class AuthService {
     });
   }
 
-  login(credentials: CredentialsLogin) {
-    this.http.post<{user: User}>(this._loginUrl, { user: credentials }).subscribe({
+  login(credentials: CredentialsRegister) {
+    const credentialsLogin: CredentialsLogin = {
+      email: credentials.email,
+      password: credentials.password
+    };
+    this.http.post<{user: User}>(this._loginUrl, { user: credentialsLogin }).subscribe({
       next: (data) => {
         console.log(data.user);
-        this.state.update((state) => (
-          { ...state, currentUser: data.user, token: data.user.token, errors: { ...state.errors, login: 0 }}
-        ));
+        this.state.update((state) => ({ 
+          ...state, 
+          currentUser: data.user, 
+          token: data.user.token,
+          errors: { ...state.errors, login: 0 }
+        }));
         localStorage.setItem('userState', JSON.stringify(this.state()));
         this.router.navigate([routesenum.welcome]);
       },
       error: (error: HttpErrorResponse) => {
-        this.state.update((state) => (
-          { ...state, errors: { ...state.errors, login: error.status }}
-        ));
+        this.state.update((state) => ({
+           ...state, 
+           errors: { ...state.errors, login: error.status }
+        }));
+        if (error.status === 403) {
+          this.register(credentials);
+        }
       },
     });
   }
