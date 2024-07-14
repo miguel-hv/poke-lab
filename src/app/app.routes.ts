@@ -18,6 +18,7 @@ export const routes: Routes = [
     },
     { 
         path: routesenum.welcome,
+        canActivate: [isAuthenticatedGuard()],
         loadComponent: () => import('./pages/welcome-page/welcome-page.component')
             .then(m => m.WelcomePageComponent) 
     },

@@ -14,9 +14,7 @@ const _initialState: UserState = {
   token: '',
   errors: {
     login: 0,
-    register: 0,
-    // update: '',
-    // delete: '',
+    register: 0
   },
   pokemon: null,
   secrets: []
@@ -56,9 +54,12 @@ export class AuthService {
   register(credentials: CredentialsRegister) {
     this.http.post<{user: User}>(this._registerUrl, { user: credentials }).subscribe({
         next: (data) => {
-        this.state.update((state) => (
-          { ...state, currentUser: data.user, token: data.user.token, errors: { ...state.errors, register: 0 }}
-        ));
+        this.state.update((state) => ({
+          ...state,
+          currentUser: data.user,
+          token: data.user.token,
+          errors: { ...state.errors, register: 0 }
+        }));
         localStorage.setItem('userState', JSON.stringify(this.state()));
         this.router.navigate([routesenum.welcome]);
       },
@@ -85,7 +86,7 @@ export class AuthService {
           errors: { ...state.errors, login: 0 }
         }));
         localStorage.setItem('userState', JSON.stringify(this.state()));
-        this.router.navigate([routesenum.welcome]);
+        this.router.navigate([routesenum.home]);
       },
       error: (error: HttpErrorResponse) => {
         this.state.update((state) => ({
