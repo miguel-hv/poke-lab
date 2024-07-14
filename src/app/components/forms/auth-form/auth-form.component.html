@@ -1,14 +1,16 @@
 <form>
 
     <!-- input -->
-    <mat-form-field >
+    <!-- <mat-form-field >
         <mat-label>Nombre</mat-label>
         <input matInput placeholder="Ej: pikachuPower" id="name" type="text" [formControl]="name"> 
         <mat-hint align="start">No reveles datos personales</mat-hint>
-    </mat-form-field>
+    </mat-form-field> -->
+    <input placeholder="Ej: pikachuPower" id="name" type="text" [formControl]="name"> 
+
 
     <!-- error messages -->
-    @if (this.auth.errors() && this.auth.errors().login) {
+    @if (this.auth.errors() && this.auth.errors().login && !this.auth.errors().register) {
         <p>
             {{this.auth.errors().login | httpError: 'login' }}
         </p>
@@ -18,12 +20,6 @@
             {{this.auth.errors().register | httpError: 'register' }}
         </p>
     }
-    <!-- redirect to register -->
-    <!-- @if (this.auth.errors() && this.auth.errors().login === 403) {
-        <p>
-            Si aún no tienes cuenta o no recuerdas tu nombre de usuario, <a [routerLink]="['/register']">puedes registrarte aquí</a>
-        </p>
-    } -->
 
     @if (this.name.hasError('alphanumerical')) {
         <p>
@@ -32,5 +28,5 @@
     }
 
     <!-- buttons register/login -->
-    <button mat-stroked-button type="button" (click)="onSubmitForm()">Entrar</button>
+    <button mat-button accent type="button" (click)="onSubmitForm()">Entrar</button>
 </form>
