@@ -69,7 +69,6 @@ En este sentido estoy pensando más en imitar la composición de React aprovecha
 
 ### Angular Material
 Uso el [_Component Dev Kit_ (cdk) de Angular Material](https://material.angular.io/cdk/categories) para modales y otros componentes de forma que me ayude con la funcionalidad y accesibilidad. De esta manera puedo tener rápido acceso a funcionalidades completas en cuanto a accesibilidad y usabilidad pero manteniendo los componentes completamente personalizables.
-Uso también [Angular Material](https://material.angular.io/) para otros componentes.
 
 ### Colores HSL
 Uso la configuración de colores mediante tono, saturación y luz (Hue, Saturation, Lightness) para interaccionar de forma más intuitiva con la paleta de colores.
