@@ -1,13 +1,15 @@
 <div class="screen-container__access">
     <div class="card">
-        <app-auth-form [formType]="'login'" (onFormSubmit)="handleFormSubmit($event)"></app-auth-form>
         <div class="welcome-dialog__extra-info">
             <p>
-                Haciendo login en tu cuenta podrás recuperar los datos de tu sesión anterior.
+                Introduce un nuevo alias para 
+                registrarte o 
             </p>
             <p>
-                Para registrate introduce un nombre nuevo y se te creará una cuenta.
+                recuerda tu alias para hacer
+                login.
             </p>
         </div>
+        <app-auth-form (onFormSubmit)="handleFormSubmit($event)"></app-auth-form>
     </div>
 </div>

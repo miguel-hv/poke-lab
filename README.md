@@ -13,28 +13,32 @@ Los principales puntos a trabajar son los siguientes:
 
 
 ## En curso
-	1 flujo login y enseñar pueblo paleta con el form de registro para ubicar a la gente
+	1 maquetar welcome
+	3 validación input sin espacios
+	2 gestionar el error de login para que aparezca un mensaje diciendo que se crea cuenta nueva 
+	2 maquetar menú
 	2 maquetar pantalla selección de pokemon con los sprites y las pokeballs
-	3 al recargar la página no pilla los estilos del pokémon
+	1 estilos header: icono para logout y secretos, fuentes para títulos y demás, estilos cuando no hay pokémon 
+- en registro/login sacar una cabecera con imagen
+	1 cambiar fuente a no serif
+	1 maquetar secretos en secretos poner el texto del secreto en sí debajo de la imagen
+	2 maquetar dialog: botones ok y no basados en el logo pokémon
+	2 estilos (elegir colores): usar hsl en vez de rgb	
+https://material.angular.io/guide/theming#defining-a-theme
+	3 estilos a material: ¿cambiar color de botones, etc?
+	3 en service hacer funciones para gestionar localstate y router? y el update de state
+	3 fuente imágenes en readme
 	0 cambiar los css de lef-rit a block-start e inlinestart
 	0 ver container queries
 	0 ver mixins y si son más apropiadas para dar estilos a button en vez de crear un componente button
-	3 home no se puede acceder sin estar logueado
-	3 modal oak para la selección inicial: que salte nada más entrar a la página o registrarse	
+o mejor coger button de cdk
+	0 meter animaciones
 	3 cuando se complete el juego, borrar usuario y localhost y lanzar modal mewtwo
-	3 meter en localhost una etiqueta de tiempo y si pasan más de 3 días que haga logout imitando caducidad sesión
 	2 cambiar el estilo en función del pokémon (ver mejor forma de gestionar estilos)
-	3 meter logout y login bien
-	4 ver mixins para no hacer del código una librería tipo tailwind: meter unas clases en otras y dar nombres más 
-específicos (mejor repetirse y que esté claro)
+	4 borrar archivos scss y html que no hagan falta (test dejarlos para probar)
 	4 escribir readme sobre el store con signals y cómo las computed son solo para leer y cómo en el header se pueden usar 
 para el template
-	5 refactorizar componentes de secreto en solo uno (las url las mismas pero todo contenido en otro componente común)
-	20 testing y componentes testeables
-	
-	1 estilos header: icono para logout y secretos, fuentes para títulos y demás, estilos cuando no hay pokémon 
-	2 botones ok y no basados en el logo pokémon
-	2 estilos (elegir colores): usar hsl en vez de rgb
+	5 borrar footer 
 
 
 
@@ -74,5 +78,13 @@ Uso el [_Component Dev Kit_ (cdk) de Angular Material](https://material.angular.
 Uso la configuración de colores mediante tono, saturación y luz (Hue, Saturation, Lightness) para interaccionar de forma más intuitiva con la paleta de colores.
 El porqué en [este artículo](https://www.uifrommars.com/que-es-hsl/);
 
+### Clases componentes
+Para evitar usar Angular Material estoy cogiendo algunos estilos de codepen como el [input](https://codepen.io/amankriet/pen/dyEXNQZ) o el [button](https://codepen.io/ericadamski/pen/ZBxavq). Estilar o componentizar este tipo de elementos no es algo que forme parte de este proyecto, así que no están bien pulidos.
+
 ## Imágenes
 Las imágenes usadas en esta aplicación fueron obtenidas de las siguientes fuentes:
+
+## Cosas que haría distinto
+Hay ciertas cosas relativas al flujo y el diseño que no me convencen pero en las que no quiero detenerme mucho tiempo:
+- el login/registro debería estar más claro de cara a que el usuario sepa qué hacer y qué va a pasar
+- diseño de los componentes (botones, inputs, fuentes, colores, etc.)
