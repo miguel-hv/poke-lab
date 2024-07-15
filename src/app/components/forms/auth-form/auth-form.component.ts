@@ -42,7 +42,6 @@ export class AuthFormComponent {
       username: this.name.value,
       email: this.name.value+'@fakemail.com' 
     });
-    console.log(this.accessForm.value);
     this.onFormSubmit.emit(this.accessForm.value);
   } 
 }

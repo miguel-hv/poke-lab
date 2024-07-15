@@ -78,14 +78,15 @@ $white: hsl(0, 0%, 98%);
             position: absolute;
             width: 100%;
             height: 100%;
-            opacity: 0.1;
+            opacity: 0.7;
             z-index: $bottom-layer-index;
             background-image: url(./assets/images/backgrounds/background.jpg);
+            filter: invert(1) brightness(0.6);
         }
     }
     &__access {
         @include center-column;
-        height: 60%;
+        height: 100%;
     }
     &__main {
         height: calc(100vh - $header-height);
@@ -140,7 +141,7 @@ $white: hsl(0, 0%, 98%);
 .menu {
     display: flex;
     flex-direction: column;
-    height: calc(100% - $header-height);
+    height: 100%;
     justify-content: space-evenly;  
     &__item {
         display: flex;
@@ -185,29 +186,41 @@ $white: hsl(0, 0%, 98%);
     @include font-poke;
     &__main-info {
         display: flex;
-        /* justify-content: space-between; */
-        align-items: center;
-        gap: 2rem;
+        width: 100%;
+        align-items: flex-end;
+        position: relative;
     }
     &__main-text {
-        max-width: 15ch;
+        margin-bottom: 20px;
+        max-width: 20ch;
+        &::before {
+            content: "";
+            background-color: white;
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 70px;
+            z-index: -1;
+            bottom: 5px;
+            left: 2px;
+            width: 99%;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            border-bottom-right-radius: 12px;
+            border-bottom-left-radius: 12px;
+        }
     }
     &__extra-info {
         display: flex;
         flex-direction: column;
         gap: 1rem;
         margin-bottom: 2rem;
+        text-align: center;
+        margin-top: 2rem;
     }
 }
 
 .map {
-    // &__border{
-    //     width: 90%;
-    //     background: rgb(255,0,0);
-    //     background: linear-gradient(0deg, rgba(255,0,0,1) 0%, rgba(255,255,255,1) 40%, rgba(255,255,255,1) 60%, rgba(255,0,0,1) 100%);
-    //     padding: 3px;
-    //     border-radius: 20px;
-    // }
     &__container {
         background-color: $white;
         height: 451px;
@@ -217,13 +230,22 @@ $white: hsl(0, 0%, 98%);
         position: relative;
         margin: auto;
         border-radius: 20px;
-        border: red solid 6px; //TOdO: change color
+        border: #a3a3a3 solid 6px; //TOdO: color variable
     }
     &__image {
         width: 100%;
         max-width: 100%;
         position: absolute;
         bottom: 0;
+    }
+}
+
+.welcome-call {
+    @include center-column;
+    gap: 1rem;
+
+    &__text {
+        text-align: center;
     }
 }
 
@@ -245,14 +267,17 @@ $white: hsl(0, 0%, 98%);
     padding: 1rem;
     width: 90%;
     margin: auto;
+    &__button {
+        margin-bottom: 1.5rem;
+    }
+    &--p-l {
+        padding: 2rem;
+    }
 }
 
 .form {
     @include center-column;
     gap: 1rem;
-    &__button {
-        margin-bottom: 1.5rem;
-    }
 }
 
 .form-field {
@@ -302,8 +327,6 @@ $secondary: #FBE8D3;
 $acc1: #283C63;
 $acc2: #928A97;
 .button {
-    padding: 0;
-    margin: 0;
     width: 150px;
     height: 50px;
     font-size: 1rem; //TODO: set variable
