@@ -88,3 +88,4 @@ Las imágenes usadas en esta aplicación fueron obtenidas de las siguientes fuen
 Hay ciertas cosas relativas al flujo y el diseño que no me convencen pero en las que no quiero detenerme mucho tiempo:
 - el login/registro debería estar más claro de cara a que el usuario sepa qué hacer y qué va a pasar
 - diseño de los componentes (botones, inputs, fuentes, colores, etc.)
+- que el cambio de color según el tipo de pokemon afecte al fondo

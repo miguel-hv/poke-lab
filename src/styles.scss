@@ -18,14 +18,17 @@ body {
 body.leaf-theme {
     --main-color: green;
     --bkg-color: lightgreen;
+    // #a4d541
 }
 body.fire-theme {
     --main-color: red;
     --bkg-color: coral;
+    // #ea8b24
 }
 body.water-theme {
     --main-color: blue;
     --bkg-color: lightblue;
+    //#a1d9ef
 }
 
 
@@ -141,13 +144,27 @@ $white: hsl(0, 0%, 98%);
 .menu {
     display: flex;
     flex-direction: column;
+    align-items: center;
     height: 100%;
     justify-content: space-evenly;  
+    &__link {
+        background: hsl(52, 87%, 79%);
+        background: hsl(52, 57%, 85%);
+        border: #e9e9e9 1px solid; //TODO: change color
+        width: 90%;
+        height: 125px;
+        border-radius: .5rem;
+        font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-weight: 600;
+        line-height: 1.25rem;
+        box-shadow: 0 2px 3px 1px hsl(48, 92%, 62%), 0 1px 2px 0 hsl(48, 92%, 62%);
+    }
     &__item {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 0 2rem;
+        height: 100%;
     } 
     &__image-container {
         width: 45%;
