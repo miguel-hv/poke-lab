@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { Pokemon } from '../../models/Pokemon.model';
 import { UrlRoutes } from '../enumerators/urlRoutes.enum';
 
-const routesenum = UrlRoutes;
+const urlRoutes = UrlRoutes;
 
 const _initialState: UserState = {
   currentUser: null,
@@ -61,7 +61,7 @@ export class AuthService {
           errors: { ...state.errors, register: 0 }
         }));
         localStorage.setItem('userState', JSON.stringify(this.state()));
-        this.router.navigate([routesenum.welcome]);
+        this.router.navigate([urlRoutes.welcome]);
       },
       error: (error: HttpErrorResponse) => {
         this.state.update((state) => (
@@ -86,7 +86,7 @@ export class AuthService {
           errors: { ...state.errors, login: 0 }
         }));
         localStorage.setItem('userState', JSON.stringify(this.state()));
-        this.router.navigate([routesenum.home]);
+        this.router.navigate([urlRoutes.home]);
       },
       error: (error: HttpErrorResponse) => {
         this.state.update((state) => ({
@@ -103,12 +103,15 @@ export class AuthService {
   logout() {
     this.state.update(() => ({} as UserState));
     localStorage.removeItem('userState');
-    this.router.navigate([routesenum.access]);
+    this.router.navigate([urlRoutes.access]);
     console.log(this.state());
     this.toggleTheme('');
   }
   
   updatePokemon(pokemon: Pokemon) {
+    if (this.state().secrets.length === 0) {
+      
+    }
     this.state.update((state) => ({ ...state, pokemon: pokemon }));
     localStorage.setItem('userState', JSON.stringify(this.state()));
     this.toggleTheme(pokemon.type);

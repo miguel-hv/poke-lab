@@ -2,6 +2,9 @@ import { Component, inject } from '@angular/core';
 import { AuthService } from '../../shared/services/auth.service';
 import { RouterModule } from '@angular/router';
 import {CdkMenu, CdkMenuItem} from '@angular/cdk/menu';
+import {  UrlRoutesRoot } from '../../shared/enumerators/urlRoutes.enum';
+
+const urlRoutes = UrlRoutesRoot;
 
 @Component({
   selector: 'app-home-page',
@@ -14,8 +17,13 @@ export class HomePageComponent {
 
   public auth = inject(AuthService);
 
+  //urls
+  public urlSelectPokemon = urlRoutes.selectPokemonRoot;
+  public urlSecretFire =  urlRoutes.secretFireRoot;
+  public urlSecretLeaf = urlRoutes.secretLeafRoot;
+  public urlSecretWater = urlRoutes.secretWaterRoot;
+
   constructor() { 
-    console.log(this.auth.secrets());
     if (this.auth.secrets()?.length === 3) 
       console.log("secretos conseguidos");
   }

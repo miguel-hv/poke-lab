@@ -4,5 +4,18 @@ export const UrlRoutes = {
    poke: 'poke',
    home: 'home',
    selectPokemon: 'select',
-   secrets: 'secrets'
+   secrets: 'secrets',
+   fire: 'fire',
+   leaf: 'leaf',
+   water: 'water',
+   secretFire: 'fire',
+   secretLeaf: 'leaf',
+   secretWater: 'water'
 } as const;
+
+export const UrlRoutesRoot = {
+   selectPokemonRoot: `/${UrlRoutes.poke}/select`,
+   secretFireRoot: `/${UrlRoutes.poke}/${UrlRoutes.secrets}/${UrlRoutes.fire}`,
+   secretLeafRoot: `/${UrlRoutes.poke}/${UrlRoutes.secrets}/${UrlRoutes.leaf}`,
+   secretWaterRoot: `/${UrlRoutes.poke}/${UrlRoutes.secrets}/${UrlRoutes.water}`
+}

@@ -1,9 +1,11 @@
 import { Routes } from '@angular/router';
 import { pokeTypeGuard } from '../../shared/guards/type.guard';
+import { UrlRoutes } from '../../shared/enumerators/urlRoutes.enum';
 
-const LEAF = 'leaf';
-const FIRE = 'fire';
-const WATER = 'water';
+const urlRoutes = UrlRoutes;
+const LEAF = urlRoutes.secretLeaf;
+const FIRE = urlRoutes.secretFire;
+const WATER = urlRoutes.secretWater;
 
 export const SECRETS_ROUTES: Routes = [
     { 
