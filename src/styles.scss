@@ -64,7 +64,7 @@ $bottom-layer-index: -1;
 $white: hsl(0, 0%, 98%);
 
 
-//components
+//elements
 
 .screen-container {
     &__full-screen {
@@ -182,8 +182,22 @@ $white: hsl(0, 0%, 98%);
     }
 }
 
+.secret {
+    &__image-container {
+        @include center-element;
+        width: 100%;
+    }
+    
+    &__image {
+        width: 100%;
+    }
+}
+
+//objects
+
 .welcome-dialog {
     @include font-poke;
+    width: 90%;
     &__main-info {
         display: flex;
         width: 100%;
@@ -193,6 +207,7 @@ $white: hsl(0, 0%, 98%);
     &__main-text {
         margin-bottom: 20px;
         max-width: 20ch;
+        padding-right: 1rem;
         &::before {
             content: "";
             background-color: white;
@@ -207,7 +222,6 @@ $white: hsl(0, 0%, 98%);
             border-top-left-radius: 12px;
             border-top-right-radius: 12px;
             border-bottom-right-radius: 12px;
-            border-bottom-left-radius: 12px;
         }
     }
     &__extra-info {
@@ -222,12 +236,9 @@ $white: hsl(0, 0%, 98%);
 
 .map {
     &__container {
-        background-color: $white;
         height: 451px;
-        // width: 100%;
         width: 90%;
         overflow: hidden;
-        position: relative;
         margin: auto;
         border-radius: 20px;
         border: #a3a3a3 solid 6px; //TOdO: color variable
@@ -235,38 +246,26 @@ $white: hsl(0, 0%, 98%);
     &__image {
         width: 100%;
         max-width: 100%;
-        position: absolute;
-        bottom: 0;
+        height: 100%;
+        object-fit: cover;
+        object-position: bottom;
     }
 }
 
 .welcome-call {
     @include center-column;
     gap: 1rem;
-
+    margin-bottom: 1rem;
     &__text {
         text-align: center;
     }
 }
 
-.secret {
-    &__image-container {
-        @include center-element;
-        width: 100%;
-    }
-    
-    &__image {
-        width: 100%;
-    }
-}
-
-//objects
 .card {
     background-color: $white;
     border-radius: 20px;
     padding: 1rem;
     width: 90%;
-    margin: auto;
     &__button {
         margin-bottom: 1.5rem;
     }
