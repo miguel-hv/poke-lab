@@ -20,7 +20,7 @@ export class FireSecretComponent {
   imagePath = './../../../../assets/images/pokemon/charmander.png';
 
   constructor() {
-    if (!this.auth.secrets().includes(this.pokemonTypes.fire)) {
+    if (!this.auth.secrets()?.includes(this.pokemonTypes.fire)) {
       this.auth.addSecret(this.pokemonTypes.fire);
       this.textSecret = this.textNewSecret;
     } 

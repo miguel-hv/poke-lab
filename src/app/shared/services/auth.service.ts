@@ -109,16 +109,13 @@ export class AuthService {
   }
   
   updatePokemon(pokemon: Pokemon) {
-    if (this.state().secrets.length === 0) {
-      
-    }
     this.state.update((state) => ({ ...state, pokemon: pokemon }));
     localStorage.setItem('userState', JSON.stringify(this.state()));
     this.toggleTheme(pokemon.type);
   }
 
   addSecret(key: string) {
-    this.state.update((state) => ({ ...state, state: state.secrets.push(key) }));
+    this.state.update((state) => ({ ...state, secrets: [...state.secrets ? state.secrets : [], key] }));
     localStorage.setItem('userState', JSON.stringify(this.state()));
   }
 
