@@ -1,0 +1,159 @@
+/*
+    BLOCKS: reusable parts inside app components
+*/
+
+@import './variables.scss';
+
+.welcome-dialog {
+    @include font-poke;
+    width: 90%;
+    &__main-info {
+        display: flex;
+        width: 100%;
+        align-items: flex-end;
+        position: relative;
+    }
+    &__main-text {
+        margin-bottom: 20px;
+        max-width: 20ch;
+        padding-right: 1rem;
+        &::before {
+            content: "";
+            background-color: white;
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 70px;
+            z-index: -1;
+            bottom: 5px;
+            left: 2px;
+            width: 99%;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+    }
+    &__extra-info {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        text-align: center;
+        margin-top: 2rem;
+    }
+}
+
+.map {
+    &__container {
+        height: 451px;
+        width: 90%;
+        overflow: hidden;
+        margin: auto;
+        border-radius: 20px;
+        border: #a3a3a3 solid 6px; //TOdO: color variable
+    }
+    &__image {
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: bottom;
+    }
+}
+
+.welcome-call {
+    @include center-column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    &__text {
+        text-align: center;
+    }
+}
+
+.card {
+    background-color: $white;
+    border-radius: 20px;
+    padding: 1rem;
+    width: 90%;
+    &__button {
+        margin-bottom: 1.5rem;
+    }
+    &--p-l {
+        padding: 2rem;
+    }
+}
+
+.form {
+    @include center-column;
+    gap: 1rem;
+}
+
+.form-field {
+    position: relative;
+    width: 70%;
+    &::placeholder {
+        opacity: 0;
+    }
+    &__input {
+        width: 100%;
+        height: 55px;
+        font-size: 1rem; //TODO: set variable
+        padding: 0 1rem;
+        outline: none;
+        border: 1px solid gray;
+        box-sizing: border-box;
+        border-radius: 5px; //TODO: set variable
+        &:focus {
+          border: 2px solid indigo; //TODO: change color 
+        }
+        &::placeholder {
+            opacity: 0;
+        }
+        &:focus + .form-field__label, 
+        &:not(:placeholder-shown) + .form-field__label {
+            top: 0;
+            font-size: 0.8rem;
+            color: indigo;
+            background: #fff;
+            padding: 7px;
+        }
+    }
+    &__label {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: gray;
+        letter-spacing: 1px;
+        transition: 0.3s;
+    }
+}
+
+//TODO: change colors
+$primary: #F85F73;
+$secondary: #FBE8D3;
+$acc1: #283C63;
+$acc2: #928A97;
+.button {
+    width: 150px;
+    height: 50px;
+    font-size: 1rem; //TODO: set variable
+    border: none;
+    background: $primary;
+    color: $secondary;
+    box-shadow: 0 0 10px 0.5px rgba(0, 0, 0, 0);
+    transition: all 0.15s linear;
+    border-radius: 5px;
+    
+    &:hover {
+        box-shadow: 0 0 10px 0.5px rgba(0, 0, 0, 0.2);
+        transform: scale(0.98);
+        background: shade($primary, 5%);
+        cursor: pointer;
+    }
+    
+    &:active,
+    &:focus {
+        outline: none;
+    }
+}

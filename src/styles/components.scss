@@ -1,0 +1,156 @@
+/*
+    COMPONENTS: foundational parts of the app architecture
+*/
+
+@import './variables.scss';
+
+html, body {
+    height: 100vh;
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+//elements
+.screen-container {
+    &__full-screen {
+        max-width: 390px;
+        height: 100vh;
+        margin: auto;
+        position: relative;
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.7;
+            z-index: $bottom-layer-index;
+            background-image: url(../assets/images/backgrounds/background.jpg);
+            filter: invert(1) brightness(0.6);
+        }
+    }
+    &__access {
+        @include center-column;
+        height: 100%;
+    }
+    &__header {
+        padding-top: 5%;
+    }
+    &__main {
+        height: calc(100vh - $header-height);
+    }  
+    &__inner {
+        height: 100%;
+    }
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    max-height: $header-height;
+    margin: auto;
+
+    &__login{
+        width: 100%;
+        object-fit: cover;
+    }
+    &__userid-container {
+        display: flex;
+        gap: 1.5rem;
+    }
+    &__image-container {
+        overflow: hidden;
+        border-radius: 50%;
+        height: 100px;
+        width: 100px;
+        background-position: center;
+        background-size: 180%;
+        &--bulbasaur {
+            background-image: url(../assets/images/pokemon/bulbasaur_sprt.png);
+        }
+        &--charmander {
+            background-image: url(../assets/images/pokemon/charmander_sprt.png);
+        }
+        &--squirtle {
+            background-image: url(../assets/images/pokemon/squirtle_sprt.png);
+        }
+    }
+    &__data-container {
+        display: flex;
+        justify-content: space-around; 
+        flex-direction: column;
+    }
+    &__state-container {
+        @include center-element;
+        height: 100%;
+    }
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: space-evenly;  
+    &__link {
+        background: hsl(52, 87%, 79%);
+        background: hsl(52, 57%, 85%);
+        border: hsl(0, 0%, 91%) 1px solid; //TODO: change color
+        width: 90%;
+        height: 125px;
+        border-radius: .5rem;
+        font-family: $font-main;
+        font-weight: 600;
+        line-height: 1.25rem;
+        box-shadow: 0 2px 3px 1px hsl(48, 92%, 62%), 0 1px 2px 0 hsl(48, 92%, 62%);
+    }
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+        height: 100%;
+    } 
+    &__image-container {
+        width: 45%;
+        max-width: 180px;
+        &--house {
+            padding: 20px;
+        }
+    } 
+    &__image {
+        width: 100%;
+    } 
+}
+
+.dialog {
+    position: relative;
+    @include font-poke;
+
+    &__image-container {
+        z-index: -1;
+        position: absolute;
+        top: -150px;
+    }
+    &__text {
+        padding: 1rem 0.5rem;
+    }
+    &__buttons-container {
+        display: flex;
+        gap: 1rem;
+        justify-content: flex-end;
+        padding: 1rem;
+        padding-top: 0;
+    }
+}
+
+.secret {
+    &__image-container {
+        @include center-element;
+        width: 100%;
+    }
+    
+    &__image {
+        width: 100%;
+    }
+}
