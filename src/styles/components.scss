@@ -26,7 +26,7 @@ html, body {
             opacity: 0.7;
             z-index: $bottom-layer-index;
             background-image: url(../assets/images/backgrounds/background.jpg);
-            filter: invert(1) brightness(0.6);
+            filter: invert(1) brightness(0.75);
         }
     }
     &__access {
@@ -104,16 +104,16 @@ html, body {
     height: 100%;
     justify-content: space-evenly;  
     &__link {
-        background: hsl(52, 87%, 79%);
-        background: hsl(52, 57%, 85%);
-        border: hsl(0, 0%, 91%) 1px solid; //TODO: change color
         width: 90%;
         height: 125px;
         border-radius: .5rem;
         font-family: $font-main;
         font-weight: 600;
         line-height: 1.25rem;
-        box-shadow: 0 2px 3px 1px hsl(48, 92%, 62%), 0 1px 2px 0 hsl(48, 92%, 62%);
+        box-shadow: 0 2px 0px 1px hsl(0deg 0% 17.47%), 0 1px 7px 1px hsl(0deg 0% 0.15%);
+        &--hint {   
+            box-shadow: 0 2px 0px 1px hsl(0deg 0.53% 6.41%), 0 1px 12px 2px hsl(48, 92%, 62%);
+        }
     }
     &__item {
         display: flex;
