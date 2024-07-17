@@ -2,6 +2,7 @@
     VARIABLES: settings, mixins and variables
 */
 
+
 @mixin center-element {
     display: flex;
     justify-content: center;
@@ -29,3 +30,26 @@ $white: hsl(0, 0%, 98%);
 $black: hsl(0, 0%, 11%);
 $action-main: hsl(52, 77%, 63%);
 $action-secondary: hsl(25 93% 10%);
+
+
+//manage color switching
+body {
+    --color-theme-main: hsl(0, 0%, 65%);
+    --color-theme-back: hsl(0, 0%, 84%);
+}
+body.leaf-theme {
+    --color-theme-main: hsl(120, 54%, 42%);
+    --color-theme-back: hsl(80, 64%, 55%);
+    // #a4d541
+}
+body.fire-theme {
+    --color-theme-main: hsl(17, 94%, 48%);
+    --color-theme-back: hsl(31, 83%, 53%);
+    // #ea8b24
+}
+body.water-theme {
+    --color-theme-main: hsl(200, 58%, 51%);
+    --color-theme-back: hsl(197, 71%, 78%);
+    //#a1d9ef
+}
+

@@ -6,39 +6,6 @@
 @import './styles/variables.scss';
 @import './styles/components.scss';
 @import './styles/blocks.scss';
-
-
-//manage color switching
-//TODO: change colors
-body {
-    --text-color: #222;
-    --bkg-color: #f9f9f9;
-    // background-image: url("./assets/images/map.jpg");
-}
-body.leaf-theme {
-    --main-color: green;
-    --bkg-color: lightgreen;
-    // #a4d541
-}
-body.fire-theme {
-    --main-color: red;
-    --bkg-color: coral;
-    // #ea8b24
-}
-body.water-theme {
-    --main-color: blue;
-    --bkg-color: lightblue;
-    //#a1d9ef
-}
-
-body {
-    background-color: var(--bkg-color);
-}
-
-h1,p {
-    color: var(--text-color);
-}
-
-    
+   
   
 
