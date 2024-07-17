@@ -129,31 +129,34 @@
     }
 }
 
-//TODO: change colors
-$primary: #F85F73;
-$secondary: #FBE8D3;
-$acc1: #283C63;
-$acc2: #928A97;
 .button {
-    width: 150px;
-    height: 50px;
-    font-size: 1rem; //TODO: set variable
-    border: none;
-    background: $primary;
-    color: $secondary;
     box-shadow: 0 0 10px 0.5px rgba(0, 0, 0, 0);
     transition: all 0.15s linear;
     border-radius: 5px;
-    
+    background-color: transparent;
+    font-weight: 600;
     &:hover {
         box-shadow: 0 0 10px 0.5px rgba(0, 0, 0, 0.2);
         transform: scale(0.98);
-        background: shade($primary, 5%);
+        background: shade($action-main, 5%);
         cursor: pointer;
     }
-    
     &:active,
     &:focus {
         outline: none;
+    }
+    &--action {
+        border: none;
+        background: $action-main;
+        color: $action-secondary;
+        width: 150px;
+        height: 50px;
+        font-size: 1rem; 
+        letter-spacing: 1.5px;
+    }
+    &--cancel {
+        border: $action-main solid 2px;
+        color: $action-secondary;
+        padding: 5px 10px;
     }
 }
