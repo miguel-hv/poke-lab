@@ -1,15 +1,15 @@
 # PokeApp
 
+El objetivo es investigar y trabajar varias facetas del desarrollo y mantenimiento de una web, buscando artículos de expertos en Angular para tratar de encontrar y desarrollar una guía fiable de buenas prácticas para el día a día. No se busca tener las mejores prácticas en cuanto a limpieza de código sino encontrar una arquitectura mantenible y flexible para los proyectos habituales de frontend. 
+
 Aplicación demo presentando un minijuego donde en función del tipo de pokémon que se haya escogido deja acceder a secciones de la aplicación para conseguir distintos secretos. Una vez se recojan los 3 secretos el minijuego se acaba y se resetea. Se usa una api demo pública para crear el usuario.
 
 La aplicación está concebida para visualizar en dispositivos móviles debido a su sencillez gráfica, de manera que se muestra un marco en escritorio para simplificar la maquetación. Es una aplicación muy simple y con una funcionalidad muy básica pero que me permite investigar ciertos temas de interés para mí.
 
-El objetivo es investigar y trabajar varias facetas del desarrollo y mantenimiento de una web, buscando artículos de expertos en Angular para tratar de encontrar y desarrollar una guía fiable de buenas prácticas para el día a día. No se busca tener las mejores prácticas en cuanto a limpieza de código sino encontrar una arquitectura mantenible y flexible para los proyectos habituales de frontend. 
-
-Los principales puntos a trabajar son los siguientes:
-- gestión de estados en un store y gestión de roles de usuario (permisos en función de si se está logado y de qué pokémon se selecciona)
-- gestión de clases de estilos (notación BEM y reutilización) y distintos temas de estilos (el tipo de pokémon tiene efecto en los estilos de la web). 
-- librería de componentes que permita rápida personalización (ITCSS y angular material cdk)
+Los principales puntos en que me centro son:
+- gestión de estados en un store y gestión de roles de usuario (autenticación, permisos en función de si se está logado y autorización, en función de qué pokémon se selecciona)
+- gestión de clases de estilos (notación BEM y reutilización) y distintos temas de estilos (el tipo de pokémon elegido tiene efecto en los colores base de la web). 
+- librería de componentes que permita rápida personalización (ITCSS y angular material cdk); tener componentes listos para copiar a otro proyecto
 
 
 ## En curso

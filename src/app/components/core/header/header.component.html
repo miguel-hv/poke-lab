@@ -4,6 +4,7 @@
             <div 
                 class="header__image-container"
                 [ngClass]="{
+                    'header__image-container--ball': !selectedPokemon(),
                     'header__image-container--bulbasaur': selectedPokemon()?.name === 'bulbasaur',
                     'header__image-container--charmander': selectedPokemon()?.name === 'charmander',
                     'header__image-container--squirtle': selectedPokemon()?.name === 'squirtle'
