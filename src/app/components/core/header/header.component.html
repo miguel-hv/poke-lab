@@ -1,4 +1,4 @@
-<div class="header">
+<div class="header card">
     @if (userData()) {        
         <div class="header__userid-container">
             <div 
@@ -12,7 +12,7 @@
         
             <div class="header__data-container">
                 <div class="header__text--title">
-                    {{selectedPokemon()?.name}}
+                    {{selectedPokemon()?.name | titlecase}}
                 </div>
                 <div class="header__text--sub">
                     {{ userData()?.username }}
@@ -21,6 +21,11 @@
         </div>
 
         <div class="header__state-container">
+            @if (userData()) {
+                <div class="header__logout">
+                    <button class="button button--cancel" (click)="onLogout()">Logout</button>
+                </div>
+            }
             <div class="header__data-container">
                 @for (item of secretsList(); track $index) {
                     <span>
@@ -28,12 +33,6 @@
                     </span>
                 }
             </div>
-
-            @if (userData()) {
-                <div class="header__logout">
-                    <button (click)="onLogout()">Logout</button>
-                </div>
-            }
         </div>
     }
     @else {
