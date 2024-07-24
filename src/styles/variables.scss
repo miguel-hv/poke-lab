@@ -26,10 +26,14 @@ $header-height: 10.25rem;
 $bottom-layer-index: -1;
 
     //colors
-$white: hsl(0, 0%, 98%);
+$white: hsl(0, 0%, 95%);
 $black: hsl(0, 0%, 11%);
 $action-main: hsl(52, 77%, 63%);
 $action-secondary: hsl(25 93% 10%);
+$shadow-unactive-clear: hsl(0deg 0% 17.47%);
+$shadow-unactive-dark: hsl(0deg 0% 0.15%);
+$shadow-active-clear: hsl(48, 92%, 62%);
+$shadow-active-dark: hsl(0deg 0.53% 6.41%);
 
 
 //manage color switching

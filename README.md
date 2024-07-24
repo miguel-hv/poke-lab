@@ -13,32 +13,22 @@ Los principales puntos en que me centro son:
 
 
 ## En curso
-	1 maquetar welcome
+	1 maquetar pantalla selección de pokemon con los sprites y las pokeballs
+	2 maquetar secretos: poner el texto del modal debajo de la imagen
+	1 pipe al lado de los secretos para español + sombreado gris donde deberían ir
+	2 cuando la pantalla es muy pequeña reducir botones menú e imágenes
 	3 validación input sin espacios
-	2 gestionar el error de login para que aparezca un mensaje diciendo que se crea cuenta nueva 
-	2 maquetar menú
-	2 maquetar pantalla selección de pokemon con los sprites y las pokeballs
-	1 estilos header: icono para logout y secretos, fuentes para títulos y demás, estilos cuando no hay pokémon 
-- en registro/login sacar una cabecera con imagen
-	1 cambiar fuente a no serif
-	1 maquetar secretos en secretos poner el texto del secreto en sí debajo de la imagen
-	2 maquetar dialog: botones ok y no basados en el logo pokémon
-	2 estilos (elegir colores): usar hsl en vez de rgb	
-https://material.angular.io/guide/theming#defining-a-theme
-	3 estilos a material: ¿cambiar color de botones, etc?
-	3 en service hacer funciones para gestionar localstate y router? y el update de state
+	
+	2 maquetar dialog: botones ok y no
 	3 fuente imágenes en readme
-	0 cambiar los css de lef-rit a block-start e inlinestart
+	3 cuando se complete el juego, borrar usuario y localhost y lanzar modal final
+	4 borrar archivos scss y html que no hagan falta
+
+	0 cambiar los css de lef-rit top bottom a block-start e inlinestart
 	0 ver container queries
-	0 ver mixins y si son más apropiadas para dar estilos a button en vez de crear un componente button
-o mejor coger button de cdk
-	0 meter animaciones
-	3 cuando se complete el juego, borrar usuario y localhost y lanzar modal mewtwo
-	2 cambiar el estilo en función del pokémon (ver mejor forma de gestionar estilos)
-	4 borrar archivos scss y html que no hagan falta (test dejarlos para probar)
-	4 escribir readme sobre el store con signals y cómo las computed son solo para leer y cómo en el header se pueden usar 
-para el template
-	5 borrar footer 
+
+
+	20 revisar TODOs 
 
 
 
@@ -88,6 +78,6 @@ Las imágenes usadas en esta aplicación fueron obtenidas de las siguientes fuen
 Hay ciertas cosas relativas al flujo y el diseño que no me convencen o que me gustaría hacer pero en las que no quiero detenerme mucho tiempo:
 - versión escritorio ocupando más ancho y con el menú en horizontal
 - el login/registro debería estar más claro de cara a que el usuario sepa qué hacer y qué va a pasar
-- diseño de los componentes (botones, inputs, fuentes, colores, etc.)
+- diseño de los componentes (botones, links, inputs, fuentes, colores, etc.)
 - que el cambio de color según el tipo de pokemon afecte al fondo
 - iconos para los secretos y ordenarlos en triángulo
