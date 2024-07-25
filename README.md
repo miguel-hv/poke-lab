@@ -75,9 +75,10 @@ Para evitar usar Angular Material estoy cogiendo algunos estilos de codepen como
 Las imágenes usadas en esta aplicación fueron obtenidas de las siguientes fuentes:
 
 ## Cosas que me gustaría haber hecho 
-Hay ciertas cosas relativas al flujo y el diseño que no me convencen o que me gustaría hacer pero en las que no quiero detenerme mucho tiempo:
+Habiendo finalizado el tiempo que me di para el proyecto hay ciertas cosas relativas al flujo y el diseño que no me convencen o que me gustaría hacer:
 - versión escritorio ocupando más ancho y con el menú en horizontal
 - el login/registro debería estar más claro de cara a que el usuario sepa qué hacer y qué va a pasar
 - diseño de los componentes (botones, links, inputs, fuentes, colores, etc.)
 - que el cambio de color según el tipo de pokemon afecte al fondo
 - iconos para los secretos y botones ("ok", "no", "volver", etc.)
+- al elegir pokémon no debería dar la opción de elegir el que ya tienes

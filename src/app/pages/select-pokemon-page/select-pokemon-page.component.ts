@@ -35,19 +35,41 @@ export class SelectPokemonPageComponent {
   }
 
   onSelectPokemon(pokemon: Pokemon) {
-
-    if (pokemon.name === 'charmander') {
-      this.dialogSettings.description = '¿Quieres elegir a Charmander, el pokémon tipo fuego?';
-    }
-    if (pokemon.name === 'squirtle') {
-      this.dialogSettings.description = '¿Quieres elegir a Squirtle, el pokémon tipo agua?';
-    }
-    if (pokemon.name === 'bulbasaur') {
-      this.dialogSettings.description = '¿Quieres elegir a Bulbasaur,el pokémon tipo planta?';
+    console.log(pokemon);
+    console.log(this.auth.pokemon()?.name);
+    if(pokemon.name === this.auth.pokemon()?.name) {
+      this.dialogSettings = {
+        description: '¡Ya tienes elegido ese pokemon!',
+        ok: '',
+        no: 'Entendido',
+      }
+    } else {
+      if (pokemon.name === 'charmander') {
+        this.dialogSettings = {
+          description: '¿Quieres elegir a Charmander, el pokémon tipo fuego?',
+          ok: '¡Elegir!',
+          no: 'Mejor no',
+        }
+      }
+      if (pokemon.name === 'squirtle') {
+        this.dialogSettings = {
+          description: '¿Quieres elegir a Squirtle, el pokémon tipo agua?',
+          ok: '¡Elegir!',
+          no: 'Mejor no',
+        }
+      }
+      if (pokemon.name === 'bulbasaur') {
+        this.dialogSettings = {
+          description: '¿Quieres elegir a Bulbasaur, el pokémon tipo planta?',
+          ok: '¡Elegir!',
+          no: 'Mejor no',
+        }
+      }
     }
 
     this.dialog.open(DialogInfoComponent, {
-      width: this.resizeService.width$().toString(),
+      maxWidth: this.resizeService.width$(),
+      minWidth: this.resizeService.width$(),
       data: this.dialogSettings,
       positionStrategy: this.overlayPositionBuilder.global().bottom('0').centerHorizontally()
     }).closed.subscribe((res) => {
