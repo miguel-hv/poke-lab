@@ -80,4 +80,4 @@ Hay ciertas cosas relativas al flujo y el diseño que no me convencen o que me g
 - el login/registro debería estar más claro de cara a que el usuario sepa qué hacer y qué va a pasar
 - diseño de los componentes (botones, links, inputs, fuentes, colores, etc.)
 - que el cambio de color según el tipo de pokemon afecte al fondo
-- iconos para los secretos y ordenarlos en triángulo
+- iconos para los secretos y botones ("ok", "no", "volver", etc.)

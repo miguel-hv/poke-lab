@@ -1,9 +1,18 @@
 
 <div class="screen-container__inner">
-    <button (click)="navigateBack()">Volver</button>
-    <ul>
+    <div class="button-container">
+        <button class="button button--primary" (click)="navigateBack()">Volver</button>
+    </div>
+    <div class="menu" cdkMenu>
         @for (pokemon of pokemonList; track $index) {
-            <li><a (click)="onSelectPokemon(pokemon)">{{pokemon.name}}</a></li>
+            <div class="menu__link card" cdkMenuItem (click)="onSelectPokemon(pokemon)">
+                <div class="menu__item">
+                    <div class="menu__image-container menu__image-container--house">
+                        <img class="menu__image" src="./../../../assets/images/pokemon/{{pokemon.name}}_sprt.png" alt="">
+                    </div>
+                    <div>{{pokemon.name}}</div>
+                </div>
+            </div>
         }
-    </ul>
+    </div>
 </div>

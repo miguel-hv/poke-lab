@@ -154,9 +154,22 @@
         font-size: 1rem; 
         letter-spacing: 1.5px;
     }
-    &--cancel {
+    &--primary {
+        border: none;
+        color: $action-secondary;
+        background: $action-main;
+        padding: 5px 10px;
+    }
+    &--secondary {
         border: $action-main solid 2px;
         color: $action-secondary;
         padding: 5px 10px;
     }
+}
+
+.button-container {
+    width: 90%;
+    margin: auto;
+    padding-top: 1rem;
+    margin-bottom: -2.5rem;
 }
