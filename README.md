@@ -73,6 +73,7 @@ Para evitar usar Angular Material estoy cogiendo algunos estilos de codepen como
 
 ## Imágenes
 Las imágenes usadas en esta aplicación fueron obtenidas de las siguientes fuentes:
+- iconos de [flaticon](https://www.flaticon.com/)
 
 ## Cosas que me gustaría haber hecho 
 Habiendo finalizado el tiempo que me di para el proyecto hay ciertas cosas relativas al flujo y el diseño que no me convencen o que me gustaría hacer:

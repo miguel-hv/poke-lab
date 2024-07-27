@@ -83,10 +83,14 @@ html, body {
         display: flex;
         justify-content: center; 
         flex-direction: column;
+        &--header {
+            flex-direction: row-reverse;
+            align-items: center;
+        }
     }
     &__state-container {
         @include center-column;
-        height: 100%;
+        justify-content: flex-start;
         gap: 0.5rem;
         padding-right: 0.5rem;
     }
@@ -94,6 +98,22 @@ html, body {
         &--title {
             font-weight: 600;
             line-height: 1.25rem;
+        }
+    }
+    &__secret {
+        overflow: hidden;
+        height: 24px;
+        width: 24px;
+        @include center-element;
+        filter: opacity(20%);
+        &--fire {
+            height: 21px;
+        }
+        &--water {
+            height: 18px;
+        }
+        &--active {
+            filter: none;
         }
     }
 }
