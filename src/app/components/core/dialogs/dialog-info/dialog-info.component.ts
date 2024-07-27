@@ -21,7 +21,6 @@ export class DialogInfoComponent {
     public dialogRef: DialogRef<string>,
     private readonly overlayPosBuilder: OverlayPositionBuilder,
     private config: DialogConfig,
-    private overlay: Overlay
   ) {
     //TODO: ¿como añadir positionStrategyDef que está arriba?
     this.config.positionStrategy?.attach(this.dialogRef.overlayRef);

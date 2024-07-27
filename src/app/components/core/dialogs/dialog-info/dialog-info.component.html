@@ -7,10 +7,10 @@
   </div>
   <div class="dialog__buttons-container">
     @if (data.ok !== '') {
-      <button (click)="accept()">{{data.ok}}</button>
+      <button (click)="accept()" class="button button--primary">{{data.ok}}</button>
     }
     @if (data.no) {
-      <button (click)="cancel()">{{data.no}}</button>
+      <button (click)="cancel()" class="button button--secondary">{{data.no}}</button>
     }
   </div>
 </div>
