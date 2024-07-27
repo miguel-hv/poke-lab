@@ -16,7 +16,8 @@ export class LeafSecretComponent {
   private pokemonTypes = PokemonType;
 
   textSecret = '';
-  textNewSecret = '¡Has conseguido el secreto tipo planta! Venusaur es el pokémón tipo planta más poderoso de la primera edición ;)';
+  textSecretType = 'El pokémon tipo planta más poderoso de los 151 originales es Venusaur.'
+  textNewSecret = '¡Has conseguido el secreto tipo planta!';
   imagePath = "./../../../../assets/images/pokemon/bulbasaur.png";
 
   constructor() {

@@ -178,11 +178,14 @@ html, body {
 
 .secret {
     &__image-container {
-        @include center-element;
+        @include center-column;
+        justify-content: start;
         width: 100%;
     }
-    
     &__image {
         width: 100%;
+    }
+    &__text {
+        margin: 2rem 0;
     }
 }

@@ -15,8 +15,9 @@ import { Location } from '@angular/common';
 })
 export class SecretBaseComponent implements OnInit {
 
-  textSecret = input('tes');
-  public imagePath = input('tes');
+  public textSecretType = input('');
+  public textSecret = input('');
+  public imagePath = input('');
   private dialog = inject(Dialog);
   private location = inject(Location);
   private resizeService = inject(ResizeService);
@@ -54,6 +55,7 @@ export class SecretBaseComponent implements OnInit {
       maxWidth: this.resizeService.width$(),
       minWidth: this.resizeService.width$(),
       data: this.dialogSettings,
+      hasBackdrop: false,
       positionStrategy: this.overlayPositionBuilder.global().bottom('0').centerHorizontally()
     }).closed.subscribe((res) => {
       if (res === 'OK') {

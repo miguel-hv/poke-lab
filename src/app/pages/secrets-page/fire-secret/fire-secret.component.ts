@@ -16,7 +16,8 @@ export class FireSecretComponent {
   private pokemonTypes = PokemonType;
   
   textSecret = '';
-  textNewSecret = '¡Has conseguido el secreto tipo fuego! Arcanine es el pokémón tipo fuego más poderoso de la primera edición ;)';
+  textSecretType = 'El pokémon tipo fuego más poderoso de los 151 originales es Arcanine.'
+  textNewSecret = '¡Has conseguido el secreto tipo fuego!';
   imagePath = './../../../../assets/images/pokemon/charmander.png';
 
   constructor() {

@@ -16,7 +16,8 @@ export class WaterSecretComponent {
   private pokemonTypes = PokemonType;
   
   textSecret = '';
-  textNewSecret = '¡Has conseguido el secreto tipo agua! Lapras es el pokémón tipo planta más poderoso de la primera edición ;)';
+  textSecretType = 'El pokémon tipo agua más poderoso de los 151 originales es Lapras.'
+  textNewSecret = '¡Has conseguido el secreto tipo agua!';
   imagePath = "./../../../../assets/images/pokemon/squirtle.png";
 
   constructor() {
