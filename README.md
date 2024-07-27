@@ -74,6 +74,10 @@ Para evitar usar Angular Material estoy cogiendo algunos estilos de codepen como
 ## Imágenes
 Las imágenes usadas en esta aplicación fueron obtenidas de las siguientes fuentes:
 - iconos de [flaticon](https://www.flaticon.com/)
+- las imágenes de los secretos están sacadas del usuario [CitronLegacy en civitai.com](https://civitai.com/collections/23688)
+- el mapa fue cogido de [esta página](https://wallpapercave.com/w/wp10201004)
+- la imagen de Oak para el modal de [aquí](https://www.wikidex.net/wiki/Profesor_Oak_%28anime%29)
+- las imágenes de los pokémon en pequeño son [sprites oficiales](https://pokemondb.net/sprites)
 
 ## Cosas que me gustaría haber hecho 
 Habiendo finalizado el tiempo que me di para el proyecto hay ciertas cosas relativas al flujo y el diseño que no me convencen o que me gustaría hacer:
