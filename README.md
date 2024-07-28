@@ -13,31 +13,11 @@ Los principales puntos en que me centro son:
 
 
 ## En curso
-	1 maquetar pantalla selección de pokemon con los sprites y las pokeballs
-	2 maquetar secretos: poner el texto del modal debajo de la imagen
-	1 pipe al lado de los secretos para español + sombreado gris donde deberían ir
+	1 guardia para no poder salir ni entrar si no se tienen los tres secretos
+	1 al añadir secreto, si están los tres redirigir a página
+	2 logo info en header y enlazar a proyecto github
 	2 cuando la pantalla es muy pequeña reducir botones menú e imágenes
 	3 validación input sin espacios
-	
-	2 maquetar dialog: botones ok y no
-	3 fuente imágenes en readme
-	3 cuando se complete el juego, borrar usuario y localhost y lanzar modal final
-	4 borrar archivos scss y html que no hagan falta
-
-	0 cambiar los css de lef-rit top bottom a block-start e inlinestart
-	0 ver container queries
-
-
-	20 revisar TODOs 
-
-
-
-## Opciones a explorar
-- Estilos con tailwind? -> más reusable ITCSS librería propia
-- Loader para acceso en las páginas (Angular cdk)
-- textos en json y traducción 
-- refactorizar para meter [router module] (https://angular.io/guide/router-tutorial-toh#refactor-the-routing-configuration-into-a-routing-module)
-- Accesibilidad
 
 
 ## Autenticación y autorización
