@@ -125,4 +125,9 @@ export class AuthService {
     document.body.classList.remove('water-theme');
     if (type !== '' ) document.body.classList.add(type+'-theme');
   }
+
+  removeUser() {
+    this.state.update(() => ({} as UserState));
+    localStorage.removeItem('userState');
+  }
 }

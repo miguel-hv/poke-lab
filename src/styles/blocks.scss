@@ -165,6 +165,17 @@
         color: $action-secondary;
         padding: 5px 10px;
     }
+    &--link {
+        @include center-element;
+        height: initial;
+        width: initial;
+        gap: 5px;
+        padding: 5px 10px;
+        font-weight: 500;
+    }
+    &--image {
+        width: 32px;
+    }
 }
 
 .button-container {

@@ -23,5 +23,5 @@ export const POKE_ROUTES: Routes = [
         path : routesenum.secrets,
         loadChildren: () => import('./pages/secrets-page/secrets-page.module')
             .then(m => m.SECRETS_ROUTES)
-    } 
+    }
 ];

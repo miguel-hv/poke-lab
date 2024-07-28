@@ -10,7 +10,8 @@ export const UrlRoutes = {
    water: 'water',
    secretFire: 'fire',
    secretLeaf: 'leaf',
-   secretWater: 'water'
+   secretWater: 'water',
+   end: 'the-end'
 } as const;
 
 export const UrlRoutesRoot = {

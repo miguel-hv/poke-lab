@@ -29,5 +29,10 @@ export const routes: Routes = [
         loadChildren: () => import('./poke.module')
             .then(m => m.POKE_ROUTES) 
     },
+    { 
+        path : routesenum.end,
+        loadComponent: () => import('./pages/end-page/end-page.component')
+            .then(m => m.EndPageComponent)
+    },
     { path: '**', redirectTo: routesenum.poke }
 ];
