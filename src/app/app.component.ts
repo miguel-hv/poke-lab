@@ -1,7 +1,11 @@
 import { HttpClientModule } from '@angular/common/http';
-import { Component, ElementRef, ViewChild, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { AfterViewInit, Component, ElementRef, ViewChild, inject } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
 import { ResizeService } from './shared/services/resize.service';
+import { AuthService } from './shared/services/auth.service';
+import { UrlRoutes } from './shared/enumerators/urlRoutes.enum';
+
+const urlRoutes = UrlRoutes;
 
 @Component({
   selector: 'app-root',
@@ -10,12 +14,19 @@ import { ResizeService } from './shared/services/resize.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent{
+export class AppComponent implements AfterViewInit {
 
   @ViewChild('screenContainer', { static: true }) screenContainer = {} as ElementRef;
-  resizeService = inject(ResizeService);
+  public resizeService = inject(ResizeService);
+  public router = inject(Router);
+  public auth = inject(AuthService);
   
   title = 'poke-app';
+
+  constructor() { 
+    if (this.auth.secrets()?.length === 3) 
+      this.router.navigate([urlRoutes.end]);
+  }
 
   ngAfterViewInit() {
     this.resizeService.updateWidth(this.screenContainer.nativeElement.offsetWidth);
