@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { isAuthenticatedGuard } from './shared/guards/auth.guard';
 import { UrlRoutes } from './shared/enumerators/urlRoutes.enum';
 import { PokePageComponent } from './pages/poke-page/poke-page.component';
+import { isAllSecretsGuard } from './shared/guards/all-secrets.guard';
 
 const routesenum = UrlRoutes;
 
@@ -31,8 +32,9 @@ export const routes: Routes = [
     },
     { 
         path : routesenum.end,
+        canActivate: [isAuthenticatedGuard(), isAllSecretsGuard()],
         loadComponent: () => import('./pages/end-page/end-page.component')
-            .then(m => m.EndPageComponent)
+        .then(m => m.EndPageComponent)
     },
     { path: '**', redirectTo: routesenum.poke }
 ];
