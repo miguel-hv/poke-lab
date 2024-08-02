@@ -7,7 +7,8 @@ const routesenum = UrlRoutes;
 
 export const isAllSecretsGuard = () : CanActivateFn => {
   return () => {
-    if (inject(AuthService).secrets().length < 3 ) {
+    const secrets = inject(AuthService).secrets();
+    if (secrets && secrets.length < 3 ) {
       return inject(Router).parseUrl(routesenum.home);
     } else {
       return true;
