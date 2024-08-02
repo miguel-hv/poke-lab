@@ -136,6 +136,7 @@ html, body {
         font-family: $font-main;
         font-weight: 600;
         line-height: 1.25rem;
+        cursor: pointer;
         box-shadow: 0 2px 0px 1px $shadow-unactive-clear, 0 1px 7px 1px $shadow-unactive-dark;
         &--hint {   
             box-shadow: 0 2px 0px 1px $shadow-active-dark, 0 1px 12px 2px $shadow-active-clear;
