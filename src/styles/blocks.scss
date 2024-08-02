@@ -50,7 +50,7 @@
         overflow: hidden;
         margin: auto;
         border-radius: 20px;
-        border: #a3a3a3 solid 6px; //TOdO: color variable
+        border: $shadow-active-clear solid 6px;
     }
     &__image {
         width: 100%;
@@ -123,7 +123,7 @@
         left: 10px;
         top: 50%;
         transform: translateY(-50%);
-        color: gray;
+        color: gray;    //TODO: set variable
         letter-spacing: 1px;
         transition: 0.3s;
     }
