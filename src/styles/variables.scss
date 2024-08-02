@@ -63,3 +63,15 @@ body.water-theme {
     //#a1d9ef
 }
 
+//icons
+.icon-info {
+    &::before {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 20px;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-image: url("../assets/images/info.png");
+    }
+}
