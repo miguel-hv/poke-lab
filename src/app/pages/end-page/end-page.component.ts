@@ -16,6 +16,7 @@ export class EndPageComponent {
 
   onStartAgain() {
     this.auth.removeUser();
+    this.auth.toggleTheme('');
     this.router.navigate(['/', 'login']);
   }
 }

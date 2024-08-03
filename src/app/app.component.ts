@@ -24,7 +24,7 @@ export class AppComponent implements AfterViewInit {
   title = 'poke-app';
 
   constructor() { 
-    if (!this.auth.secrets()) 
+    if (!this.auth.pokemon()) 
       this.router.navigate([urlRoutes.welcome]);
 
     if (this.auth.secrets()?.length === 3) 

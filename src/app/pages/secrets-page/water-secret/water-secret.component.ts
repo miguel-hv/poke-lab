@@ -21,7 +21,7 @@ export class WaterSecretComponent {
   imagePath = "./../../../../assets/images/pokemon/squirtle.png";
 
   constructor() {
-    if (!this.auth.secrets().includes(this.pokemonTypes.water)) {
+    if (!this.auth.secrets()?.includes(this.pokemonTypes.water)) {
       this.auth.addSecret(this.pokemonTypes.water);
       this.textSecret = this.textNewSecret;
     } 

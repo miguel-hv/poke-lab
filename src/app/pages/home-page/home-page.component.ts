@@ -1,11 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../shared/services/auth.service';
-import {  RouterModule } from '@angular/router';
+import {  Router, RouterModule } from '@angular/router';
 import { CdkMenu, CdkMenuItem} from '@angular/cdk/menu';
-import { UrlRoutesRoot } from '../../shared/enumerators/urlRoutes.enum';
+import { UrlRoutes, UrlRoutesRoot } from '../../shared/enumerators/urlRoutes.enum';
 import { PokemonType } from '../../shared/enumerators/pokemonType.enum';
 
 const urlRoutesRoot = UrlRoutesRoot;
+const urlRoutes = UrlRoutes;
 
 @Component({
   selector: 'app-home-page',
@@ -17,6 +18,7 @@ const urlRoutesRoot = UrlRoutesRoot;
 export class HomePageComponent {
 
   public auth = inject(AuthService);
+  private router = inject(Router);
   public pokemonType = PokemonType;
 
   //urls
@@ -24,5 +26,10 @@ export class HomePageComponent {
   public urlSecretFire =  urlRoutesRoot.secretFireRoot;
   public urlSecretLeaf = urlRoutesRoot.secretLeafRoot;
   public urlSecretWater = urlRoutesRoot.secretWaterRoot;
+
+  constructor() { 
+    if (this.auth.secrets()?.length === 3) 
+      this.router.navigate([urlRoutes.end]);
+  }
 
 }

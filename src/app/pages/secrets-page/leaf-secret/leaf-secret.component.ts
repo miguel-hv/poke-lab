@@ -21,7 +21,7 @@ export class LeafSecretComponent {
   imagePath = "./../../../../assets/images/pokemon/bulbasaur.png";
 
   constructor() {
-    if (!this.auth.secrets().includes(this.pokemonTypes.leaf)) {
+    if (!this.auth.secrets()?.includes(this.pokemonTypes.leaf)) {
       this.auth.addSecret(this.pokemonTypes.leaf);
       this.textSecret = this.textNewSecret;
     } 
