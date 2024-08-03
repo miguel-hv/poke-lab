@@ -8,7 +8,6 @@ export class ResizeService {
   width$ = computed(() => this.widthSubject());
 
   updateWidth(width: number) {
-    console.log(width);
     this.widthSubject.set(width);
   }
 }

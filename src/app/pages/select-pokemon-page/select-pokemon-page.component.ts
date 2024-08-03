@@ -35,8 +35,6 @@ export class SelectPokemonPageComponent {
   }
 
   onSelectPokemon(pokemon: Pokemon) {
-    console.log(pokemon);
-    console.log(this.auth.pokemon()?.name);
     if(pokemon.name === this.auth.pokemon()?.name) {
       this.dialogSettings = {
         description: '¡Ya tienes elegido ese pokemon!',

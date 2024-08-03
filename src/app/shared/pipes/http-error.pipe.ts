@@ -18,8 +18,6 @@ import {Pipe, PipeTransform} from '@angular/core';
 export class HttpErrorPipe implements PipeTransform {
   transform(value: number, type: string): string {
     let errorMessage = 'Ha ocurrido un error';
-    console.log(value);
-    console.log(type);
     if(type === 'login') {
       if (value === 403) {
         // errorMessage = "Inicio de sesión no autorizado, revisa tus datos.";
