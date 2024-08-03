@@ -78,7 +78,6 @@ export class AuthService {
     };
     this.http.post<{user: User}>(this._loginUrl, { user: credentialsLogin }).subscribe({
       next: (data) => {
-        console.log(data.user);
         this.state.update((state) => ({ 
           ...state, 
           currentUser: data.user, 
@@ -86,7 +85,11 @@ export class AuthService {
           errors: { ...state.errors, login: 0 }
         }));
         localStorage.setItem('userState', JSON.stringify(this.state()));
-        this.router.navigate([urlRoutes.home]);
+        if (!this.pokemon()) {
+          this.router.navigate([urlRoutes.welcome]);
+        } else {
+          this.router.navigate([urlRoutes.home]);
+        }
       },
       error: (error: HttpErrorResponse) => {
         this.state.update((state) => ({
@@ -104,7 +107,6 @@ export class AuthService {
     this.state.update(() => ({} as UserState));
     localStorage.removeItem('userState');
     this.router.navigate([urlRoutes.access]);
-    console.log(this.state());
     this.toggleTheme('');
   }
   
