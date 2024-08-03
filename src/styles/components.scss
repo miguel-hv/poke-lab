@@ -38,6 +38,8 @@ html, body {
     }
     &__main {
         height: calc(100vh - $header-height);
+        padding-top: 4%;
+        max-height: 800px;
     }  
     &__inner {
         height: 100%;
@@ -134,7 +136,8 @@ html, body {
     flex-direction: column;
     align-items: center;
     height: 100%;
-    justify-content: space-evenly;  
+    justify-content: space-evenly; 
+    gap: 0.5rem;
     &__link {
         width: 90%;
         height: 125px;
@@ -156,8 +159,8 @@ html, body {
         height: 100%;
     } 
     &__image-container {
-        width: 45%;
-        max-width: 180px;
+        width: 15vh;
+        max-width: 130px;
         &--house {
             padding: 20px;
         }

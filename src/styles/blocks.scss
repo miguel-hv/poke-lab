@@ -73,7 +73,7 @@
 .card {
     background-color: $white;
     border-radius: 20px;
-    padding: 1rem;
+    padding: 2vh;
     width: 90%;
     &__button {
         margin-bottom: 1.5rem;
@@ -185,6 +185,4 @@
 .button-container {
     width: 90%;
     margin: auto;
-    padding-top: 1rem;
-    margin-bottom: -2.5rem;
 }
