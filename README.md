@@ -4,7 +4,7 @@
 [Desplegado en Netlify](https://pokelab-by-miguelhv.netlify.app/access)
 
 
-El objetivo es investigar y trabajar varias facetas del desarrollo y mantenimiento de una web, buscando artículos de expertos en Angular para tratar de encontrar y desarrollar una guía fiable de buenas prácticas para el día a día. No se busca tener las mejores prácticas en cuanto a limpieza de código sino encontrar una arquitectura mantenible y flexible para los proyectos habituales de frontend. 
+El objetivo es investigar y trabajar varias facetas del desarrollo y mantenimiento de una web, buscando artículos de expertos en Angular para tratar de encontrar y desarrollar una guía fiable de buenas prácticas para el día a día.
 
 Aplicación demo presentando un minijuego donde en función del tipo de pokémon que se haya escogido deja acceder a secciones de la aplicación para conseguir distintos secretos. Una vez se recojan los 3 secretos el minijuego se acaba y se resetea. Se usa una api demo pública para crear el usuario.
 
