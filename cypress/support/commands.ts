@@ -35,3 +35,21 @@
 //     }
 //   }
 // }
+// cypress/support/index.ts
+
+Cypress.Commands.add('login', (username) => {
+    // cy.visit('/access')
+  
+    // {enter} causes the form to submit
+    cy.get('input[id=name]').type(`${username}{enter}`, { log: false })
+  
+    // we should be redirected to /dashboard
+    //TODO: check secrets and wether is welcome or poke page
+    cy.url().should('include', '/welcome')
+  
+    // our auth cookie should be present
+    //TODO: change to check localstorage
+    // cy.getCookie('your-session-cookie').should('exist')
+  
+})
+  
