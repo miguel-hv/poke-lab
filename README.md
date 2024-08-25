@@ -55,11 +55,7 @@ Las imágenes usadas en esta aplicación fueron obtenidas de las siguientes fuen
 - la imagen de Oak para el modal de [aquí](https://www.wikidex.net/wiki/Profesor_Oak_%28anime%29)
 - las imágenes de los pokémon en pequeño son [sprites oficiales](https://pokemondb.net/sprites)
 
-## Cosas que me gustaría haber hecho 
-Habiendo finalizado el tiempo que me di para el proyecto hay ciertas cosas relativas al flujo y el diseño que no me convencen o que me gustaría hacer:
-- versión escritorio ocupando más ancho y con el menú en horizontal
-- el login/registro debería estar más claro de cara a que el usuario sepa qué hacer y qué va a pasar; decorar con imagen
-- diseño de los componentes (botones, links, inputs, fuentes, colores, etc.)
-- que el cambio de color según el tipo de pokemon afecte al fondo
-- iconos para los secretos y botones ("ok", "no", "volver", etc.)
-- al elegir pokémon no debería dar la opción de elegir el que ya tienes
+## Testing
+Añado tests end to end con [Cypress](https://docs.cypress.io/guides/getting-started/opening-the-app) siguiendo [este tutorial](https://www.youtube.com/watch?v=spe8XqNL5RA).
+
+
