@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { UrlRoutes } from '../../shared/enumerators/urlRoutes.enum';
 import { Router } from '@angular/router';
 
@@ -15,8 +15,10 @@ const routesenum = UrlRoutes;
 export class WelcomePageComponent {
 
   private router = inject(Router);
-  
+
+  @HostListener('document:keyup.enter', ['$event'])
   onActionButton() {
     this.router.navigate([routesenum.home]);
   }
+
 }
