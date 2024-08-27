@@ -1,5 +1,5 @@
 import { Component, inject, input, output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CredentialsRegister } from '../../../models/Credentials.model';
 import { AuthService } from '../../../shared/services/auth.service';
 import { HttpErrorPipe } from '../../../shared/pipes/http-error.pipe';
@@ -10,7 +10,7 @@ import { alphanumericalValidator } from '../../../shared/validators/CustomValida
 @Component({
   selector: 'app-auth-form',
   standalone: true,
-  imports: [ReactiveFormsModule, HttpErrorPipe, RouterModule],
+  imports: [ReactiveFormsModule, HttpErrorPipe, RouterModule, FormsModule],
   templateUrl: './auth-form.component.html',
   styleUrl: './auth-form.component.scss'
 })
