@@ -58,5 +58,6 @@ Las imágenes usadas en esta aplicación fueron obtenidas de las siguientes fuen
 ## Testing
 Añado tests end to end con [Cypress](https://docs.cypress.io/guides/getting-started/opening-the-app) siguiendo [este tutorial](https://www.youtube.com/watch?v=spe8XqNL5RA).
 Para lanzar ejecutar `npx cypress open` o `npm run cy:open`
+[Documentación para tests de forma condicional](https://docs.cypress.io/guides/core-concepts/conditional-testing).
 
 

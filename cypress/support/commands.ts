@@ -41,15 +41,31 @@ Cypress.Commands.add('login', (username) => {
     // cy.visit('/access')
   
     // {enter} causes the form to submit
-    cy.get('input[id=name]').type(`${username}{enter}`, { log: false })
+    cy.get('input[id=name]').type(`${username}{enter}`);
+    
+    cy.clearLocalStorage();
   
-    // we should be redirected to /dashboard
-    //TODO: check secrets and wether is welcome or poke page
-    cy.url().should('include', '/welcome')
+    // we should be redirected to /welcome
+    cy.url().should('include', '/welcome');
+
+    //test enter without focus on button
+    cy.get('body').type('{enter}');
+
+    cy.url().should('include', '/poke');
+
+    cy.getAllLocalStorage().then((res) => {
+        expect(localStorage.getItem('userState')).to.eq(true);
+        // expect(JSON.parse(localStorage.getItem('userState')).to.eq()
+        // expect(res).to.deep.equal({
+        //     'http://localhost:4200': {
+        //       key: 'value',
+        //     },
+        //   })
+    });
+    
   
     // our auth cookie should be present
     //TODO: change to check localstorage
-    // cy.getCookie('your-session-cookie').should('exist')
   
 })
   
