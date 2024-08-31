@@ -78,12 +78,25 @@ export class AuthService {
     };
     // this.http.post<{user: User}>(this._loginUrl, { user: credentialsLogin }).subscribe({
     //   next: (data) => {
-    //     this.state.update((state) => ({ 
-    //       ...state, 
-    //       currentUser: data.user, 
-    //       token: data.user.token,
-    //       errors: { ...state.errors, login: 0 }
-    //     }));
+        // this.state.update((state) => ({ 
+        //   ...state, 
+        //   currentUser: data.user, 
+        //   token: data.user.token,
+        //   errors: { ...state.errors, login: 0 }
+        // }));
+        let userMock : User =  {
+          email: 'string',
+          token: 'string',
+          username: credentials.username,
+          bio: 'string',
+          image: 'string',
+      }
+        this.state.update((state) => ({ 
+          ...state, 
+          currentUser: userMock, 
+          token: 'data.user.token',
+          errors: { ...state.errors, login: 0 }
+        }));
         localStorage.setItem('userState', JSON.stringify(this.state()));
         if (!this.pokemon()) {
           this.router.navigate([urlRoutes.welcome]);
