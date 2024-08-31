@@ -54,18 +54,9 @@ Cypress.Commands.add('login', (username) => {
     cy.url().should('include', '/poke');
 
     cy.getAllLocalStorage().then((res) => {
-        expect(localStorage.getItem('userState')).to.eq(true);
         // expect(JSON.parse(localStorage.getItem('userState')).to.eq()
-        // expect(res).to.deep.equal({
-        //     'http://localhost:4200': {
-        //       key: 'value',
-        //     },
-        //   })
+        expect(res).to.contain(username)
     });
-    
-  
-    // our auth cookie should be present
-    //TODO: change to check localstorage
-  
+     
 })
   

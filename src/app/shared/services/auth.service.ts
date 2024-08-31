@@ -76,31 +76,31 @@ export class AuthService {
       email: credentials.email,
       password: credentials.password
     };
-    this.http.post<{user: User}>(this._loginUrl, { user: credentialsLogin }).subscribe({
-      next: (data) => {
-        this.state.update((state) => ({ 
-          ...state, 
-          currentUser: data.user, 
-          token: data.user.token,
-          errors: { ...state.errors, login: 0 }
-        }));
+    // this.http.post<{user: User}>(this._loginUrl, { user: credentialsLogin }).subscribe({
+    //   next: (data) => {
+    //     this.state.update((state) => ({ 
+    //       ...state, 
+    //       currentUser: data.user, 
+    //       token: data.user.token,
+    //       errors: { ...state.errors, login: 0 }
+    //     }));
         localStorage.setItem('userState', JSON.stringify(this.state()));
         if (!this.pokemon()) {
           this.router.navigate([urlRoutes.welcome]);
         } else {
           this.router.navigate([urlRoutes.home]);
         }
-      },
-      error: (error: HttpErrorResponse) => {
-        this.state.update((state) => ({
-           ...state, 
-           errors: { ...state.errors, login: error.status }
-        }));
-        if (error.status === 403) {
-          this.register(credentials);
-        }
-      },
-    });
+    //   },
+    //   error: (error: HttpErrorResponse) => {
+    //     this.state.update((state) => ({
+    //        ...state, 
+    //        errors: { ...state.errors, login: error.status }
+    //     }));
+    //     if (error.status === 403) {
+    //       this.register(credentials);
+    //     }
+    //   },
+    // });
   }
 
   logout() {
