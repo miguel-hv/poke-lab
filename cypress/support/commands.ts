@@ -43,7 +43,7 @@ Cypress.Commands.add('login', (username) => {
     // {enter} causes the form to submit
     cy.get('input[id=name]').type(`${username}{enter}`);
     
-    cy.clearLocalStorage();
+    // cy.clearLocalStorage();
   
     // we should be redirected to /welcome
     cy.url().should('include', '/welcome');
@@ -55,7 +55,11 @@ Cypress.Commands.add('login', (username) => {
 
     cy.getAllLocalStorage().then((res) => {
         // expect(JSON.parse(localStorage.getItem('userState')).to.eq()
-        expect(res).to.contain(username)
+        expect(res).to.deep.equal({
+           'http://localhost:4200': {
+                userState: `{\"currentUser\":{\"email\":\"string\",\"token\":\"string\",\"username\":\"${username}\",\"bio\":\"string\",\"image\":\"string\"},\"token\":\"data.user.token\",\"errors\":{\"login\":0,\"register\":0},\"pokemon\":null,\"secrets\":[]}`
+            }
+        });
     });
      
 })
