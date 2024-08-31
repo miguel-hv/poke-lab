@@ -20,5 +20,4 @@ export class WelcomePageComponent {
   onActionButton() {
     this.router.navigate([routesenum.home]);
   }
-
 }

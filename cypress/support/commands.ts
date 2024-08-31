@@ -53,7 +53,11 @@ Cypress.Commands.add('login', (username) => {
 
     cy.url().should('include', '/poke');
 
+
     cy.getAllLocalStorage().then((res) => {
+    const stringUserState = localStorage.getItem('userState') || 'undefined';
+    expect(JSON.parse(stringUserState).currentUser.username).to.equal(username);
+
         // expect(JSON.parse(localStorage.getItem('userState')).to.eq()
         expect(res).to.deep.equal({
            'http://localhost:4200': {
@@ -64,3 +68,22 @@ Cypress.Commands.add('login', (username) => {
      
 })
   
+Cypress.Commands.add('checkPokeSelection', (pokemonName) => {
+    cy.get('.menu__item').contains('Laboratorio').click();
+    cy.url().should('include', 'poke/select');
+    cy.get('.menu__item').contains(pokemonName).click();
+    cy.focused().type('{enter}').then(() => {
+    const stringUserState = localStorage.getItem('userState') || '{"pokemon": {"name": ""}}';
+    expect(JSON.parse(stringUserState).pokemon.name).to.equal(pokemonName);
+    });
+})
+
+Cypress.Commands.add('checkSecretRetrieval', (secretName, location) => {
+    cy.get('.menu__item').contains(location).click();
+    cy.url().should('include', 'secrets/'+secretName);
+    cy.focused().type('{enter}').then(() => {
+    const stringUserState = localStorage.getItem('userState') || '{"pokemon": {"name": ""}}';
+    expect(JSON.parse(stringUserState).secrets).to.include(secretName);
+    });
+})
+

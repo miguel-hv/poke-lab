@@ -7,7 +7,7 @@
         @for (pokemon of pokemonList; track $index) {
             <div class="menu__link card" cdkMenuItem (click)="onSelectPokemon(pokemon)">
                 <div class="menu__item">
-                    <div class="menu__image-container menu__image-container--house">
+                    <div class="menu__image-container">
                         <img class="menu__image" src="./../../../assets/images/pokemon/{{pokemon.name}}_sprt.png" alt="">
                     </div>
                     <div>{{pokemon.name}}</div>

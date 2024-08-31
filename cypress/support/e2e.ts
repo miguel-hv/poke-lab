@@ -27,6 +27,8 @@ declare global {
          * @example cy.login('greeting')
          */
         login(username:string): Chainable<JQuery<HTMLElement>>
+        checkPokeSelection(pokemonName:string): Chainable<JQuery<HTMLElement>>
+        checkSecretRetrieval(secretName:string, location:string): Chainable<JQuery<HTMLElement>>
       }
     }
   }
