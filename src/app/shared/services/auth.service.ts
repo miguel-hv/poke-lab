@@ -6,6 +6,7 @@ import { UserState } from '../../models/UserState.model';
 import { Router } from '@angular/router';
 import { Pokemon } from '../../models/Pokemon.model';
 import { UrlRoutes } from '../enumerators/urlRoutes.enum';
+import { UserStore } from '../stores/userStore';
 
 const urlRoutes = UrlRoutes;
 
@@ -27,6 +28,8 @@ export class AuthService {
 
   private http = inject(HttpClient);
   private router = inject(Router);
+  readonly store = inject(UserStore);
+
   private _registerUrl = 'https://api.realworld.io/api/users';
   private _loginUrl = 'https://api.realworld.io/api/users/login';
  
@@ -72,10 +75,10 @@ export class AuthService {
   }
 
   login(credentials: CredentialsRegister) {
-    const credentialsLogin: CredentialsLogin = {
-      email: credentials.email,
-      password: credentials.password
-    };
+    // const credentialsLogin: CredentialsLogin = {
+    //   email: credentials.email,
+    //   password: credentials.password
+    // };
     // this.http.post<{user: User}>(this._loginUrl, { user: credentialsLogin }).subscribe({
     //   next: (data) => {
         // this.state.update((state) => ({ 
@@ -91,14 +94,16 @@ export class AuthService {
           bio: 'string',
           image: 'string',
       }
-        this.state.update((state) => ({ 
-          ...state, 
-          currentUser: userMock, 
-          token: 'data.user.token',
-          errors: { ...state.errors, login: 0 }
-        }));
+      this.state.update((state) => ({ 
+        ...state, 
+        currentUser: userMock, 
+        token: 'data.user.token',
+        errors: { ...state.errors, login: 0 }
+      }));
+        this.store.updateUser(userMock);
+        //TODO: ¿pasar a side effects de store?
         localStorage.setItem('userState', JSON.stringify(this.state()));
-        if (!this.pokemon()) {
+        if (!this.store.pokemon()) {
           this.router.navigate([urlRoutes.welcome]);
         } else {
           this.router.navigate([urlRoutes.home]);
@@ -117,6 +122,7 @@ export class AuthService {
   }
 
   logout() {
+    this.store.deleteUser();
     this.state.update(() => ({} as UserState));
     localStorage.removeItem('userState');
     this.router.navigate([urlRoutes.access]);
