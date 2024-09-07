@@ -24,8 +24,13 @@ Basado en la autenticación de [este vídeo](https://www.youtube.com/watch?v=foU
 Dejo la misma contraseña fijada en código para todos los usuarios porque no me interesa que tengan que recordar credenciales. Lo único que van a necesitar para acceder es recordar su nombre de usuario.
 De igual manera, en el registro de usuario no pido el correo sino que fijo una asignación porque no se va a utilizar pero se necesita para el login y registro. 
 
-## Manejo de estado
+## Manejo de estado: NgRx
+En la rama firstVersion se tiene la versión original del estado basado en redux con signals:
+´´´
 Se crea un servicio (auth) para manejar el estado del usuario en la aplicación. Se ha optado por sustituir la estrategia de observables por las signals, de acuerdo a [este artículo](https://blog.angulartraining.com/angular-signal-based-components-tutorial-4e4b4b1dfa96) y a [este otro artículo](https://blog.angulartraining.com/angular-signals-best-practices-around-exposing-signals-5385452150a1).
+´´´
+
+En esta versión de la web se introduce la gestión del estado con la biblioteca [SignalStore de NgRx](https://v17.ngrx.io/guide/signals) según [este tutorial](https://www.youtube.com/watch?v=juw7yQ99X1M) y usando [este repositorio](https://github.com/ngrx/signal-store-starter) como guía. 
 
 ## Modo oscuro o cambio de estilos
 Siguiendo la filosofía del cambio de estilos para el modo oscuro se implementa un cambio de estilos global en función del tipo de pokémon que se haya seleccionado. Así, se tiene rojo, verde y azul. Tomé el formato de [este artículo](https://blog.angulartraining.com/how-to-implement-a-dark-theme-with-css-and-angular-2cfd98b9455d) aunque aquí no hay un estilo "modo oscuro" como tal.
