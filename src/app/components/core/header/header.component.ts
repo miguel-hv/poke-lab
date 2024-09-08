@@ -3,6 +3,7 @@ import { Pokemon } from '../../../models/Pokemon.model';
 import { AuthService } from '../../../shared/services/auth.service';
 import { User } from '../../../models/User.model';
 import { CommonModule } from '@angular/common';
+import { UserStore } from '../../../shared/stores/userStore';
 
 @Component({
   selector: 'app-header',
@@ -17,14 +18,15 @@ export class HeaderComponent {
   userData: Signal<User | null>;
   secretsList: Signal<string[] | null>;
 
-  private auth = inject(AuthService);
+  readonly store = inject(UserStore);
+  readonly auth = inject(AuthService);
 
   imageTitleSrc = "./../../../../assets/images/backgrounds/logo.png";
 
   constructor() {
-    this.selectedPokemon = this.auth.pokemon;
-    this.userData = this.auth.currentUser;
-    this.secretsList = this.auth.secrets;
+    this.selectedPokemon = this.store.pokemon;
+    this.userData = this.store.currentUser;
+    this.secretsList = this.store.secrets;
   }
 
   onLogout() {

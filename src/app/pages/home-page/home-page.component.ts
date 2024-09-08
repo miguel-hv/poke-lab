@@ -1,9 +1,9 @@
 import { Component, inject } from '@angular/core';
-import { AuthService } from '../../shared/services/auth.service';
 import {  Router, RouterModule } from '@angular/router';
 import { CdkMenu, CdkMenuItem} from '@angular/cdk/menu';
 import { UrlRoutes, UrlRoutesRoot } from '../../shared/enumerators/urlRoutes.enum';
 import { PokemonType } from '../../shared/enumerators/pokemonType.enum';
+import { UserStore } from '../../shared/stores/userStore';
 
 const urlRoutesRoot = UrlRoutesRoot;
 const urlRoutes = UrlRoutes;
@@ -17,7 +17,7 @@ const urlRoutes = UrlRoutes;
 })
 export class HomePageComponent {
 
-  public auth = inject(AuthService);
+  public store = inject(UserStore);
   private router = inject(Router);
   public pokemonType = PokemonType;
 
@@ -28,7 +28,7 @@ export class HomePageComponent {
   public urlSecretWater = urlRoutesRoot.secretWaterRoot;
 
   constructor() { 
-    if (this.auth.secrets()?.length === 3) 
+    if (this.store.secrets()?.length === 3) 
       this.router.navigate([urlRoutes.end]);
   }
 

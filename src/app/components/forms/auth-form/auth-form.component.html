@@ -11,14 +11,14 @@
     </div>
     
     <!-- error messages -->
-    @if (this.auth.errors() && this.auth.errors().login && !this.auth.errors().register) {
+    @if (this.store.errors() && this.store.errors().login && !this.store.errors().register) {
         <p>
-            {{this.auth.errors().login | httpError: 'login' }}
+            {{this.store.errors().login | httpError: 'login' }}
         </p>
     }
-    @if (this.auth.errors() && this.auth.errors().register) {
+    @if (this.store.errors() && this.store.errors().register) {
         <p>
-            {{this.auth.errors().register | httpError: 'register' }}
+            {{this.store.errors().register | httpError: 'register' }}
         </p>
     }
 

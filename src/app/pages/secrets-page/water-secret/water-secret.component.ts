@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { AuthService } from '../../../shared/services/auth.service';
 import { PokemonType } from '../../../shared/enumerators/pokemonType.enum';
 import { SecretBaseComponent } from '../../../components/shared/secret-base/secret-base.component';
+import { UserStore } from '../../../shared/stores/userStore';
 
 @Component({
   selector: 'app-water-secret',
@@ -12,6 +13,7 @@ import { SecretBaseComponent } from '../../../components/shared/secret-base/secr
 })
 export class WaterSecretComponent {
 
+  private store = inject(UserStore);
   private auth = inject(AuthService);
   private pokemonTypes = PokemonType;
   
@@ -21,7 +23,7 @@ export class WaterSecretComponent {
   imagePath = "./../../../../assets/images/pokemon/squirtle.png";
 
   constructor() {
-    if (!this.auth.secrets()?.includes(this.pokemonTypes.water)) {
+    if (!this.store.secrets()?.includes(this.pokemonTypes.water)) {
       this.auth.addSecret(this.pokemonTypes.water);
       this.textSecret = this.textNewSecret;
     } 

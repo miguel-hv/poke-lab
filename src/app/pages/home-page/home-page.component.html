@@ -7,7 +7,7 @@
                         </div>
                 </div>
         </a>
-        <a class="menu__link card" [class.menu__link--hint]="auth.pokemon()?.type === pokemonType.fire" cdkMenuItem [routerLink]="[urlSecretFire]">
+        <a class="menu__link card" [class.menu__link--hint]="store.pokemon()?.type === pokemonType.fire" cdkMenuItem [routerLink]="[urlSecretFire]">
                 <div class="menu__item">
                         <div class="menu__image-container menu__image-container--house">
                                 <img class="menu__image" src="./../../../assets/images/map/house.png" alt="">
@@ -15,7 +15,7 @@
                         <div>Caldera</div> 
                 </div>
         </a>
-        <a class="menu__link card" [class.menu__link--hint]="auth.pokemon()?.type === pokemonType.leaf" cdkMenuItem [routerLink]="[urlSecretLeaf]">
+        <a class="menu__link card" [class.menu__link--hint]="store.pokemon()?.type === pokemonType.leaf" cdkMenuItem [routerLink]="[urlSecretLeaf]">
                 <div class="menu__item">
                         <div>Jardín</div>
                         <div class="menu__image-container">
@@ -23,7 +23,7 @@
                         </div>
                 </div>
         </a>
-        <a class="menu__link card" [class.menu__link--hint]="auth.pokemon()?.type === pokemonType.water" cdkMenuItem [routerLink]="[urlSecretWater]">
+        <a class="menu__link card" [class.menu__link--hint]="store.pokemon()?.type === pokemonType.water" cdkMenuItem [routerLink]="[urlSecretWater]">
                 <div class="menu__item">
                         <div class="menu__image-container">
                                 <img class="menu__image" src="./../../../assets/images/map/laker.png" alt="">

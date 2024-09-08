@@ -4,6 +4,7 @@ import { Router, RouterOutlet } from '@angular/router';
 import { ResizeService } from './shared/services/resize.service';
 import { AuthService } from './shared/services/auth.service';
 import { UrlRoutes } from './shared/enumerators/urlRoutes.enum';
+import { UserStore } from './shared/stores/userStore';
 
 const urlRoutes = UrlRoutes;
 
@@ -19,15 +20,16 @@ export class AppComponent implements AfterViewInit {
   @ViewChild('screenContainer', { static: true }) screenContainer = {} as ElementRef;
   public resizeService = inject(ResizeService);
   public router = inject(Router);
-  public auth = inject(AuthService);
+  readonly store = inject(UserStore);
+
   
   title = 'poke-app';
 
   constructor() { 
-    if (!this.auth.pokemon()) 
+    if (!this.store.pokemon()) 
       this.router.navigate([urlRoutes.welcome]);
 
-    if (this.auth.secrets()?.length === 3) 
+    if (this.store.secrets()?.length === 3) 
       this.router.navigate([urlRoutes.end]);
   }
 

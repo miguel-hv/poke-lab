@@ -1,10 +1,10 @@
 import { Component, inject, input, output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CredentialsRegister } from '../../../models/Credentials.model';
-import { AuthService } from '../../../shared/services/auth.service';
 import { HttpErrorPipe } from '../../../shared/pipes/http-error.pipe';
 import { RouterModule } from '@angular/router';
 import { alphanumericalValidator } from '../../../shared/validators/CustomValidators';
+import { UserStore } from '../../../shared/stores/userStore';
 
 
 @Component({
@@ -21,7 +21,7 @@ export class AuthFormComponent {
   //input 
   formType = input<string>();
 
-  public  auth = inject(AuthService);
+  public  store = inject(UserStore);
   public name: FormControl;
   private accessForm: FormGroup;
 

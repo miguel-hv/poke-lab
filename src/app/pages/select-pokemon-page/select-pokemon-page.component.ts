@@ -8,6 +8,7 @@ import { Location } from '@angular/common';
 import { OverlayPositionBuilder } from '@angular/cdk/overlay';
 import { DialogContent } from '../../models/DialogText.model';
 import { ResizeService } from '../../shared/services/resize.service';
+import { UserStore } from '../../shared/stores/userStore';
 
 @Component({
   selector: 'app-select-pokemon-page',
@@ -22,6 +23,7 @@ export class SelectPokemonPageComponent {
   private dialog = inject(Dialog);
   private location = inject(Location);
   private resizeService = inject(ResizeService);
+  private store = inject(UserStore);
 
   pokemonList = PokemonList;
 
@@ -35,7 +37,7 @@ export class SelectPokemonPageComponent {
   }
 
   onSelectPokemon(pokemon: Pokemon) {
-    if(pokemon.name === this.auth.pokemon()?.name) {
+    if(pokemon.name === this.store.pokemon()?.name) {
       this.dialogSettings = {
         description: '¡Ya tienes elegido ese pokemon!',
         ok: '',

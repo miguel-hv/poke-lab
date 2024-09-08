@@ -33,81 +33,48 @@ export class AuthService {
   private _registerUrl = 'https://api.realworld.io/api/users';
   private _loginUrl = 'https://api.realworld.io/api/users/login';
  
-  private state = signal<UserState>(_initialState);
-
-  //selectors (read only)
-  public currentUser = computed(() => this.state().currentUser);
-  public token = computed(() => this.state().token); 
-  public errors = computed(() => this.state().errors); 
-  public pokemon = computed(() => this.state().pokemon);
-  public secrets = computed(() => this.state().secrets);
 
   constructor() { 
     const localState = localStorage.getItem('userState');
-    if (localState) {
-      this.state.update(() => (
-        { ...JSON.parse(localState) }
-      ));
-      if (this.state().pokemon) {
-        this.toggleTheme(JSON.parse(localState).pokemon.type);
+    if (localState && localState !== 'undefined') {
+        this.store.updateState({ ...JSON.parse(localState) });
+        console.log(this.store.pokemon());
+      if (this.store.pokemon()) {
+        this.toggleTheme(this.store.pokemon()!.type);
       }
     }
+    console.log(this.store.getState());
   }
 
   register(credentials: CredentialsRegister) {
-    this.http.post<{user: User}>(this._registerUrl, { user: credentials }).subscribe({
-        next: (data) => {
-        this.state.update((state) => ({
-          ...state,
-          currentUser: data.user,
-          token: data.user.token,
-          errors: { ...state.errors, register: 0 }
-        }));
-        localStorage.setItem('userState', JSON.stringify(this.state()));
-        this.router.navigate([urlRoutes.welcome]);
-      },
-      error: (error: HttpErrorResponse) => {
-        this.state.update((state) => (
-          { ...state, errors: { ...state.errors, register: error.status }}
-        ));
-      },
-    });
+      let userMock : User =  {
+        email: 'string',
+        token: 'string',
+        username: credentials.username,
+        bio: 'string',
+        image: 'string',
+    }
+    this.store.updateUser(userMock);
+    localStorage.setItem('userState', JSON.stringify(this.store.getState()));
+    this.router.navigate([urlRoutes.welcome]);
   }
 
   login(credentials: CredentialsRegister) {
-    // const credentialsLogin: CredentialsLogin = {
-    //   email: credentials.email,
-    //   password: credentials.password
-    // };
-    // this.http.post<{user: User}>(this._loginUrl, { user: credentialsLogin }).subscribe({
-    //   next: (data) => {
-        // this.state.update((state) => ({ 
-        //   ...state, 
-        //   currentUser: data.user, 
-        //   token: data.user.token,
-        //   errors: { ...state.errors, login: 0 }
-        // }));
-        let userMock : User =  {
-          email: 'string',
-          token: 'string',
-          username: credentials.username,
-          bio: 'string',
-          image: 'string',
-      }
-      this.state.update((state) => ({ 
-        ...state, 
-        currentUser: userMock, 
-        token: 'data.user.token',
-        errors: { ...state.errors, login: 0 }
-      }));
-        this.store.updateUser(userMock);
-        //TODO: ¿pasar a side effects de store?
-        localStorage.setItem('userState', JSON.stringify(this.state()));
-        if (!this.store.pokemon()) {
-          this.router.navigate([urlRoutes.welcome]);
-        } else {
-          this.router.navigate([urlRoutes.home]);
-        }
+    let userMock : User =  {
+      email: 'string',
+      token: 'string',
+      username: credentials.username,
+      bio: 'string',
+      image: 'string',
+    }
+    this.store.updateUser(userMock);
+    //TODO: ¿pasar a side effects de store?
+    localStorage.setItem('userState', JSON.stringify(this.store.getState()));
+    if (!this.store.pokemon()) {
+      this.router.navigate([urlRoutes.welcome]);
+    } else {
+      this.router.navigate([urlRoutes.home]);
+    }
     //   },
     //   error: (error: HttpErrorResponse) => {
     //     this.state.update((state) => ({
@@ -122,22 +89,24 @@ export class AuthService {
   }
 
   logout() {
+    // this.state.update(() => ({} as UserState));
     this.store.deleteUser();
-    this.state.update(() => ({} as UserState));
     localStorage.removeItem('userState');
     this.router.navigate([urlRoutes.access]);
     this.toggleTheme('');
   }
   
   updatePokemon(pokemon: Pokemon) {
-    this.state.update((state) => ({ ...state, pokemon: pokemon }));
-    localStorage.setItem('userState', JSON.stringify(this.state()));
+    // this.state.update((state) => ({ ...state, pokemon: pokemon }));
+    this.store.updatePokemon(pokemon);
+    localStorage.setItem('userState', JSON.stringify(this.store.getState()));
     this.toggleTheme(pokemon.type);
   }
 
   addSecret(key: string) {
-    this.state.update((state) => ({ ...state, secrets: [...state.secrets ? state.secrets : [], key] }));
-    localStorage.setItem('userState', JSON.stringify(this.state()));
+    // this.state.update((state) => ({ ...state, secrets: [...state.secrets ? state.secrets : [], key] }));
+    this.store.addSecret(key);
+    localStorage.setItem('userState', JSON.stringify(this.store.getState()));
   }
 
   toggleTheme(type: string): void {
@@ -147,8 +116,4 @@ export class AuthService {
     if (type !== '' ) document.body.classList.add(type+'-theme');
   }
 
-  removeUser() {
-    this.state.update(() => ({} as UserState));
-    localStorage.removeItem('userState');
-  }
 }

@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { SecretBaseComponent } from '../../../components/shared/secret-base/secret-base.component';
 import { AuthService } from '../../../shared/services/auth.service';
 import { PokemonType } from '../../../shared/enumerators/pokemonType.enum';
+import { UserStore } from '../../../shared/stores/userStore';
 
 @Component({
   selector: 'app-leaf-secret',
@@ -12,6 +13,7 @@ import { PokemonType } from '../../../shared/enumerators/pokemonType.enum';
 })
 export class LeafSecretComponent {
 
+  private store = inject(UserStore);
   private auth = inject(AuthService);
   private pokemonTypes = PokemonType;
 
@@ -21,7 +23,7 @@ export class LeafSecretComponent {
   imagePath = "./../../../../assets/images/pokemon/bulbasaur.png";
 
   constructor() {
-    if (!this.auth.secrets()?.includes(this.pokemonTypes.leaf)) {
+    if (!this.store.secrets()?.includes(this.pokemonTypes.leaf)) {
       this.auth.addSecret(this.pokemonTypes.leaf);
       this.textSecret = this.textNewSecret;
     } 

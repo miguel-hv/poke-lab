@@ -1,16 +1,16 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
 import { UrlRoutes } from '../enumerators/urlRoutes.enum';
+import { UserStore } from '../stores/userStore';
 
 const routesenum = UrlRoutes;
 
 export const pokeTypeGuard = (typeGuard: string): CanActivateFn => {
   return () => {
-    const auth = inject(AuthService);
+    const store = inject(UserStore);
     const router = inject(Router);
 
-    if (auth.pokemon()?.type === typeGuard) {
+    if (store.pokemon()?.type === typeGuard) {
       return true
     }
 
