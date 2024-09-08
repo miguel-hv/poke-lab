@@ -15,8 +15,6 @@ export class EndPageComponent {
   router = inject(Router);
 
   onStartAgain() {
-    this.auth.removeUser();
-    this.auth.toggleTheme('');
-    this.router.navigate(['/', 'login']);
+    this.auth.logout();
   }
 }
