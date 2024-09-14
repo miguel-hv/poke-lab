@@ -11,13 +11,13 @@ import { UserStore } from '../stores/userStore';
 const urlRoutes = UrlRoutes;
 
 const _initialState: UserState = {
-  currentUser: null,
+  currentUser: {} as User,
   token: '',
   errors: {
     login: 0,
     register: 0
   },
-  pokemon: null,
+  pokemon: {} as Pokemon,
   secrets: []
 };
 
