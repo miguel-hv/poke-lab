@@ -7,6 +7,9 @@ import { Router } from '@angular/router';
 import { Pokemon } from '../../models/Pokemon.model';
 import { UrlRoutes } from '../enumerators/urlRoutes.enum';
 import { UserStore } from '../stores/userStore';
+import { Store } from '@ngrx/store';
+import { updateUser } from '../stores/user.actions';
+import { userReducer } from '../stores/user.reducer';
 
 const urlRoutes = UrlRoutes;
 
@@ -28,7 +31,7 @@ export class AuthService {
 
   private http = inject(HttpClient);
   private router = inject(Router);
-  readonly store = inject(UserStore);
+  readonly store = inject(Store<{user: User}>);
 
   private _registerUrl = 'https://api.realworld.io/api/users';
   private _loginUrl = 'https://api.realworld.io/api/users/login';
@@ -36,14 +39,13 @@ export class AuthService {
 
   constructor() { 
     const localState = localStorage.getItem('userState');
-    if (localState && localState !== 'undefined') {
-        this.store.updateState({ ...JSON.parse(localState) });
-        console.log(this.store.pokemon());
-      if (this.store.pokemon()) {
-        this.toggleTheme(this.store.pokemon()!.type);
-      }
-    }
-    console.log(this.store.getState());
+    // if (localState && localState !== 'undefined') {
+    //     this.store.updateState({ ...JSON.parse(localState) });
+    //     console.log(this.store.pokemon());
+    //   if (this.store.pokemon()) {
+    //     this.toggleTheme(this.store.pokemon()!.type);
+    //   }
+    // }
   }
 
   register(credentials: CredentialsRegister) {
@@ -54,8 +56,8 @@ export class AuthService {
         bio: 'string',
         image: 'string',
     }
-    this.store.updateUser(userMock);
-    localStorage.setItem('userState', JSON.stringify(this.store.getState()));
+    //TODO: llamar sotre
+    // localStorage.setItem('userState', JSON.stringify(this.store.getState()));
     this.router.navigate([urlRoutes.welcome]);
   }
 
@@ -67,46 +69,43 @@ export class AuthService {
       bio: 'string',
       image: 'string',
     }
-    this.store.updateUser(userMock);
-    //TODO: ¿pasar a side effects de store?
-    localStorage.setItem('userState', JSON.stringify(this.store.getState()));
-    if (!this.store.pokemon()) {
-      this.router.navigate([urlRoutes.welcome]);
-    } else {
-      this.router.navigate([urlRoutes.home]);
-    }
-    //   },
-    //   error: (error: HttpErrorResponse) => {
-    //     this.state.update((state) => ({
-    //        ...state, 
-    //        errors: { ...state.errors, login: error.status }
-    //     }));
-    //     if (error.status === 403) {
-    //       this.register(credentials);
-    //     }
-    //   },
-    // });
+    // update user
+    this.store.dispatch(updateUser(userMock));
+
+    // get user with signal
+        // const user = this.store.selectSignal(updateUser);
+        // save user with signal
+        // localStorage.setItem('userState', JSON.stringify(user()));
+
+    // get user with subscriber
+    let user: UserState;
+    this.store.select('user').subscribe({next: (x:UserState)=> {
+      user = x;
+      localStorage.setItem('userState', JSON.stringify(user));
+      if (!user.pokemon) {
+        this.router.navigate([urlRoutes.welcome]);
+      } else {
+        this.router.navigate([urlRoutes.home]);
+      }
+    }});
   }
 
   logout() {
-    // this.state.update(() => ({} as UserState));
-    this.store.deleteUser();
+    // this.store.deleteUser();
     localStorage.removeItem('userState');
     this.router.navigate([urlRoutes.access]);
     this.toggleTheme('');
   }
   
   updatePokemon(pokemon: Pokemon) {
-    // this.state.update((state) => ({ ...state, pokemon: pokemon }));
-    this.store.updatePokemon(pokemon);
-    localStorage.setItem('userState', JSON.stringify(this.store.getState()));
+    // this.store.updatePokemon(pokemon);
+    // localStorage.setItem('userState', JSON.stringify(this.store.getState()));
     this.toggleTheme(pokemon.type);
   }
 
   addSecret(key: string) {
-    // this.state.update((state) => ({ ...state, secrets: [...state.secrets ? state.secrets : [], key] }));
-    this.store.addSecret(key);
-    localStorage.setItem('userState', JSON.stringify(this.store.getState()));
+    // this.store.addSecret(key);
+    // localStorage.setItem('userState', JSON.stringify(this.store.getState()));
   }
 
   toggleTheme(type: string): void {

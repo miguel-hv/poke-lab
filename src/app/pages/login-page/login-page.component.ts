@@ -22,7 +22,7 @@ export class LoginPageComponent {
   private router = inject(Router);
 
   constructor() {
-    if (this.store.currentUser()) {
+    if (this.store.currentUser().username) {
       this.router.navigate([routesenum.home]);
     }
   }

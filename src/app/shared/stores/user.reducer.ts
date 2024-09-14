@@ -19,8 +19,7 @@ export const initialState: UserState = {
 
 export const userReducer = createReducer(
     initialState,
-    // on(updateState, (state, newState) => ({state: newState})),
-
-    //TODO: inject ngrx first as standalone
-    on(updateUser, (state, {user}) => ({...state, currentUser: user})),
+    on(updateState, (state, newState) => ({...state, state: newState})),
+    on(updateUser, (state, user) => ({...state, currentUser: user})),
+    // on(updatePokemon, )
 )

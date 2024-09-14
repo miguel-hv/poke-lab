@@ -5,6 +5,8 @@ import { ResizeService } from './shared/services/resize.service';
 import { AuthService } from './shared/services/auth.service';
 import { UrlRoutes } from './shared/enumerators/urlRoutes.enum';
 import { UserStore } from './shared/stores/userStore';
+import { StoreModule } from '@ngrx/store';
+import { userReducer } from './shared/stores/user.reducer';
 
 const urlRoutes = UrlRoutes;
 
